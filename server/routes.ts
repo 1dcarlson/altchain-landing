@@ -24,9 +24,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Store the email in the database
       await storage.createWaitlistEntry({ email });
       
-      // Get SendGrid API key from environment variables
-      const sendgridApiKey = process.env.SENDGRID_API_KEY || '';
-      if (!sendgridApiKey) {
+      // Check if SendGrid is configured
+      if (!process.env.SENDGRID_API_KEY) {
         return res.status(500).json({ 
           message: "SendGrid API key is not configured" 
         });
@@ -36,7 +35,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const fromEmail = process.env.FROM_EMAIL || 'noreply@altchain.com';
       
       // Send confirmation email to the user
-      const emailSent = await sendEmail(sendgridApiKey, {
+      const emailSent = await sendEmail({
         to: email,
         from: fromEmail,
         subject: "Welcome to AltChain Waitlist!",
@@ -56,7 +55,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Send notification to admin
-      await sendEmail(sendgridApiKey, {
+      await sendEmail({
         to: process.env.ADMIN_EMAIL || fromEmail,
         from: fromEmail,
         subject: "New AltChain Waitlist Signup",

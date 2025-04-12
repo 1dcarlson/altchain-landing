@@ -1,4 +1,7 @@
-import { MailService } from '@sendgrid/mail';
+import sgMail from '@sendgrid/mail';
+
+// Initialize SendGrid with the API key from environment variables
+sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
 
 interface EmailParams {
   to: string;
@@ -8,15 +11,9 @@ interface EmailParams {
   html?: string;
 }
 
-export async function sendEmail(
-  apiKey: string,
-  params: EmailParams
-): Promise<boolean> {
+export async function sendEmail(params: EmailParams): Promise<boolean> {
   try {
-    const mailService = new MailService();
-    mailService.setApiKey(apiKey);
-    
-    await mailService.send({
+    await sgMail.send({
       to: params.to,
       from: params.from,
       subject: params.subject,
