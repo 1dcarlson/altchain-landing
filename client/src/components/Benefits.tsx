@@ -1,44 +1,38 @@
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 export default function Benefits() {
-  const benefits = [
-    {
-      title: "Reduced Sourcing Time",
-      description: "Cut research time by up to 70% with AI-powered supplier discovery and intelligent recommendations.",
-      items: [
-        "AI-driven supplier matching based on your specific requirements",
-        "Automated background checks on potential suppliers",
-        "Smart filters to quickly identify the most viable options"
-      ]
-    },
-    {
-      title: "Risk Mitigation",
-      description: "Identify and avoid potential supply chain disruptions before they impact your operations.",
-      items: [
-        "Real-time monitoring of geopolitical factors affecting supply chains",
-        "Supplier financial stability assessments",
-        "Diversification recommendations to reduce single-source risks"
-      ]
-    },
-    {
-      title: "Cost Savings",
-      description: "Optimize sourcing decisions to significantly lower costs while maintaining quality standards.",
-      items: [
-        "Comparative pricing across multiple regions and suppliers",
-        "Hidden cost analysis (shipping, tariffs, compliance)",
-        "Negotiation assistance with data-backed insights"
-      ]
+  const { t } = useTranslation();
+
+  // Using translation namespaces for benefits
+  const benefitKeys = ["reducedTime", "riskMitigation", "costSavings"];
+  
+  const benefits = benefitKeys.map(key => {
+    // Safely handle items, providing a fallback empty array if translation fails
+    const itemsKey = `detailedBenefits.${key}.items`;
+    let items: string[] = [];
+    try {
+      const translatedItems = t(itemsKey, { returnObjects: true });
+      items = Array.isArray(translatedItems) ? translatedItems : [];
+    } catch (error) {
+      console.error(`Error translating ${itemsKey}:`, error);
+      items = [];
     }
-  ];
+    
+    return {
+      key,
+      items
+    };
+  });
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold">Transform Your Sourcing Strategy</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t('detailedBenefits.title')}</h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            AltChain delivers measurable improvements to your global sourcing operations.
+            {t('detailedBenefits.description')}
           </p>
         </div>
 
@@ -48,8 +42,12 @@ export default function Benefits() {
               key={index} 
               className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
             >
-              <h3 className="text-xl font-semibold mb-3 text-primary">{benefit.title}</h3>
-              <p className="text-gray-600 mb-6">{benefit.description}</p>
+              <h3 className="text-xl font-semibold mb-3 text-primary">
+                {t(`detailedBenefits.${benefit.key}.title`)}
+              </h3>
+              <p className="text-gray-600 mb-6">
+                {t(`detailedBenefits.${benefit.key}.description`)}
+              </p>
               
               <ul className="space-y-3">
                 {benefit.items.map((item, idx) => (
@@ -76,7 +74,7 @@ export default function Benefits() {
               }
             }}
           >
-            Join Waitlist
+            {t('cta.button')}
             <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
           </Button>
         </div>
