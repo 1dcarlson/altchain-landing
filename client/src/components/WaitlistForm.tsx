@@ -1,36 +1,22 @@
 import { useState } from 'react';
-import { z } from 'zod';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 
-const formSchema = z.object({
-  email: z.string()
-    .email('Please enter a valid email address')
-    .min(1, 'Email is required')
-});
-
-type FormValues = z.infer<typeof formSchema>;
-
 export default function WaitlistForm() {
+  const [email, setEmail] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { toast } = useToast();
   
-  const form = useForm<FormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      email: ''
-    }
-  });
-
-  const onSubmit = async (data: FormValues) => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', data);
+      const response = await apiRequest('POST', '/api/waitlist', { email });
+      
       if (response.ok) {
         setFormState('success');
+        setEmail('');
       } else {
         setFormState('error');
         toast({
@@ -51,7 +37,7 @@ export default function WaitlistForm() {
   };
 
   const resetForm = () => {
-    form.reset();
+    setEmail('');
     setFormState('idle');
   };
 
@@ -61,21 +47,17 @@ export default function WaitlistForm() {
       <p className="text-gray-600 mb-6 text-sm">Be among the first to access our AI-powered sourcing platform.</p>
       
       {formState === 'idle' || formState === 'submitting' ? (
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">
             <input 
               type="email" 
-              id="email"
-              {...form.register('email')}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your work email" 
+              required
               className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors text-gray-800 placeholder-gray-400"
               disabled={formState === 'submitting'}
             />
-            {form.formState.errors.email && (
-              <div className="text-red-500 text-xs mt-1 text-left">
-                {form.formState.errors.email.message}
-              </div>
-            )}
           </div>
           
           <button 
