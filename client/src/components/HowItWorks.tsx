@@ -1,41 +1,31 @@
 import { Brain, Database, Globe, LineChart, Network } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 export default function HowItWorks() {
-  const steps = [
-    {
-      icon: <Database className="h-10 w-10 text-primary" />,
-      title: "Data Collection",
-      description: "Our AI continuously gathers data from thousands of global sources, including trade publications, government databases, and industry reports."
-    },
-    {
-      icon: <Brain className="h-10 w-10 text-primary" />,
-      title: "AI Analysis",
-      description: "Advanced machine learning algorithms analyze the data to identify patterns, risks, and opportunities specific to your industry and needs."
-    },
-    {
-      icon: <Globe className="h-10 w-10 text-primary" />,
-      title: "Global Matching",
-      description: "We connect you with verified suppliers and manufacturing partners across different regions that match your specific requirements."
-    },
-    {
-      icon: <LineChart className="h-10 w-10 text-primary" />,
-      title: "Optimization",
-      description: "Compare scenarios and options with real-time cost analysis, risk assessment, and compliance verification."
-    },
-    {
-      icon: <Network className="h-10 w-10 text-primary" />,
-      title: "Continuous Monitoring",
-      description: "Our platform continuously monitors your supply chain for potential disruptions and recommends alternative strategies when needed."
-    }
+  const { t } = useTranslation();
+  
+  const stepIcons = [
+    { key: "dataCollection", icon: <Database className="h-10 w-10 text-primary" /> },
+    { key: "aiAnalysis", icon: <Brain className="h-10 w-10 text-primary" /> },
+    { key: "globalMatching", icon: <Globe className="h-10 w-10 text-primary" /> },
+    { key: "optimization", icon: <LineChart className="h-10 w-10 text-primary" /> },
+    { key: "monitoring", icon: <Network className="h-10 w-10 text-primary" /> }
   ];
+  
+  // Create steps with translations
+  const steps = stepIcons.map(item => ({
+    ...item,
+    title: t(`howItWorks.steps.${item.key}.title`),
+    description: t(`howItWorks.steps.${item.key}.description`)
+  }));
 
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold">How AltChain Works</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t('howItWorks.title')}</h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            Our advanced AI technology transforms complex global sourcing into a streamlined, data-driven process.
+            {t('howItWorks.description')}
           </p>
         </div>
 
@@ -67,9 +57,9 @@ export default function HowItWorks() {
         </div>
         
         <div className="mt-16 bg-primary/5 p-8 rounded-xl border border-primary/10">
-          <h3 className="text-xl font-semibold mb-4 text-center">AI-Powered Insights</h3>
+          <h3 className="text-xl font-semibold mb-4 text-center">{t('howItWorks.aiInsights.title')}</h3>
           <p className="text-center text-gray-700">
-            AltChain's proprietary algorithms process over 10 million data points daily to provide you with the most accurate and up-to-date sourcing intelligence. Our AI identifies opportunities and risks that would be impossible to discover through traditional research methods.
+            {t('howItWorks.aiInsights.description')}
           </p>
         </div>
       </div>
