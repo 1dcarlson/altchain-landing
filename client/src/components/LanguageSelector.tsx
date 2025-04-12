@@ -15,7 +15,8 @@ const LanguageSelector = () => {
     { code: 'en', name: 'English' },
     { code: 'es', name: 'Español' },
     { code: 'zh', name: '中文' },
-    { code: 'fr', name: 'Français' }
+    { code: 'fr', name: 'Français' },
+    { code: 'ru', name: 'Русский' }
   ];
 
   const changeLanguage = (lng: string) => {
