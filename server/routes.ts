@@ -6,6 +6,46 @@ import { z } from "zod";
 import { insertWaitlistSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Test endpoint for SendGrid (remove in production)
+  app.get('/api/test-email', async (req, res) => {
+    try {
+      const testEmail = req.query.email;
+      
+      if (!testEmail || typeof testEmail !== 'string') {
+        return res.status(400).json({ message: 'Email query parameter is required' });
+      }
+      
+      // Check if SendGrid is configured
+      if (!process.env.SENDGRID_API_KEY) {
+        return res.status(500).json({ message: 'SendGrid API key is not configured' });
+      }
+      
+      const fromEmail = process.env.FROM_EMAIL || 'noreply@altchain.com';
+      
+      const emailSent = await sendEmail({
+        to: testEmail,
+        from: fromEmail,
+        subject: 'AltChain Email Test',
+        html: `
+          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #4c86f9;">Email Test Successful!</h2>
+            <p>This is a test email from AltChain to confirm that the SendGrid integration is working correctly.</p>
+            <p>Best regards,<br>The AltChain Team</p>
+          </div>
+        `
+      });
+      
+      if (emailSent) {
+        return res.status(200).json({ message: 'Test email sent successfully' });
+      } else {
+        return res.status(500).json({ message: 'Failed to send test email' });
+      }
+    } catch (error) {
+      console.error('Test email error:', error);
+      return res.status(500).json({ message: 'Failed to send test email' });
+    }
+  });
+
   // Add waitlist API endpoint
   app.post('/api/waitlist', async (req, res) => {
     try {
