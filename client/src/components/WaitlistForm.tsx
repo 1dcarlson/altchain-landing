@@ -42,7 +42,7 @@ export default function WaitlistForm() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
+    <div id="waitlist-form" className="max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
       <h3 className="text-xl font-semibold mb-4">Join our waitlist</h3>
       <p className="text-gray-600 mb-6 text-sm">Be among the first to access our AI-powered sourcing platform.</p>
       

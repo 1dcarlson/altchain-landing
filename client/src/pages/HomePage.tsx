@@ -2,12 +2,16 @@ import Header from "@/components/Header";
 import WaitlistForm from "@/components/WaitlistForm";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
+import Benefits from "@/components/Benefits";
+import HowItWorks from "@/components/HowItWorks";
+import FAQ from "@/components/FAQ";
 
 export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
+        {/* Hero Section */}
         <section className="max-w-4xl mx-auto px-6 py-16 md:py-24">
           <div className="text-center animate-pulse-once">
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
@@ -36,7 +40,39 @@ export default function HomePage() {
           </div>
         </section>
         
+        {/* Main Value Proposition */}
         <Features />
+        
+        {/* Detailed Benefits */}
+        <Benefits />
+        
+        {/* How It Works Process */}
+        <HowItWorks />
+        
+        {/* FAQ */}
+        <FAQ />
+        
+        {/* Final CTA Section */}
+        <section className="py-16 bg-primary/5">
+          <div className="max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Ready to Transform Your Global Sourcing?</h2>
+            <p className="text-lg text-gray-700 mb-8">
+              Join the waitlist today and be among the first to leverage AltChain's AI-powered sourcing platform.
+            </p>
+            <button 
+              className="px-8 py-3 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2"
+              onClick={() => {
+                // Smooth scroll to waitlist form
+                const el = document.getElementById('waitlist-form');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
+            >
+              Join Waitlist
+            </button>
+          </div>
+        </section>
       </main>
       <Footer />
     </div>
