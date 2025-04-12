@@ -3,18 +3,26 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { sendEmail } from "./sendgrid";
 import { z } from "zod";
-
-const waitlistSchema = z.object({
-  email: z.string().email("Please enter a valid email address")
-});
+import { insertWaitlistSchema } from "@shared/schema";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Add waitlist API endpoint
   app.post('/api/waitlist', async (req, res) => {
     try {
       // Validate request body
-      const validatedData = waitlistSchema.parse(req.body);
+      const validatedData = insertWaitlistSchema.parse(req.body);
       const { email } = validatedData;
+      
+      // Check if email already exists in waitlist
+      const existingEntry = await storage.getWaitlistEntryByEmail(email);
+      if (existingEntry) {
+        return res.status(200).json({ 
+          message: "This email is already on our waitlist" 
+        });
+      }
+      
+      // Store the email in the database
+      await storage.createWaitlistEntry({ email });
       
       // Get SendGrid API key from environment variables
       const sendgridApiKey = process.env.SENDGRID_API_KEY || '';
@@ -43,9 +51,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
 
       if (!emailSent) {
-        return res.status(500).json({ 
-          message: "Failed to send confirmation email" 
-        });
+        // Even if email fails, the user is on the waitlist
+        console.warn("Failed to send confirmation email, but user added to waitlist");
       }
 
       // Send notification to admin
