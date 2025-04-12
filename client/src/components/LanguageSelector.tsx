@@ -8,13 +8,14 @@ import {
 } from '@/components/ui/dropdown-menu';
 
 const LanguageSelector = () => {
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
 
+  // Hard-code language names instead of using translations to avoid circular reference
   const languages = [
-    { code: 'en', name: t('language.en') },
-    { code: 'es', name: t('language.es') },
-    { code: 'zh', name: t('language.zh') },
-    { code: 'fr', name: t('language.fr') }
+    { code: 'en', name: 'English' },
+    { code: 'es', name: 'Español' },
+    { code: 'zh', name: '中文' },
+    { code: 'fr', name: 'Français' }
   ];
 
   const changeLanguage = (lng: string) => {
@@ -23,7 +24,7 @@ const LanguageSelector = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center gap-1 text-sm focus:outline-none">
+      <DropdownMenuTrigger className="flex items-center gap-1 text-sm focus:outline-none text-gray-600 hover:text-primary transition-colors">
         <Globe className="h-4 w-4" />
         <span className="hidden md:inline">{languages.find(lang => lang.code === i18n.language)?.name || 'English'}</span>
       </DropdownMenuTrigger>
