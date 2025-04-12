@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "title": "Abastecimiento Global Más Inteligente con IA",
+    "description": "AltChain ayuda a empresas de todo el mundo a navegar por el cambiante panorama de guerras comerciales, aranceles y cambios en la cadena de suministro, utilizando IA para optimizar el abastecimiento, reducir riesgos y ahorrar tiempo."
+  },
+  "waitlist": {
+    "title": "Únete a nuestra lista de espera",
+    "description": "Sé de los primeros en acceder a nuestra plataforma de abastecimiento impulsada por IA.",
+    "placeholder": "Introduce tu correo electrónico de trabajo",
+    "button": "Unirse a la Lista de Espera",
+    "submitting": "Enviando...",
+    "success": "¡Gracias por unirte a nuestra lista de espera!",
+    "successDetail": "Nos pondremos en contacto cuando estemos listos para incorporar nuevos usuarios.",
+    "error": "¡Algo salió mal!",
+    "errorDetail": "Por favor, inténtalo de nuevo o contacta con soporte si el problema persiste.",
+    "tryAgain": "Intentar de Nuevo"
+  },
+  "benefits": {
+    "free": "Gratis para acceso anticipado",
+    "noCard": "No se requiere tarjeta de crédito"
+  },
+  "features": {
+    "title": "¿Por qué elegir AltChain?",
+    "description": "Nuestra plataforma impulsada por IA te ofrece las herramientas que necesitas para optimizar tu cadena de suministro.",
+    "riskAnalysis": {
+      "title": "Análisis de Riesgos",
+      "description": "Identifica posibles interrupciones en la cadena de suministro antes de que afecten a tu negocio."
+    },
+    "compliance": {
+      "title": "Automatización de Cumplimiento",
+      "description": "Mantente en cumplimiento con las cambiantes regulaciones comerciales globales sin investigación manual."
+    },
+    "costOptimization": {
+      "title": "Optimización de Costos",
+      "description": "Descubre oportunidades alternativas de abastecimiento para reducir costos y mejorar márgenes."
+    }
+  },
+  "detailedBenefits": {
+    "title": "Transforma tu Estrategia de Abastecimiento",
+    "description": "AltChain ofrece mejoras medibles en tus operaciones de abastecimiento global.",
+    "reducedTime": {
+      "title": "Tiempo de Abastecimiento Reducido",
+      "description": "Reduce el tiempo de investigación hasta en un 70% con descubrimiento de proveedores impulsado por IA y recomendaciones inteligentes.",
+      "items": [
+        "Emparejamiento de proveedores basado en IA según tus requisitos específicos",
+        "Verificaciones automáticas de antecedentes de posibles proveedores",
+        "Filtros inteligentes para identificar rápidamente las opciones más viables"
+      ]
+    },
+    "riskMitigation": {
+      "title": "Mitigación de Riesgos",
+      "description": "Identifica y evita posibles interrupciones en la cadena de suministro antes de que afecten a tus operaciones.",
+      "items": [
+        "Monitoreo en tiempo real de factores geopolíticos que afectan las cadenas de suministro",
+        "Evaluaciones de estabilidad financiera de proveedores",
+        "Recomendaciones de diversificación para reducir riesgos de fuente única"
+      ]
+    },
+    "costSavings": {
+      "title": "Ahorro de Costos",
+      "description": "Optimiza las decisiones de abastecimiento para reducir significativamente los costos manteniendo estándares de calidad.",
+      "items": [
+        "Precios comparativos en múltiples regiones y proveedores",
+        "Análisis de costos ocultos (envío, aranceles, cumplimiento)",
+        "Asistencia en negociación con información respaldada por datos"
+      ]
+    }
+  },
+  "howItWorks": {
+    "title": "Cómo Funciona AltChain",
+    "description": "Nuestra avanzada tecnología de IA transforma el complejo abastecimiento global en un proceso simplificado y basado en datos.",
+    "steps": {
+      "dataCollection": {
+        "title": "Recopilación de Datos",
+        "description": "Nuestra IA recopila continuamente datos de miles de fuentes globales, incluyendo publicaciones comerciales, bases de datos gubernamentales e informes de la industria."
+      },
+      "aiAnalysis": {
+        "title": "Análisis de IA",
+        "description": "Algoritmos avanzados de aprendizaje automático analizan los datos para identificar patrones, riesgos y oportunidades específicos para tu industria y necesidades."
+      },
+      "globalMatching": {
+        "title": "Emparejamiento Global",
+        "description": "Te conectamos con proveedores verificados y socios de fabricación en diferentes regiones que se ajustan a tus requisitos específicos."
+      },
+      "optimization": {
+        "title": "Optimización",
+        "description": "Compara escenarios y opciones con análisis de costos en tiempo real, evaluación de riesgos y verificación de cumplimiento."
+      },
+      "monitoring": {
+        "title": "Monitoreo Continuo",
+        "description": "Nuestra plataforma monitorea continuamente tu cadena de suministro para detectar posibles interrupciones y recomienda estrategias alternativas cuando es necesario."
+      }
+    },
+    "aiInsights": {
+      "title": "Información Impulsada por IA",
+      "description": "Los algoritmos propietarios de AltChain procesan más de 10 millones de puntos de datos diariamente para proporcionarte la inteligencia de abastecimiento más precisa y actualizada. Nuestra IA identifica oportunidades y riesgos que serían imposibles de descubrir mediante métodos de investigación tradicionales."
+    }
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "description": "Encuentra respuestas a preguntas comunes sobre la plataforma de abastecimiento impulsada por IA de AltChain.",
+    "questions": {
+      "aiTechnology": {
+        "question": "¿Cómo funciona la tecnología de IA de AltChain?",
+        "answer": "La IA de AltChain analiza millones de puntos de datos de bases de datos comerciales globales, fuentes de noticias e informes de la industria para identificar oportunidades óptimas de abastecimiento. Nuestros algoritmos de aprendizaje automático mejoran continuamente al aprender de resultados del mundo real, proporcionando recomendaciones cada vez más precisas con el tiempo."
+      },
+      "implementation": {
+        "question": "¿Cuánto tiempo se tarda en implementar AltChain?",
+        "answer": "La mayoría de las empresas pueden comenzar con AltChain en menos de una semana. Nuestro equipo de incorporación te ayudará a configurar tu cuenta, importar tus datos de proveedores existentes y configurar tus requisitos y preferencias específicas. La integración completa con tus sistemas de adquisición existentes generalmente toma de 2 a 4 semanas."
+      },
+      "integration": {
+        "question": "¿Puede AltChain integrarse con nuestro software de adquisición existente?",
+        "answer": "Sí, AltChain está diseñado para integrarse perfectamente con los sistemas populares de adquisición y ERP, incluyendo SAP, Oracle, NetSuite y Coupa. Ofrecemos APIs estandarizadas y conectores prediseñados para garantizar un flujo de datos fluido entre sistemas."
+      },
+      "industries": {
+        "question": "¿Qué industrias atiende AltChain?",
+        "answer": "AltChain apoya el abastecimiento global en múltiples industrias, incluyendo manufactura, electrónica, bienes de consumo, automotriz, farmacéutica y textiles. Nuestra plataforma es personalizable para abordar los desafíos específicos de abastecimiento en cada industria."
+      },
+      "security": {
+        "question": "¿Cómo mantiene AltChain seguros nuestros datos de abastecimiento?",
+        "answer": "Implementamos medidas de seguridad de nivel bancario, incluyendo cifrado en reposo y en tránsito, auditorías regulares de seguridad y controles estrictos de acceso. Nuestra plataforma cumple con GDPR, CCPA y otras principales regulaciones de protección de datos. Nunca compartimos tus datos propietarios de abastecimiento con otros clientes."
+      },
+      "support": {
+        "question": "¿Qué tipo de soporte proporciona AltChain?",
+        "answer": "Todos los clientes reciben soporte dedicado de incorporación y asistencia técnica continua. Nuestros planes Premium y Enterprise incluyen un asesor de abastecimiento dedicado que proporciona orientación estratégica y te ayuda a maximizar el valor de nuestra plataforma."
+      }
+    },
+    "moreQuestions": "¿Tienes más preguntas?",
+    "contactTeam": "Contacta a nuestro equipo"
+  },
+  "cta": {
+    "title": "¿Listo para Transformar tu Abastecimiento Global?",
+    "description": "Únete a la lista de espera hoy y sé de los primeros en aprovechar la plataforma de abastecimiento impulsada por IA de AltChain.",
+    "button": "Unirse a la Lista de Espera"
+  },
+  "language": {
+    "en": "Inglés",
+    "es": "Español",
+    "zh": "Chino",
+    "fr": "Francés"
+  }
+}

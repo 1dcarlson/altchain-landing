@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "title": "Smarter Global Sourcing with AI",
+    "description": "AltChain helps companies worldwide navigate the evolving landscape of trade wars, tariffs, and supply chain shifts — using AI to optimize sourcing, reduce risk, and save time."
+  },
+  "waitlist": {
+    "title": "Join our waitlist",
+    "description": "Be among the first to access our AI-powered sourcing platform.",
+    "placeholder": "Enter your work email",
+    "button": "Join Waitlist",
+    "submitting": "Submitting...",
+    "success": "Thank you for joining our waitlist!",
+    "successDetail": "We'll be in touch when we're ready to onboard new users.",
+    "error": "Something went wrong!",
+    "errorDetail": "Please try again or contact support if the problem persists.",
+    "tryAgain": "Try Again"
+  },
+  "benefits": {
+    "free": "Free for early access",
+    "noCard": "No credit card required"
+  },
+  "features": {
+    "title": "Why choose AltChain?",
+    "description": "Our AI-powered platform gives you the tools you need to optimize your supply chain.",
+    "riskAnalysis": {
+      "title": "Risk Analysis",
+      "description": "Identify potential supply chain disruptions before they impact your business."
+    },
+    "compliance": {
+      "title": "Compliance Automation",
+      "description": "Stay compliant with changing global trade regulations without manual research."
+    },
+    "costOptimization": {
+      "title": "Cost Optimization",
+      "description": "Discover alternative sourcing opportunities to reduce costs and improve margins."
+    }
+  },
+  "detailedBenefits": {
+    "title": "Transform Your Sourcing Strategy",
+    "description": "AltChain delivers measurable improvements to your global sourcing operations.",
+    "reducedTime": {
+      "title": "Reduced Sourcing Time",
+      "description": "Cut research time by up to 70% with AI-powered supplier discovery and intelligent recommendations.",
+      "items": [
+        "AI-driven supplier matching based on your specific requirements",
+        "Automated background checks on potential suppliers",
+        "Smart filters to quickly identify the most viable options"
+      ]
+    },
+    "riskMitigation": {
+      "title": "Risk Mitigation",
+      "description": "Identify and avoid potential supply chain disruptions before they impact your operations.",
+      "items": [
+        "Real-time monitoring of geopolitical factors affecting supply chains",
+        "Supplier financial stability assessments",
+        "Diversification recommendations to reduce single-source risks"
+      ]
+    },
+    "costSavings": {
+      "title": "Cost Savings",
+      "description": "Optimize sourcing decisions to significantly lower costs while maintaining quality standards.",
+      "items": [
+        "Comparative pricing across multiple regions and suppliers",
+        "Hidden cost analysis (shipping, tariffs, compliance)",
+        "Negotiation assistance with data-backed insights"
+      ]
+    }
+  },
+  "howItWorks": {
+    "title": "How AltChain Works",
+    "description": "Our advanced AI technology transforms complex global sourcing into a streamlined, data-driven process.",
+    "steps": {
+      "dataCollection": {
+        "title": "Data Collection",
+        "description": "Our AI continuously gathers data from thousands of global sources, including trade publications, government databases, and industry reports."
+      },
+      "aiAnalysis": {
+        "title": "AI Analysis",
+        "description": "Advanced machine learning algorithms analyze the data to identify patterns, risks, and opportunities specific to your industry and needs."
+      },
+      "globalMatching": {
+        "title": "Global Matching",
+        "description": "We connect you with verified suppliers and manufacturing partners across different regions that match your specific requirements."
+      },
+      "optimization": {
+        "title": "Optimization",
+        "description": "Compare scenarios and options with real-time cost analysis, risk assessment, and compliance verification."
+      },
+      "monitoring": {
+        "title": "Continuous Monitoring",
+        "description": "Our platform continuously monitors your supply chain for potential disruptions and recommends alternative strategies when needed."
+      }
+    },
+    "aiInsights": {
+      "title": "AI-Powered Insights",
+      "description": "AltChain's proprietary algorithms process over 10 million data points daily to provide you with the most accurate and up-to-date sourcing intelligence. Our AI identifies opportunities and risks that would be impossible to discover through traditional research methods."
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "description": "Find answers to common questions about AltChain's AI-powered sourcing platform.",
+    "questions": {
+      "aiTechnology": {
+        "question": "How does AltChain's AI technology work?",
+        "answer": "AltChain's AI analyzes millions of data points from global trade databases, news sources, and industry reports to identify optimal sourcing opportunities. Our machine learning algorithms continually improve by learning from real-world outcomes, providing increasingly accurate recommendations over time."
+      },
+      "implementation": {
+        "question": "How long does it take to implement AltChain?",
+        "answer": "Most companies can get started with AltChain in less than a week. Our onboarding team will help you set up your account, import your existing supplier data, and configure your specific requirements and preferences. Full integration with your existing procurement systems typically takes 2-4 weeks."
+      },
+      "integration": {
+        "question": "Can AltChain integrate with our existing procurement software?",
+        "answer": "Yes, AltChain is designed to integrate seamlessly with popular procurement and ERP systems including SAP, Oracle, NetSuite, and Coupa. We offer standardized APIs and pre-built connectors to ensure smooth data flow between systems."
+      },
+      "industries": {
+        "question": "What industries does AltChain serve?",
+        "answer": "AltChain supports global sourcing across multiple industries including manufacturing, electronics, consumer goods, automotive, pharmaceuticals, and textiles. Our platform is customizable to address the specific sourcing challenges in each industry."
+      },
+      "security": {
+        "question": "How does AltChain keep our sourcing data secure?",
+        "answer": "We implement bank-level security measures including encryption at rest and in transit, regular security audits, and strict access controls. Our platform complies with GDPR, CCPA, and other major data protection regulations. We never share your proprietary sourcing data with other customers."
+      },
+      "support": {
+        "question": "What kind of support does AltChain provide?",
+        "answer": "All customers receive dedicated onboarding support and ongoing technical assistance. Our Premium and Enterprise plans include a dedicated sourcing advisor who provides strategic guidance and helps you maximize the value of our platform."
+      }
+    },
+    "moreQuestions": "Have more questions?",
+    "contactTeam": "Contact our team"
+  },
+  "cta": {
+    "title": "Ready to Transform Your Global Sourcing?",
+    "description": "Join the waitlist today and be among the first to leverage AltChain's AI-powered sourcing platform.",
+    "button": "Join Waitlist"
+  },
+  "language": {
+    "en": "English",
+    "es": "Spanish",
+    "zh": "Chinese",
+    "fr": "French"
+  }
+}

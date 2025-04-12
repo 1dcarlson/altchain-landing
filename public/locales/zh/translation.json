@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "title": "更智能的AI全球采购",
+    "description": "AltChain帮助全球企业应对不断变化的贸易战、关税和供应链转变的格局，利用AI优化采购，降低风险，节省时间。"
+  },
+  "waitlist": {
+    "title": "加入我们的等候名单",
+    "description": "成为首批使用我们AI驱动的采购平台的用户之一。",
+    "placeholder": "输入您的工作邮箱",
+    "button": "加入等候名单",
+    "submitting": "正在提交...",
+    "success": "感谢您加入我们的等候名单！",
+    "successDetail": "当我们准备好接纳新用户时，我们会与您联系。",
+    "error": "出现了问题！",
+    "errorDetail": "请重试，或如果问题持续存在，请联系支持团队。",
+    "tryAgain": "重试"
+  },
+  "benefits": {
+    "free": "早期访问免费",
+    "noCard": "无需信用卡"
+  },
+  "features": {
+    "title": "为什么选择AltChain？",
+    "description": "我们的AI驱动平台为您提供优化供应链所需的工具。",
+    "riskAnalysis": {
+      "title": "风险分析",
+      "description": "在供应链中断影响您的业务之前识别潜在中断。"
+    },
+    "compliance": {
+      "title": "合规自动化",
+      "description": "无需手动研究，遵守不断变化的全球贸易法规。"
+    },
+    "costOptimization": {
+      "title": "成本优化",
+      "description": "发现替代采购机会以降低成本并提高利润。"
+    }
+  },
+  "detailedBenefits": {
+    "title": "转变您的采购战略",
+    "description": "AltChain为您的全球采购运营带来可衡量的改进。",
+    "reducedTime": {
+      "title": "缩短采购时间",
+      "description": "通过AI驱动的供应商发现和智能推荐，将研究时间缩短高达70%。",
+      "items": [
+        "基于您的具体需求的AI驱动供应商匹配",
+        "对潜在供应商的自动背景调查",
+        "智能筛选器快速识别最可行的选择"
+      ]
+    },
+    "riskMitigation": {
+      "title": "风险缓解",
+      "description": "在供应链中断影响您的运营之前识别并避免潜在中断。",
+      "items": [
+        "实时监控影响供应链的地缘政治因素",
+        "供应商财务稳定性评估",
+        "多元化建议以减少单一来源风险"
+      ]
+    },
+    "costSavings": {
+      "title": "成本节省",
+      "description": "优化采购决策，在保持质量标准的同时显著降低成本。",
+      "items": [
+        "跨多个地区和供应商的比较定价",
+        "隐藏成本分析（运输、关税、合规）",
+        "基于数据支持的谈判帮助"
+      ]
+    }
+  },
+  "howItWorks": {
+    "title": "AltChain如何工作",
+    "description": "我们的先进AI技术将复杂的全球采购转变为简化的数据驱动流程。",
+    "steps": {
+      "dataCollection": {
+        "title": "数据收集",
+        "description": "我们的AI不断从全球数千个来源收集数据，包括贸易出版物、政府数据库和行业报告。"
+      },
+      "aiAnalysis": {
+        "title": "AI分析",
+        "description": "先进的机器学习算法分析数据，识别特定于您的行业和需求的模式、风险和机会。"
+      },
+      "globalMatching": {
+        "title": "全球匹配",
+        "description": "我们将您与符合您特定要求的不同地区的经过验证的供应商和制造合作伙伴联系起来。"
+      },
+      "optimization": {
+        "title": "优化",
+        "description": "通过实时成本分析、风险评估和合规验证比较情景和选项。"
+      },
+      "monitoring": {
+        "title": "持续监控",
+        "description": "我们的平台持续监控您的供应链的潜在中断，并在需要时推荐替代策略。"
+      }
+    },
+    "aiInsights": {
+      "title": "AI驱动的洞察",
+      "description": "AltChain的专有算法每天处理超过1000万个数据点，为您提供最准确和最新的采购情报。我们的AI识别通过传统研究方法不可能发现的机会和风险。"
+    }
+  },
+  "faq": {
+    "title": "常见问题",
+    "description": "查找关于AltChain AI驱动采购平台的常见问题的答案。",
+    "questions": {
+      "aiTechnology": {
+        "question": "AltChain的AI技术如何工作？",
+        "answer": "AltChain的AI分析来自全球贸易数据库、新闻来源和行业报告的数百万数据点，以识别最佳采购机会。我们的机器学习算法通过从现实世界结果中学习不断改进，随着时间的推移提供越来越准确的建议。"
+      },
+      "implementation": {
+        "question": "实施AltChain需要多长时间？",
+        "answer": "大多数公司可以在不到一周的时间内开始使用AltChain。我们的入职团队将帮助您设置账户，导入现有供应商数据，并配置您的特定要求和偏好。与现有采购系统的完全集成通常需要2-4周。"
+      },
+      "integration": {
+        "question": "AltChain能否与我们现有的采购软件集成？",
+        "answer": "是的，AltChain设计为与流行的采购和ERP系统（包括SAP、Oracle、NetSuite和Coupa）无缝集成。我们提供标准化API和预建连接器，确保系统之间的数据流畅。"
+      },
+      "industries": {
+        "question": "AltChain服务哪些行业？",
+        "answer": "AltChain支持跨多个行业的全球采购，包括制造业、电子产品、消费品、汽车、制药和纺织品。我们的平台可定制，以解决每个行业的特定采购挑战。"
+      },
+      "security": {
+        "question": "AltChain如何保证我们的采购数据安全？",
+        "answer": "我们实施银行级安全措施，包括静态和传输中的加密、定期安全审计和严格的访问控制。我们的平台符合GDPR、CCPA和其他主要数据保护法规。我们绝不会与其他客户共享您的专有采购数据。"
+      },
+      "support": {
+        "question": "AltChain提供什么样的支持？",
+        "answer": "所有客户都获得专门的入职支持和持续的技术援助。我们的高级和企业计划包括一位专门的采购顾问，他提供战略指导，帮助您最大化我们平台的价值。"
+      }
+    },
+    "moreQuestions": "还有更多问题？",
+    "contactTeam": "联系我们的团队"
+  },
+  "cta": {
+    "title": "准备好转变您的全球采购吗？",
+    "description": "今天就加入等候名单，成为首批利用AltChain AI驱动采购平台的用户之一。",
+    "button": "加入等候名单"
+  },
+  "language": {
+    "en": "英语",
+    "es": "西班牙语",
+    "zh": "中文",
+    "fr": "法语"
+  }
+}

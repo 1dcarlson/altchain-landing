@@ -1,0 +1,142 @@
+{
+  "hero": {
+    "title": "Approvisionnement Global Plus Intelligent avec l'IA",
+    "description": "AltChain aide les entreprises du monde entier à naviguer dans le paysage en évolution des guerres commerciales, des tarifs et des changements de chaîne d'approvisionnement — en utilisant l'IA pour optimiser l'approvisionnement, réduire les risques et gagner du temps."
+  },
+  "waitlist": {
+    "title": "Rejoignez notre liste d'attente",
+    "description": "Soyez parmi les premiers à accéder à notre plateforme d'approvisionnement alimentée par l'IA.",
+    "placeholder": "Entrez votre email professionnel",
+    "button": "Rejoindre la Liste d'Attente",
+    "submitting": "Soumission en cours...",
+    "success": "Merci d'avoir rejoint notre liste d'attente !",
+    "successDetail": "Nous vous contacterons lorsque nous serons prêts à accueillir de nouveaux utilisateurs.",
+    "error": "Quelque chose s'est mal passé !",
+    "errorDetail": "Veuillez réessayer ou contacter le support si le problème persiste.",
+    "tryAgain": "Réessayer"
+  },
+  "benefits": {
+    "free": "Gratuit pour l'accès anticipé",
+    "noCard": "Pas de carte de crédit requise"
+  },
+  "features": {
+    "title": "Pourquoi choisir AltChain ?",
+    "description": "Notre plateforme alimentée par l'IA vous donne les outils dont vous avez besoin pour optimiser votre chaîne d'approvisionnement.",
+    "riskAnalysis": {
+      "title": "Analyse des Risques",
+      "description": "Identifiez les perturbations potentielles de la chaîne d'approvisionnement avant qu'elles n'affectent votre entreprise."
+    },
+    "compliance": {
+      "title": "Automatisation de la Conformité",
+      "description": "Restez conforme aux réglementations commerciales mondiales changeantes sans recherche manuelle."
+    },
+    "costOptimization": {
+      "title": "Optimisation des Coûts",
+      "description": "Découvrez des opportunités d'approvisionnement alternatives pour réduire les coûts et améliorer les marges."
+    }
+  },
+  "detailedBenefits": {
+    "title": "Transformez Votre Stratégie d'Approvisionnement",
+    "description": "AltChain apporte des améliorations mesurables à vos opérations d'approvisionnement mondial.",
+    "reducedTime": {
+      "title": "Temps d'Approvisionnement Réduit",
+      "description": "Réduisez le temps de recherche jusqu'à 70% avec la découverte de fournisseurs alimentée par l'IA et des recommandations intelligentes.",
+      "items": [
+        "Correspondance de fournisseurs pilotée par l'IA basée sur vos exigences spécifiques",
+        "Vérifications automatiques des antécédents des fournisseurs potentiels",
+        "Filtres intelligents pour identifier rapidement les options les plus viables"
+      ]
+    },
+    "riskMitigation": {
+      "title": "Atténuation des Risques",
+      "description": "Identifiez et évitez les perturbations potentielles de la chaîne d'approvisionnement avant qu'elles n'affectent vos opérations.",
+      "items": [
+        "Surveillance en temps réel des facteurs géopolitiques affectant les chaînes d'approvisionnement",
+        "Évaluations de la stabilité financière des fournisseurs",
+        "Recommandations de diversification pour réduire les risques de source unique"
+      ]
+    },
+    "costSavings": {
+      "title": "Économies de Coûts",
+      "description": "Optimisez les décisions d'approvisionnement pour réduire considérablement les coûts tout en maintenant les normes de qualité.",
+      "items": [
+        "Prix comparatifs à travers multiples régions et fournisseurs",
+        "Analyse des coûts cachés (expédition, tarifs, conformité)",
+        "Assistance à la négociation avec des informations fondées sur des données"
+      ]
+    }
+  },
+  "howItWorks": {
+    "title": "Comment Fonctionne AltChain",
+    "description": "Notre technologie d'IA avancée transforme l'approvisionnement mondial complexe en un processus rationalisé et basé sur les données.",
+    "steps": {
+      "dataCollection": {
+        "title": "Collecte de Données",
+        "description": "Notre IA recueille continuellement des données de milliers de sources mondiales, y compris des publications commerciales, des bases de données gouvernementales et des rapports industriels."
+      },
+      "aiAnalysis": {
+        "title": "Analyse par IA",
+        "description": "Des algorithmes avancés d'apprentissage automatique analysent les données pour identifier les modèles, les risques et les opportunités spécifiques à votre industrie et à vos besoins."
+      },
+      "globalMatching": {
+        "title": "Correspondance Mondiale",
+        "description": "Nous vous connectons avec des fournisseurs vérifiés et des partenaires de fabrication dans différentes régions qui correspondent à vos exigences spécifiques."
+      },
+      "optimization": {
+        "title": "Optimisation",
+        "description": "Comparez les scénarios et les options avec une analyse des coûts en temps réel, une évaluation des risques et une vérification de la conformité."
+      },
+      "monitoring": {
+        "title": "Surveillance Continue",
+        "description": "Notre plateforme surveille continuellement votre chaîne d'approvisionnement pour détecter les perturbations potentielles et recommande des stratégies alternatives lorsque nécessaire."
+      }
+    },
+    "aiInsights": {
+      "title": "Insights Alimentés par l'IA",
+      "description": "Les algorithmes propriétaires d'AltChain traitent plus de 10 millions de points de données quotidiennement pour vous fournir l'intelligence d'approvisionnement la plus précise et à jour. Notre IA identifie des opportunités et des risques qu'il serait impossible de découvrir par des méthodes de recherche traditionnelles."
+    }
+  },
+  "faq": {
+    "title": "Questions Fréquemment Posées",
+    "description": "Trouvez des réponses aux questions courantes sur la plateforme d'approvisionnement alimentée par l'IA d'AltChain.",
+    "questions": {
+      "aiTechnology": {
+        "question": "Comment fonctionne la technologie d'IA d'AltChain ?",
+        "answer": "L'IA d'AltChain analyse des millions de points de données provenant de bases de données commerciales mondiales, de sources d'actualités et de rapports industriels pour identifier les opportunités d'approvisionnement optimales. Nos algorithmes d'apprentissage automatique s'améliorent continuellement en apprenant des résultats du monde réel, fournissant des recommandations de plus en plus précises au fil du temps."
+      },
+      "implementation": {
+        "question": "Combien de temps faut-il pour mettre en œuvre AltChain ?",
+        "answer": "La plupart des entreprises peuvent commencer avec AltChain en moins d'une semaine. Notre équipe d'intégration vous aidera à configurer votre compte, à importer vos données fournisseurs existantes et à configurer vos exigences et préférences spécifiques. L'intégration complète avec vos systèmes d'approvisionnement existants prend généralement de 2 à 4 semaines."
+      },
+      "integration": {
+        "question": "AltChain peut-il s'intégrer à notre logiciel d'approvisionnement existant ?",
+        "answer": "Oui, AltChain est conçu pour s'intégrer de manière transparente avec les systèmes d'approvisionnement et ERP populaires, y compris SAP, Oracle, NetSuite et Coupa. Nous offrons des API standardisées et des connecteurs préfabriqués pour assurer un flux de données fluide entre les systèmes."
+      },
+      "industries": {
+        "question": "Quelles industries AltChain sert-il ?",
+        "answer": "AltChain soutient l'approvisionnement mondial dans de multiples industries, y compris la fabrication, l'électronique, les biens de consommation, l'automobile, la pharmacie et les textiles. Notre plateforme est personnalisable pour répondre aux défis d'approvisionnement spécifiques dans chaque industrie."
+      },
+      "security": {
+        "question": "Comment AltChain garde-t-il nos données d'approvisionnement sécurisées ?",
+        "answer": "Nous mettons en œuvre des mesures de sécurité de niveau bancaire, y compris le chiffrement au repos et en transit, des audits de sécurité réguliers et des contrôles d'accès stricts. Notre plateforme est conforme au RGPD, au CCPA et à d'autres grandes réglementations de protection des données. Nous ne partageons jamais vos données d'approvisionnement propriétaires avec d'autres clients."
+      },
+      "support": {
+        "question": "Quel type de support AltChain fournit-il ?",
+        "answer": "Tous les clients reçoivent un support d'intégration dédié et une assistance technique continue. Nos plans Premium et Enterprise incluent un conseiller d'approvisionnement dédié qui fournit des conseils stratégiques et vous aide à maximiser la valeur de notre plateforme."
+      }
+    },
+    "moreQuestions": "Vous avez d'autres questions ?",
+    "contactTeam": "Contactez notre équipe"
+  },
+  "cta": {
+    "title": "Prêt à Transformer Votre Approvisionnement Mondial ?",
+    "description": "Rejoignez la liste d'attente aujourd'hui et soyez parmi les premiers à tirer parti de la plateforme d'approvisionnement alimentée par l'IA d'AltChain.",
+    "button": "Rejoindre la Liste d'Attente"
+  },
+  "language": {
+    "en": "Anglais",
+    "es": "Espagnol",
+    "zh": "Chinois",
+    "fr": "Français"
+  }
+}
