@@ -9,6 +9,7 @@ export default function WaitlistForm() {
   const [email, setEmail] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { toast } = useToast();
+  const { triggerCelebration } = useConfetti();
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,6 +44,16 @@ export default function WaitlistForm() {
     setEmail('');
     setFormState('idle');
   };
+  
+  // Trigger confetti celebration when form submission is successful
+  useEffect(() => {
+    if (formState === 'success') {
+      // Delay the confetti slightly to let the success message appear first
+      setTimeout(() => {
+        triggerCelebration();
+      }, 300);
+    }
+  }, [formState, triggerCelebration]);
 
   return (
     <div id="waitlist-form" className="max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
@@ -84,12 +95,19 @@ export default function WaitlistForm() {
         </form>
       ) : formState === 'success' ? (
         <div className="animate-in fade-in py-6 text-center">
-          <div className="bg-green-50 text-green-700 p-4 rounded-lg mb-4">
-            <svg className="w-6 h-6 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-            </svg>
-            <p className="font-medium">{t('waitlist.success')}</p>
+          <div className="bg-green-50 text-green-700 p-6 rounded-lg mb-4 shadow-sm transform transition-all duration-500 hover:scale-105">
+            <div className="flex justify-center mb-4">
+              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center animate-bounce-subtle">
+                <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+            </div>
+            <h4 className="font-bold text-xl mb-2">{t('waitlist.success')}</h4>
             <p className="text-sm mt-1">{t('waitlist.successDetail')}</p>
+          </div>
+          <div className="mt-3 text-center">
+            <p className="text-gray-600 text-sm animate-pulse">🎉 {t('waitlist.celebrations')} 🎉</p>
           </div>
         </div>
       ) : (
