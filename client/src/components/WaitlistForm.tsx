@@ -95,19 +95,19 @@ export default function WaitlistForm() {
         </form>
       ) : formState === 'success' ? (
         <div className="animate-in fade-in py-6 text-center">
-          <div className="bg-green-50 text-green-700 p-6 rounded-lg mb-4 shadow-sm transform transition-all duration-500 hover:scale-105">
+          <div className="bg-primary/10 text-primary-foreground p-6 rounded-lg mb-4 shadow-sm transform transition-all duration-500 hover:scale-105">
             <div className="flex justify-center mb-4">
-              <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center animate-bounce-subtle">
-                <svg className="w-7 h-7 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center animate-bounce-subtle">
+                <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                 </svg>
               </div>
             </div>
-            <h4 className="font-bold text-xl mb-2">{t('waitlist.success')}</h4>
-            <p className="text-sm mt-1">{t('waitlist.successDetail')}</p>
+            <h4 className="font-bold text-xl mb-2 text-primary-foreground">{t('waitlist.success')}</h4>
+            <p className="text-sm mt-1 text-primary-foreground/80">{t('waitlist.successDetail')}</p>
           </div>
           <div className="mt-3 text-center">
-            <p className="text-gray-600 text-sm animate-pulse">🎉 {t('waitlist.celebrations')} 🎉</p>
+            <p className="text-primary font-medium">🎉 Congratulations!</p>
           </div>
         </div>
       ) : (
