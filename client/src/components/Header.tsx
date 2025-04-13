@@ -9,11 +9,11 @@ export default function Header() {
     <header className="bg-white py-5 px-6 shadow-sm sticky top-0 z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/">
-          <a className="text-primary font-bold text-2xl cursor-pointer">AltChain</a>
+          <span className="text-primary font-bold text-2xl cursor-pointer">AltChain</span>
         </Link>
         <nav className="flex items-center gap-6">
           <Link href="/">
-            <a className="text-gray-600 hover:text-primary text-sm font-medium hidden sm:inline-block transition-colors">About</a>
+            <span className="text-gray-600 hover:text-primary text-sm font-medium hidden sm:inline-block transition-colors cursor-pointer">About</span>
           </Link>
           <LanguageSelector />
         </nav>

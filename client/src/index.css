@@ -8,6 +8,13 @@
   }
 
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    @apply font-sans antialiased bg-[#f8fafc] text-foreground;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Animation for smooth transitions */
+  .transition-gradient {
+    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
