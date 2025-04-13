@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { Link } from 'wouter';
 import LanguageSelector from './LanguageSelector';
 
 export default function Header() {
@@ -7,9 +8,13 @@ export default function Header() {
   return (
     <header className="bg-white py-5 px-6 shadow-sm sticky top-0 z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <h1 className="text-primary font-bold text-2xl">AltChain</h1>
+        <Link href="/">
+          <a className="text-primary font-bold text-2xl cursor-pointer">AltChain</a>
+        </Link>
         <nav className="flex items-center gap-6">
-          <a href="#" className="text-gray-600 hover:text-primary text-sm font-medium hidden sm:inline-block transition-colors">About</a>
+          <Link href="/">
+            <a className="text-gray-600 hover:text-primary text-sm font-medium hidden sm:inline-block transition-colors">About</a>
+          </Link>
           <LanguageSelector />
         </nav>
       </div>
