@@ -20,7 +20,16 @@ const flagVariants = {
 // Animation for menu items
 const menuItemVariants = {
   initial: { opacity: 0, y: 5 },
-  animate: { opacity: 1, y: 0 },
+  animate: (i: number) => ({ 
+    opacity: 1, 
+    y: 0, 
+    transition: { 
+      delay: i * 0.05,
+      type: "spring", 
+      stiffness: 300, 
+      damping: 24 
+    } 
+  }),
   exit: { opacity: 0, y: -5 },
   hover: { scale: 1.05, x: 5, transition: { type: "spring", stiffness: 300, damping: 10 } }
 };
@@ -28,11 +37,11 @@ const menuItemVariants = {
 const LanguageSelector = () => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedFlag, setSelectedFlag] = useState<string>(i18n.language || 'en');
+  const [selectedLang, setSelectedLang] = useState<string>(i18n.language || 'en');
 
   // Update the selected flag when language changes
   useEffect(() => {
-    setSelectedFlag(i18n.language);
+    setSelectedLang(i18n.language);
   }, [i18n.language]);
 
   // Hard-code language names instead of using translations to avoid circular reference
@@ -49,12 +58,7 @@ const LanguageSelector = () => {
     setIsOpen(false);
   };
 
-  const currentLanguage = languages.find(lang => lang.code === selectedFlag) || languages[0];
-
-  // Function to get flag icon for language
-  const getFlagIcon = (langCode: string) => {
-    return `/flags/${langCode}.svg`;
-  };
+  const currentLanguage = languages.find(lang => lang.code === selectedLang) || languages[0];
   
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
@@ -62,7 +66,7 @@ const LanguageSelector = () => {
         <div className="relative flex items-center">
           <AnimatePresence mode="wait">
             <motion.div
-              key={selectedFlag}
+              key={selectedLang}
               variants={flagVariants}
               initial="initial"
               animate="animate"
@@ -76,7 +80,7 @@ const LanguageSelector = () => {
                   <Globe className="w-4 h-4 text-blue-500" />
                 </div>
                 <img 
-                  src={getFlagIcon(currentLanguage.code)} 
+                  src={`/flags/${currentLanguage.code}.svg`}
                   alt={currentLanguage.name} 
                   className="relative z-10 w-full h-full object-cover shadow-sm"
                   onError={(e) => {
@@ -100,7 +104,6 @@ const LanguageSelector = () => {
               animate="animate"
               exit="exit"
               custom={index}
-              transition={{ delay: index * 0.05 }}
               whileHover="hover"
             >
               <DropdownMenuItem 
@@ -115,7 +118,7 @@ const LanguageSelector = () => {
                       <Globe className="w-3 h-3 text-blue-300" />
                     </div>
                     <img 
-                      src={getFlagIcon(language.code)} 
+                      src={`/flags/${language.code}.svg`}
                       alt={language.name} 
                       className="relative z-10 w-full h-full object-cover group-hover:scale-110 transition-transform"
                       onError={(e) => {
