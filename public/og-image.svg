@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="1200" height="630" fill="url(#paint0_linear)"/>
+  
+  <!-- Logo in the center -->
+  <g transform="translate(460, 265) scale(4)">
+    <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.2" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+  
+  <!-- Title text -->
+  <text x="600" y="450" font-family="Inter, sans-serif" font-size="60" font-weight="700" text-anchor="middle" fill="#1E3A8A">AltChain</text>
+  
+  <!-- Subtitle text -->
+  <text x="600" y="520" font-family="Inter, sans-serif" font-size="30" font-weight="400" text-anchor="middle" fill="#4B5563">Smarter Global Sourcing with AI</text>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#F9FAFB"/>
+      <stop offset="1" stop-color="#E5EDFF"/>
+    </linearGradient>
+  </defs>
+</svg>
