@@ -137,6 +137,138 @@
     "en": "Inglés",
     "es": "Español",
     "zh": "Chino",
-    "fr": "Francés"
+    "fr": "Francés",
+    "ru": "Ruso"
+  },
+  "legal": {
+    "date": "13 de abril de 2025",
+    "lastUpdated": "Última actualización",
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "intro": {
+        "title": "1. Introducción",
+        "p1": "Bienvenido a AltChain (\"nosotros\", \"nuestro\" o \"nos\"). Respetamos su privacidad y estamos comprometidos a proteger sus datos personales. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando visita nuestro sitio web o utiliza nuestros servicios.",
+        "p2": "Por favor, lea esta Política de Privacidad cuidadosamente. Si no está de acuerdo con los términos de esta Política de Privacidad, por favor no acceda al sitio."
+      },
+      "infoCollect": {
+        "title": "2. Información que Recopilamos",
+        "personalData": {
+          "title": "Datos Personales",
+          "content": "Cuando se registra en nuestra lista de espera, recopilamos su dirección de correo electrónico. Esta información se utiliza para mantenerlo actualizado sobre nuestros servicios y fecha de lanzamiento."
+        },
+        "usageData": {
+          "title": "Datos de Uso",
+          "content": "También podemos recopilar información sobre cómo se accede y utiliza el sitio web (\"Datos de Uso\"). Estos Datos de Uso pueden incluir información como la dirección de Protocolo de Internet de su computadora (dirección IP), tipo de navegador, versión del navegador, las páginas de nuestro sitio web que visita, la hora y fecha de su visita, el tiempo pasado en esas páginas, identificadores únicos de dispositivos y otros datos de diagnóstico."
+        }
+      },
+      "infoUse": {
+        "title": "3. Cómo Usamos Su Información",
+        "intro": "Utilizamos la información que recopilamos para varios propósitos, incluidos para:",
+        "purposes": {
+          "provide": "Proporcionar y mantener nuestro servicio",
+          "notify": "Notificarle sobre cambios en nuestro servicio",
+          "support": "Proporcionar atención al cliente",
+          "monitor": "Monitorear el uso de nuestro servicio",
+          "technical": "Detectar, prevenir y abordar problemas técnicos",
+          "marketing": "Proporcionarle noticias, ofertas especiales e información general sobre otros bienes, servicios y eventos que ofrecemos"
+        }
+      },
+      "email": {
+        "title": "4. Comunicaciones por Correo Electrónico",
+        "content": "Si decide optar por participar en nuestra lista de correo, recibirá correos electrónicos que pueden incluir noticias de la empresa, actualizaciones, información de productos o servicios relacionados, etc. Podemos utilizar proveedores de servicios externos para ayudarnos a operar nuestro negocio y el sitio o administrar actividades en nuestro nombre, como el envío de boletines o encuestas."
+      },
+      "cookies": {
+        "title": "5. Cookies",
+        "p1": "Utilizamos cookies y tecnologías de seguimiento similares para rastrear la actividad en nuestro servicio y mantener cierta información. Las cookies son archivos con una pequeña cantidad de datos que pueden incluir un identificador único anónimo.",
+        "p2": "Puede instruir a su navegador para que rechace todas las cookies o para que indique cuándo se envía una cookie. Sin embargo, si no acepta cookies, es posible que no pueda utilizar algunas partes de nuestro servicio."
+      },
+      "security": {
+        "title": "6. Seguridad de Datos",
+        "content": "La seguridad de sus datos es importante para nosotros, pero recuerde que ningún método de transmisión por Internet o método de almacenamiento electrónico es 100% seguro. Si bien nos esforzamos por utilizar medios comercialmente aceptables para proteger sus datos personales, no podemos garantizar su seguridad absoluta."
+      },
+      "providers": {
+        "title": "7. Proveedores de Servicios",
+        "p1": "Podemos emplear a compañías e individuos terceros para facilitar nuestro servicio (\"Proveedores de Servicios\"), para proporcionar el servicio en nuestro nombre, para realizar servicios relacionados con el servicio o para ayudarnos a analizar cómo se utiliza nuestro servicio. Estos terceros tienen acceso a sus datos personales solo para realizar estas tareas en nuestro nombre y están obligados a no divulgarlos ni utilizarlos para ningún otro propósito.",
+        "p2": "Nuestros Proveedores de Servicios incluyen:",
+        "sendgrid": "SendGrid para comunicaciones por correo electrónico",
+        "database": "Proveedores de servicios de bases de datos para almacenar información de la lista de espera"
+      },
+      "rights": {
+        "title": "8. Sus Derechos de Protección de Datos",
+        "intro": "Dependiendo de su ubicación, puede tener ciertos derechos con respecto a su información personal, tales como:",
+        "list": {
+          "access": "El derecho a acceder, actualizar o eliminar la información que tenemos sobre usted",
+          "rectification": "El derecho de rectificación - el derecho a que se corrija su información",
+          "object": "El derecho a objetar - el derecho a oponerse a nuestro procesamiento de sus datos personales",
+          "restriction": "El derecho de restricción - el derecho a solicitar que restrinjamos el procesamiento de su información personal",
+          "portability": "El derecho a la portabilidad de datos - el derecho a recibir una copia de su información personal en un formato estructurado, legible por máquina y comúnmente utilizado",
+          "withdraw": "El derecho a retirar el consentimiento - el derecho a retirar su consentimiento en cualquier momento"
+        }
+      },
+      "changes": {
+        "title": "9. Cambios a Esta Política de Privacidad",
+        "p1": "Podemos actualizar nuestra Política de Privacidad de vez en cuando. Le notificaremos de cualquier cambio publicando la nueva Política de Privacidad en esta página y actualizando la \"fecha de vigencia\" en la parte superior de esta Política de Privacidad.",
+        "p2": "Se le aconseja revisar esta Política de Privacidad periódicamente para cualquier cambio. Los cambios a esta Política de Privacidad son efectivos cuando se publican en esta página."
+      },
+      "contact": {
+        "title": "10. Contáctenos",
+        "inquiry": "Si tiene alguna pregunta sobre esta Política de Privacidad, por favor contáctenos en:",
+        "email": "Correo electrónico: privacy@altchain.com"
+      }
+    },
+    "termsOfService": {
+      "title": "Términos de Servicio",
+      "intro": {
+        "title": "1. Introducción",
+        "p1": "Estos Términos de Servicio (\"Términos\") rigen su acceso y uso del sitio web y servicios de AltChain. Por favor, lea estos Términos cuidadosamente antes de usar nuestros servicios.",
+        "p2": "Al acceder o utilizar nuestro servicio, usted acepta estar obligado por estos Términos. Si no está de acuerdo con alguna parte de los términos, entonces no puede acceder al servicio."
+      },
+      "waitlist": {
+        "title": "2. Registro en Lista de Espera",
+        "content": "Al registrarse en nuestra lista de espera, acepta recibir actualizaciones periódicas sobre nuestros servicios, fechas de lanzamiento e información relacionada. Utilizaremos la dirección de correo electrónico que proporcione para comunicarnos con usted sobre los servicios de AltChain."
+      },
+      "communications": {
+        "title": "3. Comunicaciones",
+        "content": "Al proporcionar su dirección de correo electrónico y registrarse en nuestra lista de espera, consiente recibir comunicaciones nuestras electrónicamente. Acepta que todos los acuerdos, avisos, divulgaciones y otras comunicaciones que le proporcionemos electrónicamente satisfacen cualquier requisito legal de que dichas comunicaciones sean por escrito."
+      },
+      "ip": {
+        "title": "4. Propiedad Intelectual",
+        "p1": "Nuestro servicio y su contenido original, características y funcionalidad son y seguirán siendo propiedad exclusiva de AltChain y sus licenciantes. Nuestro servicio está protegido por derechos de autor, marcas comerciales y otras leyes tanto de Estados Unidos como de países extranjeros.",
+        "p2": "Nuestras marcas comerciales y nuestra vestimenta comercial no pueden ser utilizadas en conexión con ningún producto o servicio sin el consentimiento previo por escrito de AltChain."
+      },
+      "links": {
+        "title": "5. Enlaces a Otros Sitios Web",
+        "p1": "Nuestro servicio puede contener enlaces a sitios web o servicios de terceros que no son propiedad ni están controlados por AltChain.",
+        "p2": "AltChain no tiene control sobre, y no asume responsabilidad por, el contenido, políticas de privacidad o prácticas de cualquier sitio web o servicio de terceros. Además, reconoce y acepta que AltChain no será responsable, directa o indirectamente, por cualquier daño o pérdida causada o presuntamente causada por o en conexión con el uso o la confianza en cualquier contenido, bienes o servicios disponibles en o a través de cualquier sitio web o servicio."
+      },
+      "termination": {
+        "title": "6. Terminación",
+        "p1": "Podemos terminar o suspender el acceso a nuestro servicio inmediatamente, sin previo aviso o responsabilidad, por cualquier motivo, incluyendo, sin limitación, si usted incumple los Términos.",
+        "p2": "Todas las disposiciones de los Términos que por su naturaleza deberían sobrevivir a la terminación sobrevivirán a la terminación, incluyendo, sin limitación, disposiciones de propiedad, renuncias de garantía, indemnización y limitaciones de responsabilidad."
+      },
+      "disclaimer": {
+        "title": "7. Descargo de Responsabilidad",
+        "content": "Su uso del servicio es bajo su propio riesgo. El servicio se proporciona \"TAL CUAL\" y \"SEGÚN DISPONIBILIDAD\". El servicio se proporciona sin garantías de ningún tipo, ya sean expresas o implícitas, incluyendo, pero no limitado a, garantías implícitas de comerciabilidad, idoneidad para un propósito particular, no infracción o curso de rendimiento."
+      },
+      "liability": {
+        "title": "8. Limitación de Responsabilidad",
+        "content": "En ningún caso AltChain, ni sus directores, empleados, socios, agentes, proveedores o afiliados, serán responsables por cualquier daño indirecto, incidental, especial, consecuente o punitivo, incluyendo, sin limitación, pérdida de beneficios, datos, uso, buena voluntad u otras pérdidas intangibles, resultantes de (i) su acceso o uso o incapacidad para acceder o usar el servicio; (ii) cualquier conducta o contenido de cualquier tercero en el servicio; (iii) cualquier contenido obtenido del servicio; y (iv) acceso no autorizado, uso o alteración de sus transmisiones o contenido, ya sea basado en garantía, contrato, agravio (incluyendo negligencia), o cualquier otra teoría legal, ya sea que hayamos sido informados o no de la posibilidad de tal daño."
+      },
+      "law": {
+        "title": "9. Ley Aplicable",
+        "p1": "Estos Términos se regirán e interpretarán de acuerdo con las leyes de los Estados Unidos, sin tener en cuenta sus disposiciones sobre conflictos de leyes.",
+        "p2": "Nuestra falta de hacer cumplir cualquier derecho o disposición de estos Términos no se considerará una renuncia a esos derechos. Si alguna disposición de estos Términos es considerada inválida o inaplicable por un tribunal, las disposiciones restantes de estos Términos permanecerán en vigor."
+      },
+      "changes": {
+        "title": "10. Cambios",
+        "p1": "Nos reservamos el derecho, a nuestra sola discreción, de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, trataremos de proporcionar al menos 30 días de aviso antes de que cualquier nuevo término entre en vigor. Lo que constituye un cambio material será determinado a nuestra sola discreción.",
+        "p2": "Al continuar accediendo o utilizando nuestro servicio después de que esas revisiones entren en vigor, acepta estar obligado por los términos revisados. Si no está de acuerdo con los nuevos términos, por favor deje de usar el servicio."
+      },
+      "contact": {
+        "title": "11. Contáctenos",
+        "inquiry": "Si tiene alguna pregunta sobre estos Términos, por favor contáctenos en:",
+        "email": "Correo electrónico: legal@altchain.com"
+      }
+    }
   }
 }

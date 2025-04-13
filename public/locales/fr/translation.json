@@ -137,6 +137,138 @@
     "en": "Anglais",
     "es": "Espagnol",
     "zh": "Chinois",
-    "fr": "Français"
+    "fr": "Français",
+    "ru": "Russe"
+  },
+  "legal": {
+    "date": "13 avril 2025",
+    "lastUpdated": "Dernière mise à jour",
+    "privacyPolicy": {
+      "title": "Politique de Confidentialité",
+      "intro": {
+        "title": "1. Introduction",
+        "p1": "Bienvenue chez AltChain (« nous », « notre » ou « nos »). Nous respectons votre vie privée et nous nous engageons à protéger vos données personnelles. Cette Politique de Confidentialité explique comment nous collectons, utilisons, divulguons et protégeons vos informations lorsque vous visitez notre site web ou utilisez nos services.",
+        "p2": "Veuillez lire attentivement cette Politique de Confidentialité. Si vous n'êtes pas d'accord avec les termes de cette Politique de Confidentialité, veuillez ne pas accéder au site."
+      },
+      "infoCollect": {
+        "title": "2. Informations que Nous Collectons",
+        "personalData": {
+          "title": "Données Personnelles",
+          "content": "Lorsque vous vous inscrivez à notre liste d'attente, nous collectons votre adresse e-mail. Ces informations sont utilisées pour vous tenir informé de nos services et de la date de lancement."
+        },
+        "usageData": {
+          "title": "Données d'Utilisation",
+          "content": "Nous pouvons également collecter des informations sur la façon dont le site web est accédé et utilisé (« Données d'Utilisation »). Ces Données d'Utilisation peuvent inclure des informations telles que l'adresse de Protocole Internet de votre ordinateur (adresse IP), le type de navigateur, la version du navigateur, les pages de notre site web que vous visitez, l'heure et la date de votre visite, le temps passé sur ces pages, les identifiants uniques de l'appareil et d'autres données de diagnostic."
+        }
+      },
+      "infoUse": {
+        "title": "3. Comment Nous Utilisons Vos Informations",
+        "intro": "Nous utilisons les informations que nous collectons à diverses fins, notamment pour :",
+        "purposes": {
+          "provide": "Fournir et maintenir notre service",
+          "notify": "Vous informer des changements apportés à notre service",
+          "support": "Fournir un service client",
+          "monitor": "Surveiller l'utilisation de notre service",
+          "technical": "Détecter, prévenir et résoudre les problèmes techniques",
+          "marketing": "Vous fournir des actualités, des offres spéciales et des informations générales sur d'autres biens, services et événements que nous proposons"
+        }
+      },
+      "email": {
+        "title": "4. Communications par E-mail",
+        "content": "Si vous choisissez de vous inscrire à notre liste de diffusion, vous recevrez des e-mails qui peuvent inclure des nouvelles de l'entreprise, des mises à jour, des informations sur les produits ou services connexes, etc. Nous pouvons utiliser des fournisseurs de services tiers pour nous aider à exploiter notre entreprise et le site ou à administrer des activités en notre nom, comme l'envoi de bulletins d'information ou d'enquêtes."
+      },
+      "cookies": {
+        "title": "5. Cookies",
+        "p1": "Nous utilisons des cookies et des technologies de suivi similaires pour suivre l'activité sur notre service et conserver certaines informations. Les cookies sont des fichiers contenant une petite quantité de données qui peuvent inclure un identifiant unique anonyme.",
+        "p2": "Vous pouvez demander à votre navigateur de refuser tous les cookies ou d'indiquer quand un cookie est envoyé. Cependant, si vous n'acceptez pas les cookies, vous ne pourrez peut-être pas utiliser certaines parties de notre service."
+      },
+      "security": {
+        "title": "6. Sécurité des Données",
+        "content": "La sécurité de vos données est importante pour nous, mais n'oubliez pas qu'aucune méthode de transmission sur Internet ou méthode de stockage électronique n'est sécurisée à 100%. Bien que nous nous efforcions d'utiliser des moyens commercialement acceptables pour protéger vos données personnelles, nous ne pouvons pas garantir leur sécurité absolue."
+      },
+      "providers": {
+        "title": "7. Prestataires de Services",
+        "p1": "Nous pouvons faire appel à des sociétés tierces et à des individus pour faciliter notre service (« Prestataires de Services »), pour fournir le service en notre nom, pour effectuer des services liés au service ou pour nous aider à analyser comment notre service est utilisé. Ces tiers n'ont accès à vos données personnelles que pour effectuer ces tâches en notre nom et sont tenus de ne pas les divulguer ni les utiliser à d'autres fins.",
+        "p2": "Nos Prestataires de Services comprennent :",
+        "sendgrid": "SendGrid pour les communications par e-mail",
+        "database": "Fournisseurs de services de base de données pour stocker les informations de la liste d'attente"
+      },
+      "rights": {
+        "title": "8. Vos Droits de Protection des Données",
+        "intro": "Selon votre localisation, vous pouvez avoir certains droits concernant vos informations personnelles, tels que :",
+        "list": {
+          "access": "Le droit d'accéder, de mettre à jour ou de supprimer les informations que nous détenons sur vous",
+          "rectification": "Le droit de rectification - le droit de faire corriger vos informations",
+          "object": "Le droit d'objection - le droit de vous opposer à notre traitement de vos données personnelles",
+          "restriction": "Le droit de restriction - le droit de demander que nous limitions le traitement de vos informations personnelles",
+          "portability": "Le droit à la portabilité des données - le droit de recevoir une copie de vos informations personnelles dans un format structuré, lisible par machine et couramment utilisé",
+          "withdraw": "Le droit de retirer votre consentement - le droit de retirer votre consentement à tout moment"
+        }
+      },
+      "changes": {
+        "title": "9. Modifications de Cette Politique de Confidentialité",
+        "p1": "Nous pouvons mettre à jour notre Politique de Confidentialité de temps à autre. Nous vous informerons de tout changement en publiant la nouvelle Politique de Confidentialité sur cette page et en mettant à jour la « date d'entrée en vigueur » en haut de cette Politique de Confidentialité.",
+        "p2": "Il vous est conseillé de consulter périodiquement cette Politique de Confidentialité pour tout changement. Les modifications apportées à cette Politique de Confidentialité entrent en vigueur lorsqu'elles sont publiées sur cette page."
+      },
+      "contact": {
+        "title": "10. Contactez-Nous",
+        "inquiry": "Si vous avez des questions concernant cette Politique de Confidentialité, veuillez nous contacter à :",
+        "email": "E-mail : privacy@altchain.com"
+      }
+    },
+    "termsOfService": {
+      "title": "Conditions d'Utilisation",
+      "intro": {
+        "title": "1. Introduction",
+        "p1": "Ces Conditions d'Utilisation (« Conditions ») régissent votre accès et utilisation du site web et des services d'AltChain. Veuillez lire attentivement ces Conditions avant d'utiliser nos services.",
+        "p2": "En accédant ou en utilisant notre service, vous acceptez d'être lié par ces Conditions. Si vous n'êtes pas d'accord avec une partie des conditions, vous ne pouvez pas accéder au service."
+      },
+      "waitlist": {
+        "title": "2. Inscription à la Liste d'Attente",
+        "content": "En vous inscrivant à notre liste d'attente, vous acceptez de recevoir des mises à jour périodiques concernant nos services, les dates de lancement et les informations connexes. Nous utiliserons l'adresse e-mail que vous fournissez pour communiquer avec vous au sujet des services d'AltChain."
+      },
+      "communications": {
+        "title": "3. Communications",
+        "content": "En fournissant votre adresse e-mail et en vous inscrivant à notre liste d'attente, vous consentez à recevoir des communications électroniques de notre part. Vous acceptez que tous les accords, avis, divulgations et autres communications que nous vous fournissons électroniquement satisfont à toute exigence légale selon laquelle ces communications doivent être écrites."
+      },
+      "ip": {
+        "title": "4. Propriété Intellectuelle",
+        "p1": "Notre service et son contenu original, ses fonctionnalités et sa fonctionnalité sont et resteront la propriété exclusive d'AltChain et de ses concédants. Notre service est protégé par le droit d'auteur, les marques commerciales et autres lois des États-Unis et des pays étrangers.",
+        "p2": "Nos marques commerciales et notre présentation commerciale ne peuvent pas être utilisées en relation avec un produit ou un service sans le consentement écrit préalable d'AltChain."
+      },
+      "links": {
+        "title": "5. Liens Vers D'autres Sites Web",
+        "p1": "Notre service peut contenir des liens vers des sites Web ou des services tiers qui ne sont pas détenus ou contrôlés par AltChain.",
+        "p2": "AltChain n'a aucun contrôle sur, et n'assume aucune responsabilité pour, le contenu, les politiques de confidentialité ou les pratiques de tout site Web ou service tiers. Vous reconnaissez et acceptez en outre qu'AltChain ne sera pas responsable, directement ou indirectement, de tout dommage ou perte causé ou présumé avoir été causé par ou en relation avec l'utilisation ou la confiance accordée à tout contenu, biens ou services disponibles sur ou via de tels sites Web ou services."
+      },
+      "termination": {
+        "title": "6. Résiliation",
+        "p1": "Nous pouvons résilier ou suspendre l'accès à notre service immédiatement, sans préavis ni responsabilité, pour quelque raison que ce soit, y compris, sans limitation, si vous violez les Conditions.",
+        "p2": "Toutes les dispositions des Conditions qui, par leur nature, devraient survivre à la résiliation survivront à la résiliation, y compris, sans limitation, les dispositions relatives à la propriété, les avis de non-responsabilité, l'indemnisation et les limitations de responsabilité."
+      },
+      "disclaimer": {
+        "title": "7. Avis de Non-Responsabilité",
+        "content": "Votre utilisation du service est à vos propres risques. Le service est fourni « TEL QUEL » et « SELON DISPONIBILITÉ ». Le service est fourni sans garanties d'aucune sorte, qu'elles soient expresses ou implicites, y compris, mais sans s'y limiter, les garanties implicites de qualité marchande, d'adéquation à un usage particulier, de non-contrefaçon ou de performance."
+      },
+      "liability": {
+        "title": "8. Limitation de Responsabilité",
+        "content": "En aucun cas, AltChain, ni ses directeurs, employés, partenaires, agents, fournisseurs ou affiliés, ne seront responsables de tout dommage indirect, accidentel, spécial, consécutif ou punitif, y compris, sans limitation, la perte de profits, de données, d'utilisation, de clientèle ou d'autres pertes intangibles, résultant de (i) votre accès à ou utilisation ou incapacité à accéder ou à utiliser le service ; (ii) toute conduite ou contenu d'un tiers sur le service ; (iii) tout contenu obtenu du service ; et (iv) l'accès, l'utilisation ou l'altération non autorisés de vos transmissions ou contenus, que ce soit sur la base d'une garantie, d'un contrat, d'un délit (y compris la négligence) ou de toute autre théorie juridique, que nous ayons été informés ou non de la possibilité de tels dommages."
+      },
+      "law": {
+        "title": "9. Loi Applicable",
+        "p1": "Ces Conditions seront régies et interprétées conformément aux lois des États-Unis, sans égard à ses dispositions relatives aux conflits de lois.",
+        "p2": "Notre incapacité à faire respecter un droit ou une disposition de ces Conditions ne sera pas considérée comme une renonciation à ces droits. Si une disposition de ces Conditions est jugée invalide ou inapplicable par un tribunal, les dispositions restantes de ces Conditions resteront en vigueur."
+      },
+      "changes": {
+        "title": "10. Modifications",
+        "p1": "Nous nous réservons le droit, à notre seule discrétion, de modifier ou de remplacer ces Conditions à tout moment. Si une révision est importante, nous essaierons de fournir un préavis d'au moins 30 jours avant que de nouvelles conditions n'entrent en vigueur. Ce qui constitue un changement important sera déterminé à notre seule discrétion.",
+        "p2": "En continuant à accéder ou à utiliser notre service après que ces révisions soient entrées en vigueur, vous acceptez d'être lié par les conditions révisées. Si vous n'êtes pas d'accord avec les nouvelles conditions, veuillez cesser d'utiliser le service."
+      },
+      "contact": {
+        "title": "11. Contactez-Nous",
+        "inquiry": "Si vous avez des questions concernant ces Conditions, veuillez nous contacter à :",
+        "email": "E-mail : legal@altchain.com"
+      }
+    }
   }
 }
