@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next"; 
-import { Activity, Shield, BarChart3, Info } from "lucide-react";
+import { Activity, Shield, BarChart3, HelpCircle } from "lucide-react";
 import { 
   Tooltip, 
   TooltipContent, 
@@ -32,7 +32,7 @@ export default function Features() {
 
   return (
     <TooltipProvider>
-      <section className="bg-white py-16">
+      <section className="bg-white py-16 z-10">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-12">
             <h3 className="text-2xl md:text-3xl font-bold">{t('features.title')}</h3>
@@ -45,19 +45,19 @@ export default function Features() {
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   {feature.icon}
                 </div>
-                <div className="flex items-center justify-center gap-2 mb-2">
-                  <h4 className="text-lg font-semibold">
+                <div className="relative mb-2">
+                  <h4 className="text-lg font-semibold inline-block">
                     {t(`features.${feature.key}.title`)}
                   </h4>
-                  <Tooltip>
+                  <Tooltip delayDuration={300}>
                     <TooltipTrigger asChild>
-                      <button className="inline-flex items-center justify-center p-1 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors">
-                        <Info className="h-4 w-4 text-primary" />
+                      <button className="inline-flex items-center justify-center ml-1 opacity-60 hover:opacity-100">
+                        <HelpCircle className="h-4 w-4 text-primary/70" />
                         <span className="sr-only">More information</span>
                       </button>
                     </TooltipTrigger>
-                    <TooltipContent className="max-w-xs p-4 text-left bg-white border-primary/10 shadow-lg">
-                      <p className="text-sm text-gray-700">
+                    <TooltipContent side="top" sideOffset={5} className="max-w-xs p-3 text-left bg-gray-50 border border-gray-100">
+                      <p className="text-xs text-gray-700 leading-relaxed">
                         {t(`features.${feature.key}.tooltip`)}
                       </p>
                     </TooltipContent>
