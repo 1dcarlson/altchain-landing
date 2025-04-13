@@ -9,12 +9,12 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-// Animation variants for flag
-const flagVariants = {
-  initial: { scale: 0.8, opacity: 0, rotate: -10 },
-  animate: { scale: 1, opacity: 1, rotate: 0, transition: { type: "spring", stiffness: 260, damping: 20 } },
-  exit: { scale: 0.8, opacity: 0, rotate: 10, transition: { duration: 0.2 } },
-  hover: { scale: 1.1, rotate: 5, transition: { type: "spring", stiffness: 400, damping: 10 } }
+// Animation variants for indicator
+const indicatorVariants = {
+  initial: { scale: 0.8, opacity: 0 },
+  animate: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 260, damping: 20 } },
+  exit: { scale: 0.8, opacity: 0, transition: { duration: 0.2 } },
+  hover: { scale: 1.1, transition: { type: "spring", stiffness: 400, damping: 10 } }
 };
 
 // Animation for menu items
@@ -39,18 +39,18 @@ const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedLang, setSelectedLang] = useState<string>(i18n.language || 'en');
 
-  // Update the selected flag when language changes
+  // Update the selected language when language changes
   useEffect(() => {
     setSelectedLang(i18n.language);
   }, [i18n.language]);
 
   // Hard-code language names instead of using translations to avoid circular reference
   const languages = [
-    { code: 'en', name: 'English' },
-    { code: 'es', name: 'Español' },
-    { code: 'zh', name: '中文' },
-    { code: 'fr', name: 'Français' },
-    { code: 'ru', name: 'Русский' }
+    { code: 'en', name: 'English', color: '#1A47B8' },
+    { code: 'es', name: 'Español', color: '#F93939' },
+    { code: 'zh', name: '中文', color: '#DE2910' },
+    { code: 'fr', name: 'Français', color: '#0055A4' },
+    { code: 'ru', name: 'Русский', color: '#0039A6' }
   ];
 
   const changeLanguage = (lng: string) => {
@@ -67,27 +67,17 @@ const LanguageSelector = () => {
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedLang}
-              variants={flagVariants}
+              variants={indicatorVariants}
               initial="initial"
               animate="animate"
               exit="exit"
               whileHover="hover"
-              className="w-6 h-6 rounded-full overflow-hidden"
+              className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm"
+              style={{ backgroundColor: currentLanguage.color }}
             >
-              {/* Globe icon as fallback if flag loading fails */}
-              <div className="relative w-full h-full">
-                <div className="absolute inset-0 flex items-center justify-center bg-white/10">
-                  <Globe className="w-4 h-4 text-blue-500" />
-                </div>
-                <img 
-                  src={`/flags/${currentLanguage.code}.svg`}
-                  alt={currentLanguage.name} 
-                  className="relative z-10 w-full h-full object-cover shadow-sm"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
-              </div>
+              <span className="text-white font-bold text-xs">
+                {currentLanguage.code.toUpperCase().substring(0, 2)}
+              </span>
             </motion.div>
           </AnimatePresence>
         </div>
@@ -112,20 +102,13 @@ const LanguageSelector = () => {
                   i18n.language === language.code ? 'bg-blue-50 text-blue-900 font-medium' : ''
                 }`}
               >
-                <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-50 flex items-center justify-center">
-                  <div className="relative w-full h-full">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <Globe className="w-3 h-3 text-blue-300" />
-                    </div>
-                    <img 
-                      src={`/flags/${language.code}.svg`}
-                      alt={language.name} 
-                      className="relative z-10 w-full h-full object-cover group-hover:scale-110 transition-transform"
-                      onError={(e) => {
-                        e.currentTarget.style.display = 'none';
-                      }}
-                    />
-                  </div>
+                <div 
+                  className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform"
+                  style={{ backgroundColor: language.color }}
+                >
+                  <span className="text-white font-bold text-xs">
+                    {language.code.toUpperCase().substring(0, 2)}
+                  </span>
                 </div>
                 <span>{language.name}</span>
               </DropdownMenuItem>
