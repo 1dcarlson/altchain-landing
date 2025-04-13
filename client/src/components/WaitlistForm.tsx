@@ -65,8 +65,9 @@ export default function WaitlistForm() {
           <button 
             type="submit" 
             disabled={formState === 'submitting'}
-            className="w-full py-3 px-6 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 disabled:opacity-70"
+            className="w-full py-3 px-6 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 disabled:opacity-70 relative overflow-hidden hover:shadow-lg hover:shadow-primary/30 hover:-translate-y-1 active:translate-y-0 group"
           >
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
             {formState === 'submitting' ? (
               <span className="flex items-center justify-center">
                 <svg className="animate-spin h-5 w-5 text-white inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

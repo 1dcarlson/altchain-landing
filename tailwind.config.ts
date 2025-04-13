@@ -79,10 +79,35 @@ export default {
             height: "0",
           },
         },
+        "shimmer": {
+          from: {
+            transform: "translateX(-100%)",
+          },
+          to: {
+            transform: "translateX(100%)",
+          },
+        },
+        "pulse-once": {
+          "0%": { transform: "scale(0.95)" },
+          "50%": { transform: "scale(1.05)" },
+          "100%": { transform: "scale(1)" },
+        },
+        "bounce-subtle": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-10%)" },
+        },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "shimmer": "shimmer 2s linear infinite",
+        "pulse-once": "pulse-once 0.5s ease-out",
+        "bounce-subtle": "bounce-subtle 1s ease-in-out infinite",
+        "spin-slow": "spin-slow 6s linear infinite",
       },
     },
   },

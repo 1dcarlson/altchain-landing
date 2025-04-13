@@ -65,7 +65,7 @@ export default function Benefits() {
           <Button 
             variant="default" 
             size="lg" 
-            className="group"
+            className="group relative overflow-hidden"
             onClick={() => {
               // Smooth scroll to waitlist form
               const el = document.getElementById('waitlist-form');
@@ -74,8 +74,9 @@ export default function Benefits() {
               }
             }}
           >
+            <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
             {t('cta.button')}
-            <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="ml-2 h-4 w-4 transition-all duration-300 group-hover:translate-x-1 group-hover:animate-bounce-subtle" />
           </Button>
         </div>
       </div>
