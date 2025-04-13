@@ -103,8 +103,8 @@ export default function WaitlistForm() {
                 </svg>
               </div>
             </div>
-            <h4 className="font-bold text-xl mb-2 text-primary-foreground">{t('waitlist.success')}</h4>
-            <p className="text-sm mt-1 text-primary-foreground/80">{t('waitlist.successDetail')}</p>
+            <h4 className="font-bold text-xl mb-2 text-gray-800">{t('waitlist.success')}</h4>
+            <p className="text-sm mt-1 text-gray-700 font-medium">{t('waitlist.successDetail')}</p>
           </div>
           <div className="mt-3 text-center">
             <p className="text-primary font-medium">🎉 Congratulations!</p>
