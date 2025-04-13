@@ -9,9 +9,9 @@ export default function Footer() {
           </div>
           
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-            <a href="#" className="text-gray-600 hover:text-primary text-sm">Privacy Policy</a>
-            <a href="#" className="text-gray-600 hover:text-primary text-sm">Terms of Service</a>
-            <a href="#" className="text-gray-600 hover:text-primary text-sm">Contact Us</a>
+            <a href="/privacy-policy" className="text-gray-600 hover:text-primary text-sm">Privacy Policy</a>
+            <a href="/terms-of-service" className="text-gray-600 hover:text-primary text-sm">Terms of Service</a>
+            <a href="mailto:info@altchain.com" className="text-gray-600 hover:text-primary text-sm">Contact Us</a>
           </div>
         </div>
         
