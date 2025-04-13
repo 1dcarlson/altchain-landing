@@ -1,16 +1,17 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'wouter';
 import LanguageSelector from './LanguageSelector';
+import LogoIcon from './LogoIcon';
 
 export default function Header() {
   const { t } = useTranslation();
   
   return (
-    <header className="bg-blue-900 py-5 px-6 shadow-md sticky top-0 z-10">
+    <header className="bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700 py-5 px-6 shadow-md sticky top-0 z-10">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/">
           <div className="flex items-center gap-2 cursor-pointer">
-            <img src="/logo.svg" alt="AltChain Logo" className="w-8 h-8" />
+            <LogoIcon />
             <span className="text-white font-bold text-2xl">AltChain</span>
           </div>
         </Link>
