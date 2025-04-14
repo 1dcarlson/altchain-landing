@@ -1,0 +1,14 @@
+{
+  "name": "AltChain",
+  "short_name": "AltChain",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#1E3A8A",
+  "background_color": "#ffffff",
+  "display": "standalone"
+}
