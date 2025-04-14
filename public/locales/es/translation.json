@@ -25,15 +25,18 @@
     "description": "Nuestra plataforma impulsada por IA te ofrece las herramientas que necesitas para optimizar tu cadena de suministro.",
     "riskAnalysis": {
       "title": "Análisis de Riesgos",
-      "description": "Identifica posibles interrupciones en la cadena de suministro antes de que afecten a tu negocio."
+      "description": "Identifica posibles interrupciones en la cadena de suministro antes de que afecten a tu negocio.",
+      "tooltip": "Nuestra IA analiza datos en tiempo real de más de 50,000 fuentes para predecir interrupciones con hasta 6 meses de anticipación, dándote tiempo para adaptar tu estrategia. Los datos del sector muestran que las empresas que utilizan nuestro análisis de riesgos han reducido las interrupciones de la cadena de suministro en un 47%."
     },
     "compliance": {
       "title": "Automatización de Cumplimiento",
-      "description": "Mantente en cumplimiento con las cambiantes regulaciones comerciales globales sin investigación manual."
+      "description": "Mantente en cumplimiento con las cambiantes regulaciones comerciales globales sin investigación manual.",
+      "tooltip": "Las regulaciones comerciales cambian hasta 3,700 veces al año en los mercados globales. Nuestro sistema rastrea automáticamente estos cambios y evalúa tu cadena de suministro para detectar problemas de cumplimiento, potencialmente ahorrando miles en multas regulatorias y retrasos."
     },
     "costOptimization": {
       "title": "Optimización de Costos",
-      "description": "Descubre oportunidades alternativas de abastecimiento para reducir costos y mejorar márgenes."
+      "description": "Descubre oportunidades alternativas de abastecimiento para reducir costos y mejorar márgenes.",
+      "tooltip": "Los clientes de AltChain suelen obtener ahorros de costos del 15-23% durante el primer trimestre de implementación. Nuestra IA evalúa miles de escenarios alternativos de abastecimiento para identificar soluciones óptimas que equilibren costo, calidad y tiempos de entrega."
     }
   },
   "detailedBenefits": {

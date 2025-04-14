@@ -25,15 +25,18 @@
     "description": "Notre plateforme alimentée par l'IA vous donne les outils dont vous avez besoin pour optimiser votre chaîne d'approvisionnement.",
     "riskAnalysis": {
       "title": "Analyse des Risques",
-      "description": "Identifiez les perturbations potentielles de la chaîne d'approvisionnement avant qu'elles n'affectent votre entreprise."
+      "description": "Identifiez les perturbations potentielles de la chaîne d'approvisionnement avant qu'elles n'affectent votre entreprise.",
+      "tooltip": "Notre IA analyse des données en temps réel provenant de plus de 50 000 sources pour prédire les perturbations jusqu'à 6 mois à l'avance, vous donnant le temps d'adapter votre stratégie. Les données de l'industrie montrent que les entreprises utilisant notre analyse des risques ont réduit les perturbations de la chaîne d'approvisionnement de 47%."
     },
     "compliance": {
       "title": "Automatisation de la Conformité",
-      "description": "Restez conforme aux réglementations commerciales mondiales changeantes sans recherche manuelle."
+      "description": "Restez conforme aux réglementations commerciales mondiales changeantes sans recherche manuelle.",
+      "tooltip": "Les réglementations commerciales changent jusqu'à 3 700 fois par an sur les marchés mondiaux. Notre système suit automatiquement ces changements et évalue votre chaîne d'approvisionnement pour les problèmes de conformité, économisant potentiellement des milliers en amendes réglementaires et retards."
     },
     "costOptimization": {
       "title": "Optimisation des Coûts",
-      "description": "Découvrez des opportunités d'approvisionnement alternatives pour réduire les coûts et améliorer les marges."
+      "description": "Découvrez des opportunités d'approvisionnement alternatives pour réduire les coûts et améliorer les marges.",
+      "tooltip": "Les clients d'AltChain réalisent généralement des économies de coûts de 15 à 23% au cours du premier trimestre de mise en œuvre. Notre IA évalue des milliers de scénarios d'approvisionnement alternatifs pour identifier des solutions optimales qui équilibrent coût, qualité et délais de livraison."
     }
   },
   "detailedBenefits": {
