@@ -13,7 +13,8 @@
     "successDetail": "Nos pondremos en contacto cuando estemos listos para incorporar nuevos usuarios.",
     "error": "¡Algo salió mal!",
     "errorDetail": "Por favor, inténtalo de nuevo o contacta con soporte si el problema persiste.",
-    "tryAgain": "Intentar de Nuevo"
+    "tryAgain": "Intentar de Nuevo",
+    "congratulations": "¡Felicidades!"
   },
   "benefits": {
     "free": "Gratis para acceso anticipado",

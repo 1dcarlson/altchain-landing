@@ -107,7 +107,7 @@ export default function WaitlistForm() {
             <p className="text-sm mt-1 text-gray-700 font-medium">{t('waitlist.successDetail')}</p>
           </div>
           <div className="mt-3 text-center">
-            <p className="text-primary font-medium">🎉 Congratulations!</p>
+            <p className="text-primary font-medium">🎉 {t('waitlist.congratulations')}</p>
           </div>
         </div>
       ) : (
