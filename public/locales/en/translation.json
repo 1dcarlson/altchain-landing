@@ -149,6 +149,13 @@
     "fr": "French",
     "ru": "Russian"
   },
+  "timeTheme": {
+    "morning": "Morning Mode",
+    "day": "Day Mode",
+    "evening": "Evening Mode",
+    "night": "Night Mode",
+    "adaptiveTheme": "Adaptive colors based on your local time"
+  },
   "contact": {
     "navLink": "Contact",
     "pageTitle": "Contact Us",

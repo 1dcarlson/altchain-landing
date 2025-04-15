@@ -1,6 +1,4 @@
 import { Switch, Route } from "wouter";
-import { queryClient } from "./lib/queryClient";
-import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import InteractiveBackground from "@/components/InteractiveBackground";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
@@ -9,6 +7,7 @@ import HomePage from "@/pages/HomePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import ContactPage from "@/pages/ContactPage";
+import { useTheme } from "@/hooks/theme-provider";
 
 function Router() {
   return (
@@ -23,13 +22,33 @@ function Router() {
 }
 
 function App() {
+  const { isDark, timeTheme } = useTheme();
+  
+  // Apply dynamic background color based on time theme
+  const getBackgroundColor = () => {
+    if (isDark) {
+      return 'bg-slate-900';
+    }
+    
+    switch (timeTheme) {
+      case 'morning':
+        return 'bg-amber-50';
+      case 'day':
+        return 'bg-slate-50';
+      case 'evening':
+        return 'bg-purple-50';
+      default:
+        return 'bg-slate-50';
+    }
+  };
+  
   return (
-    <QueryClientProvider client={queryClient}>
+    <div className={`${getBackgroundColor()} min-h-screen transition-colors duration-1000`}>
       <InteractiveBackground />
       <ScrollProgressIndicator />
       <Router />
       <Toaster />
-    </QueryClientProvider>
+    </div>
   );
 }
 
