@@ -1,4 +1,8 @@
 {
+  "personalWelcome": {
+    "greeting": "Welcome to AltChain!",
+    "message": "We're excited to have you here. Discover how our AI-powered platform can transform your global sourcing strategy."
+  },
   "hero": {
     "title": "Smarter Global Sourcing with AI",
     "description": "AltChain helps companies worldwide navigate the evolving landscape of trade wars, tariffs, and supply chain shifts — using AI to optimize sourcing, reduce risk, and save time."
