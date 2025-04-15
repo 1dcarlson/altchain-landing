@@ -16,15 +16,29 @@
     <meta property="og:url" content="https://www.altchain.app" />
     <meta name="twitter:card" content="summary_large_image" />
     
-    <!-- Enhanced favicon approach for improved cross-browser/device support -->
-    <link rel="icon" href="/favicon.ico?v=2" type="image/x-icon">
-    <link rel="shortcut icon" href="/favicon.ico?v=2" type="image/x-icon">
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=2">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=2">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
-    <link rel="manifest" href="/site.webmanifest?v=2">
+    <!-- Direct favicon approach -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon-new.ico?v=4" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon-new.ico?v=4" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon.png?v=4">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png?v=4">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=4">
+    <link rel="manifest" href="/site.webmanifest?v=4">
     <meta name="msapplication-TileColor" content="#1E3A8A">
     <meta name="theme-color" content="#1E3A8A">
+    
+    <!-- Inline favicon as base64 -->
+    <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzE3NjBFQSIvPgo8cGF0aCBkPSJNMTYuODE0IDIzLjYwMzRMMTIuNzQ0OCAxOS41MTUxTDguNjc1NjEgMjMuNjAzNEw2IDIwLjkwOTJMMTIuNzQ0OCAxNC4xMjY5TDE5LjQ4OTYgMjAuOTA5MkwxNi44MTQgMjMuNjAzNFoiIGZpbGw9IndoaXRlIi8+CjxwYXRoIGQ9Ik0yMi45NDc3IDE3LjQyMjNMMjUuOTk4OSAyMC40OTE1TDIyLjk0NzcgMjMuNTYwOUwyNiAyNi42MzAyTDI5LjA1MTIgMjMuNTYwOUwzMiAyMC40OTE1TDI2IDguMzY5NjNMMjAuOTk3NyAxNC40NTNMMjIuOTQ3NyAxNy40MjIzWiIgZmlsbD0id2hpdGUiLz4KPC9zdmc+Cg==" type="image/svg+xml">
+    
+    <style>
+      /* Ensure favicon is loaded */
+      body::before {
+        content: "";
+        display: none;
+        background-image: url("favicon.ico");
+      }
+    </style>
     
     <title>AltChain – AI-Powered Global Sourcing</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
