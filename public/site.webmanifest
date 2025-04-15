@@ -8,12 +8,19 @@
       "type": "image/x-icon"
     },
     {
+      "src": "/favicon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    },
+    {
       "src": "/favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#1E3A8A",
   "background_color": "#ffffff",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/"
 }
