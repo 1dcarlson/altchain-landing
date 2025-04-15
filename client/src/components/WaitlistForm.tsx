@@ -3,6 +3,7 @@ import { apiRequest } from '@/lib/queryClient';
 import { useToast } from '@/hooks/use-toast';
 import { useTranslation } from 'react-i18next';
 import { useConfetti } from '@/hooks/use-confetti';
+import ValidationInput from './ValidationInput';
 
 export default function WaitlistForm() {
   const { t } = useTranslation();
@@ -63,13 +64,15 @@ export default function WaitlistForm() {
       {formState === 'idle' || formState === 'submitting' ? (
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="relative">
-            <input 
+            <ValidationInput 
               type="email" 
+              name="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
               placeholder={t('waitlist.placeholder')}
               required
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/10 transition-colors text-gray-800 placeholder-gray-400"
+              autoComplete="email"
+              className="py-3 text-gray-800 placeholder-gray-400"
               disabled={formState === 'submitting'}
             />
           </div>
