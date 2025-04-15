@@ -6,6 +6,7 @@ import Footer from "@/components/Footer";
 import Benefits from "@/components/Benefits";
 import HowItWorks from "@/components/HowItWorks";
 import FAQ from "@/components/FAQ";
+import PersonalWelcome from "@/components/PersonalWelcome";
 import { CheckCircle } from "lucide-react";
 
 export default function HomePage() {
@@ -18,6 +19,7 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="max-w-4xl mx-auto px-6 py-16 md:py-24">
           <div className="text-center animate-pulse-once">
+            <PersonalWelcome />
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
               {t('hero.title')}
             </h2>
