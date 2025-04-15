@@ -103,7 +103,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             autoComplete="email"
-            className={`${submitted && !formData.email ? 'animate-shake border-red-500' : ''}`}
+            className={`${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
@@ -120,7 +120,7 @@ export default function ContactForm() {
             required
             minLength={10}
             maxLength={500}
-            className={`${submitted && !formData.message ? 'animate-shake border-red-500' : ''}`}
+            className={`${submitted && !formData.message && formData.message !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
