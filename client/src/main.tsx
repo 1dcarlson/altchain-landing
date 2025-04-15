@@ -4,10 +4,13 @@ import App from "./App";
 import "./index.css";
 import { queryClient } from "./lib/queryClient";
 import "./i18n"; // Import i18n configuration
+import { ThemeProvider } from "./hooks/theme-provider";
 
 // Initialize i18n before rendering the app
 createRoot(document.getElementById("root")!).render(
   <QueryClientProvider client={queryClient}>
-    <App />
+    <ThemeProvider>
+      <App />
+    </ThemeProvider>
   </QueryClientProvider>
 );
