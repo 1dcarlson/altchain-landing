@@ -1,12 +1,13 @@
 import { useTheme } from '@/hooks/theme-provider';
 import { useTranslation } from 'react-i18next';
+import { useMemo } from 'react';
 
 export default function TimeThemeIndicator() {
   const { colors, timeTheme, isDark } = useTheme();
   const { t } = useTranslation();
   
-  // Icons for different times of day
-  const renderIcon = () => {
+  // Icons for different times of day - memoized to prevent re-renders
+  const icon = useMemo(() => {
     switch (timeTheme) {
       case 'morning':
         return (
@@ -35,10 +36,10 @@ export default function TimeThemeIndicator() {
       default:
         return null;
     }
-  };
+  }, [timeTheme]);
   
-  // Get time theme text
-  const getTimeThemeText = () => {
+  // Get time theme text - memoized to prevent re-renders
+  const timeThemeText = useMemo(() => {
     switch (timeTheme) {
       case 'morning':
         return t('timeTheme.morning');
@@ -51,16 +52,22 @@ export default function TimeThemeIndicator() {
       default:
         return '';
     }
-  };
+  }, [timeTheme, t]);
   
-  return (
-    <div className={`
+  // Get container styles - memoized to prevent re-renders
+  const containerStyles = useMemo(() => {
+    return `
       inline-flex items-center px-2 py-1 rounded-full text-xs font-medium
       ${isDark ? 'bg-slate-700 text-slate-200' : 'bg-slate-200 text-slate-700'}
-      transition-colors duration-500
-    `}>
-      {renderIcon()}
-      <span>{getTimeThemeText()}</span>
+      transition-all duration-700 ease-in-out will-change-auto
+      shadow-sm transform hover:scale-105
+    `;
+  }, [isDark]);
+  
+  return (
+    <div className={containerStyles}>
+      {icon}
+      <span>{timeThemeText}</span>
     </div>
   );
 }

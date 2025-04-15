@@ -10,6 +10,7 @@ import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import TermsOfService from "@/pages/TermsOfService";
 import ContactPage from "@/pages/ContactPage";
 import { useTheme } from "@/hooks/theme-provider";
+import { useMemo } from "react";
 
 function Router() {
   return (
@@ -26,8 +27,8 @@ function Router() {
 function App() {
   const { isDark, timeTheme } = useTheme();
   
-  // Apply dynamic background color based on time theme
-  const getBackgroundColor = () => {
+  // Apply dynamic background color based on time theme (memoized)
+  const bgColorClass = useMemo(() => {
     if (isDark) {
       return 'bg-slate-900';
     }
@@ -39,14 +40,21 @@ function App() {
         return 'bg-slate-50';
       case 'evening':
         return 'bg-purple-50';
+      case 'night':
+        return 'bg-slate-900';
       default:
         return 'bg-slate-50';
     }
-  };
+  }, [isDark, timeTheme]);
   
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={`${getBackgroundColor()} min-h-screen transition-colors duration-1000`}>
+      <div 
+        className={`${bgColorClass} min-h-screen will-change-auto`}
+        style={{ 
+          transition: 'background-color 1.5s cubic-bezier(0.4, 0, 0.2, 1)'
+        }}
+      >
         <InteractiveBackground />
         <ScrollProgressIndicator />
         <Router />
