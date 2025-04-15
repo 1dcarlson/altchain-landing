@@ -128,30 +128,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Add contact form API endpoint
   app.post('/api/contact', async (req, res) => {
+    const { name, email, message } = req.body;
+
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: 'All fields are required.' });
+    }
+
     try {
-      const { name, email, message } = req.body;
-      
-      // Validate required fields
-      if (!name || !email || !message) {
-        return res.status(400).json({
-          success: false,
-          message: 'Name, email, and message are required'
-        });
-      }
-      
-      // Check if SendGrid is configured
-      if (!process.env.SENDGRID_API_KEY) {
-        return res.status(500).json({
-          success: false,
-          message: 'Email service is not configured'
-        });
-      }
-      
-      // Send email notification
       await sendEmail({
-        to: 'daniel@altchain.app', // Or process.env.ADMIN_EMAIL
+        to: 'daniel@altchain.app',
         subject: `New message from ${name}`,
-        text: `Email: ${email}\n\nMessage: ${message}`,
+        text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
         html: `
           <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
             <h2 style="color: #1E3A8A;">New Contact Message</h2>
@@ -163,17 +150,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         `
       });
       
-      // Return success response
-      return res.status(200).json({
-        success: true,
-        message: 'Message sent successfully'
-      });
+      res.status(200).json({ success: true });
     } catch (error) {
-      console.error('Contact form submission error:', error);
-      return res.status(500).json({
-        success: false,
-        message: 'Failed to send message'
-      });
+      console.error('Contact form error:', error);
+      res.status(500).json({ error: 'Failed to send message.' });
     }
   });
 

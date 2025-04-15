@@ -29,12 +29,12 @@ export default function ContactForm() {
       });
 
       const result = await response.json();
-      if (response.ok) {
+      if (response.ok && result.success) {
         setStatus(t('contact.success') + ' ✅');
         setFormData({ name: '', email: '', message: '' });
         triggerConfetti();
       } else {
-        setStatus(result.message || t('contact.error') + ' ❌');
+        setStatus(result.error || t('contact.error') + ' ❌');
       }
     } catch (error) {
       setStatus(t('contact.errorMessage') + ' ❌');
