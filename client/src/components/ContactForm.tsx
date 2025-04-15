@@ -27,6 +27,13 @@ export default function ContactForm() {
     setFormValid(isValid);
   };
 
+  // Function to reset the form completely
+  const resetForm = () => {
+    setFormData({ name: '', email: '', message: '' });
+    setSubmitted(false);
+    setFormValid(false);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -43,9 +50,15 @@ export default function ContactForm() {
       const result = await response.json();
       if (response.ok && result.success) {
         setStatus(t('contact.success') + ' ✅');
-        setFormData({ name: '', email: '', message: '' });
-        setSubmitted(false); // Reset submission state for form fields
+        // Reset the form completely
+        resetForm();
+        // After a successful submission, show the confetti
         triggerConfetti();
+        
+        // After 5 seconds, clear the success message
+        setTimeout(() => {
+          setStatus('');
+        }, 5000);
       } else {
         setStatus(result.error || t('contact.error') + ' ❌');
       }
@@ -74,7 +87,7 @@ export default function ContactForm() {
             minLength={2}
             maxLength={50}
             autoComplete="name"
-            className={`${submitted && !formData.name ? 'animate-shake border-red-500' : ''}`}
+            className={`${submitted && !formData.name && formData.name !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         

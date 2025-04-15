@@ -117,7 +117,12 @@ export default function ValidationTextarea({
   
   // Validate when value changes
   useEffect(() => {
-    if (touched && !isTyping) {
+    if (value === '') {
+      // Reset validation state when field is cleared
+      setTouched(false);
+      setIsValid(true);
+      setMessage('');
+    } else if (touched && !isTyping) {
       setIsValid(validateTextarea());
     }
   }, [value, touched, isTyping]);
