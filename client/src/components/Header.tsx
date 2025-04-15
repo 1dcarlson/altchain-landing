@@ -21,6 +21,11 @@ export default function Header() {
               {t('about')}
             </span>
           </Link>
+          <Link href="/contact">
+            <span className="text-blue-100 hover:text-white text-sm font-medium hidden sm:inline-block transition-colors cursor-pointer">
+              {t('contact.navLink')}
+            </span>
+          </Link>
           <LanguageSelector />
         </nav>
       </div>
