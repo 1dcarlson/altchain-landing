@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { sendEmail } from "./sendgrid";
+import { sendEmail } from "./email";
 import { z } from "zod";
 import { insertWaitlistSchema } from "@shared/schema";
 
@@ -22,22 +22,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       const fromEmail = process.env.FROM_EMAIL || 'noreply@altchain.com';
       
-      const emailSent = await sendEmail({
-        to: testEmail,
-        from: fromEmail,
-        subject: 'AltChain Email Test',
-        html: `
-          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #4c86f9;">Email Test Successful!</h2>
-            <p>This is a test email from AltChain to confirm that the SendGrid integration is working correctly.</p>
-            <p>Best regards,<br>The AltChain Team</p>
-          </div>
-        `
-      });
-      
-      if (emailSent) {
+      try {
+        await sendEmail({
+          to: testEmail,
+          subject: 'AltChain Email Test',
+          text: 'This is a test email from AltChain to confirm that the SendGrid integration is working correctly.',
+          html: `
+            <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #4c86f9;">Email Test Successful!</h2>
+              <p>This is a test email from AltChain to confirm that the SendGrid integration is working correctly.</p>
+              <p>Best regards,<br>The AltChain Team</p>
+            </div>
+          `
+        });
+        
         return res.status(200).json({ message: 'Test email sent successfully' });
-      } else {
+      } catch (error) {
         return res.status(500).json({ message: 'Failed to send test email' });
       }
     } catch (error) {
@@ -75,32 +75,36 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const fromEmail = process.env.FROM_EMAIL || 'noreply@altchain.com';
       
       // Send confirmation email to the user
-      const emailSent = await sendEmail({
-        to: email,
-        from: fromEmail,
-        subject: "Welcome to AltChain Waitlist!",
-        html: `
-          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #4c86f9;">Thank you for joining AltChain's waitlist!</h2>
-            <p>We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.</p>
-            <p>In the meantime, if you have any questions, feel free to reply to this email.</p>
-            <p>Best regards,<br>The AltChain Team</p>
-          </div>
-        `
-      });
-
-      if (!emailSent) {
+      try {
+        await sendEmail({
+          to: email,
+          subject: "Welcome to AltChain Waitlist!",
+          text: "Thank you for joining AltChain's waitlist! We're excited to have you on board.",
+          html: `
+            <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
+              <h2 style="color: #4c86f9;">Thank you for joining AltChain's waitlist!</h2>
+              <p>We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.</p>
+              <p>In the meantime, if you have any questions, feel free to contact us.</p>
+              <p>Best regards,<br>The AltChain Team</p>
+            </div>
+          `
+        });
+      } catch (emailError) {
         // Even if email fails, the user is on the waitlist
-        console.warn("Failed to send confirmation email, but user added to waitlist");
+        console.warn("Failed to send confirmation email, but user added to waitlist:", emailError);
       }
 
       // Send notification to admin
-      await sendEmail({
-        to: process.env.ADMIN_EMAIL || fromEmail,
-        from: fromEmail,
-        subject: "New AltChain Waitlist Signup",
-        text: `New waitlist signup: ${email}`
-      });
+      try {
+        await sendEmail({
+          to: process.env.ADMIN_EMAIL || 'daniel@altchain.app',
+          subject: "New AltChain Waitlist Signup",
+          text: `New waitlist signup: ${email}`,
+          html: `<p>New waitlist signup: <strong>${email}</strong></p>`
+        });
+      } catch (notifyError) {
+        console.warn("Failed to send admin notification:", notifyError);
+      }
 
       // Return success response
       return res.status(200).json({ 
@@ -118,6 +122,57 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       return res.status(500).json({ 
         message: "Failed to join waitlist" 
+      });
+    }
+  });
+
+  // Add contact form API endpoint
+  app.post('/api/contact', async (req, res) => {
+    try {
+      const { name, email, message } = req.body;
+      
+      // Validate required fields
+      if (!name || !email || !message) {
+        return res.status(400).json({
+          success: false,
+          message: 'Name, email, and message are required'
+        });
+      }
+      
+      // Check if SendGrid is configured
+      if (!process.env.SENDGRID_API_KEY) {
+        return res.status(500).json({
+          success: false,
+          message: 'Email service is not configured'
+        });
+      }
+      
+      // Send email notification
+      await sendEmail({
+        to: 'daniel@altchain.app', // Or process.env.ADMIN_EMAIL
+        subject: `New message from ${name}`,
+        text: `Email: ${email}\n\nMessage: ${message}`,
+        html: `
+          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
+            <h2 style="color: #1E3A8A;">New Contact Message</h2>
+            <p><strong>From:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message.replace(/\n/g, '<br>')}</p>
+          </div>
+        `
+      });
+      
+      // Return success response
+      return res.status(200).json({
+        success: true,
+        message: 'Message sent successfully'
+      });
+    } catch (error) {
+      console.error('Contact form submission error:', error);
+      return res.status(500).json({
+        success: false,
+        message: 'Failed to send message'
       });
     }
   });
