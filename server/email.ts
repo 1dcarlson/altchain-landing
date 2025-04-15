@@ -1,60 +1,22 @@
-// Server-side email handling functionality
-const { MailService } = require('@sendgrid/mail');
+import sgMail from '@sendgrid/mail';
 
-// Initialize SendGrid mail service
-const mailService = new MailService();
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-// Set API key if available
-if (process.env.SENDGRID_API_KEY) {
-  mailService.setApiKey(process.env.SENDGRID_API_KEY);
-} else {
-  console.warn('SENDGRID_API_KEY not set. Email functionality will be limited.');
-}
-
-/**
- * Send an email using SendGrid
- * @param {Object} params Email parameters
- * @param {string} params.to Recipient email address
- * @param {string} params.from Sender email address
- * @param {string} params.subject Email subject line
- * @param {string} [params.text] Plain text email content
- * @param {string} [params.html] HTML formatted email content
- * @returns {Promise<boolean>} Success status
- */
-async function sendEmail(params) {
-  // Validate required parameters
-  if (!params.to || !params.from || !params.subject) {
-    console.error('Missing required email parameters (to, from, subject)');
-    return false;
-  }
-
-  // Require either text or HTML content
-  if (!params.text && !params.html) {
-    console.error('Email must contain either text or HTML content');
-    return false;
-  }
+export async function sendEmail({ to, subject, text, html }) {
+  const msg = {
+    to,
+    from: 'daniel@altchain.app', // 👈 must match your verified sender
+    subject,
+    text,
+    html,
+  };
 
   try {
-    // If SendGrid API key is not set, log the email instead
-    if (!process.env.SENDGRID_API_KEY) {
-      console.log('Email would be sent (SENDGRID_API_KEY not set):', params);
-      return true;
-    }
-
-    // Send the email using SendGrid
-    await mailService.send({
-      to: params.to,
-      from: params.from,
-      subject: params.subject,
-      text: params.text,
-      html: params.html,
-    });
-    
-    console.log(`Email sent successfully to ${params.to}`);
-    return true;
+    await sgMail.send(msg);
+    console.log('Email sent successfully');
   } catch (error) {
-    console.error('SendGrid email error:', error);
-    return false;
+    console.error('SendGrid Error:', error.response?.body || error.message);
+    throw new Error('Email failed to send');
   }
 }
 
@@ -62,9 +24,9 @@ async function sendEmail(params) {
  * Send a waitlist confirmation email
  * @param {string} email Recipient email address
  * @param {string} language Language code for localization (en, es, fr, zh, ru)
- * @returns {Promise<boolean>} Success status
+ * @returns {Promise<void>}
  */
-async function sendWaitlistConfirmation(email, language = 'en') {
+export async function sendWaitlistConfirmation(email, language = 'en') {
   // Define email templates for different languages
   const templates = {
     en: {
@@ -124,14 +86,8 @@ async function sendWaitlistConfirmation(email, language = 'en') {
 
   return sendEmail({
     to: email,
-    from: 'noreply@altchain.app', // Update this to your verified sender
     subject: template.subject,
     text: template.text,
     html: template.html
   });
 }
-
-module.exports = {
-  sendEmail,
-  sendWaitlistConfirmation
-};
