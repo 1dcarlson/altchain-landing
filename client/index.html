@@ -17,10 +17,9 @@
     <meta name="twitter:card" content="summary_large_image" />
     
     <!-- Favicon setup -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="/favicon.png" type="image/png">
-    <link rel="apple-touch-icon" href="/android-chrome-192x192.png">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#1760EA">
     
@@ -37,21 +36,23 @@
       (function() {
         // Force favicon refresh with timestamp for cache busting
         setTimeout(() => {
-          // Try with .ico first (most compatible)
-          const icoFavicon = document.createElement('link');
-          icoFavicon.rel = 'icon';
-          icoFavicon.type = 'image/x-icon';
-          icoFavicon.href = '/favicon.ico?t=' + new Date().getTime();
-          document.head.appendChild(icoFavicon);
+          // Try with different sizes for better compatibility
+          const favicon16 = document.createElement('link');
+          favicon16.rel = 'icon';
+          favicon16.type = 'image/png';
+          favicon16.sizes = '16x16';
+          favicon16.href = '/favicon-16x16.png?t=' + new Date().getTime();
+          document.head.appendChild(favicon16);
           
-          // Also try with PNG (for modern browsers)
+          // Also try with 32x32 (better quality for most browsers)
           setTimeout(() => {
-            const pngFavicon = document.createElement('link');
-            pngFavicon.rel = 'icon';
-            pngFavicon.type = 'image/png';
-            pngFavicon.href = '/favicon.png?t=' + new Date().getTime();
-            document.head.appendChild(pngFavicon);
-          }, 100);
+            const favicon32 = document.createElement('link');
+            favicon32.rel = 'icon';
+            favicon32.type = 'image/png';
+            favicon32.sizes = '32x32';
+            favicon32.href = '/favicon-32x32.png?t=' + new Date().getTime();
+            document.head.appendChild(favicon32);
+          }, 50);
         }, 100);
       })();
     </script>
