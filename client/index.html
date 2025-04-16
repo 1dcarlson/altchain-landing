@@ -16,10 +16,12 @@
     <meta property="og:url" content="https://www.altchain.app" />
     <meta name="twitter:card" content="summary_large_image" />
     
-    <!-- Replit-specific favicon approach -->
-    <link rel="icon" href="/altchain-favicon.svg?v=5" type="image/svg+xml">
-    <link rel="alternate icon" href="/favicon.ico?v=5" type="image/x-icon">
-    <link rel="apple-touch-icon" href="/favicon.png?v=5">
+    <!-- Favicon setup -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="/android-chrome-192x192.png">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="manifest" href="/site.webmanifest">
     <meta name="theme-color" content="#1760EA">
     
     <title>AltChain – AI-Powered Global Sourcing</title>
@@ -33,19 +35,24 @@
     <script>
       // Force favicon refresh
       (function() {
-        const faviconLink = document.querySelector('link[rel="icon"]');
-        if (faviconLink) {
-          // Add random query param to bust cache
-          const currentHref = faviconLink.getAttribute('href');
-          faviconLink.setAttribute('href', currentHref + '&t=' + new Date().getTime());
+        // Force favicon refresh with timestamp for cache busting
+        setTimeout(() => {
+          // Try with .ico first (most compatible)
+          const icoFavicon = document.createElement('link');
+          icoFavicon.rel = 'icon';
+          icoFavicon.type = 'image/x-icon';
+          icoFavicon.href = '/favicon.ico?t=' + new Date().getTime();
+          document.head.appendChild(icoFavicon);
           
-          // Create a new favicon link element
-          const newFavicon = document.createElement('link');
-          newFavicon.rel = 'icon';
-          newFavicon.type = 'image/svg+xml';
-          newFavicon.href = '/altchain-favicon.svg?v=' + new Date().getTime();
-          document.head.appendChild(newFavicon);
-        }
+          // Also try with PNG (for modern browsers)
+          setTimeout(() => {
+            const pngFavicon = document.createElement('link');
+            pngFavicon.rel = 'icon';
+            pngFavicon.type = 'image/png';
+            pngFavicon.href = '/favicon.png?t=' + new Date().getTime();
+            document.head.appendChild(pngFavicon);
+          }, 100);
+        }, 100);
       })();
     </script>
     
