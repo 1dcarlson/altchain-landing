@@ -80,7 +80,7 @@ export default function ScrollProgressIndicator() {
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 bg-primary text-white p-4 rounded-full shadow-xl z-50 transition-all duration-300 overflow-hidden group border-2 border-white/80 animate-pulse hover:animate-none ${
+        className={`fixed bottom-6 right-6 bg-primary text-white p-4 rounded-full shadow-xl z-50 transition-all duration-300 overflow-hidden group border-2 border-white/80 ${
           showScrollToTop 
             ? 'opacity-100 translate-y-0' 
             : 'opacity-0 translate-y-10 pointer-events-none'
