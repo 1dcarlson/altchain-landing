@@ -15,10 +15,10 @@ export default function ContactPage() {
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            {t('contact.pageTitle')}
+            Contact Us
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            {t('contact.pageDescription')}
+            We'd love to hear from you. Whether you have questions, feedback, or partnership ideas—reach out any time.
           </p>
         </div>
         
@@ -28,20 +28,14 @@ export default function ContactPage() {
               <h3 className="text-xl font-medium mb-2">{t('contact.office')}</h3>
               <address className="not-italic">
                 AltChain Inc.<br />
-                123 Tech Boulevard<br />
-                San Francisco, CA 94107<br />
+                Phoenix, AZ<br />
                 United States
               </address>
             </div>
             
             <div>
               <h3 className="text-xl font-medium mb-2">{t('contact.email')}</h3>
-              <p>info@altchain.app</p>
-            </div>
-            
-            <div>
-              <h3 className="text-xl font-medium mb-2">{t('contact.phone')}</h3>
-              <p>+1 (415) 555-0123</p>
+              <p><a href="mailto:daniel@altchain.app" className="text-primary hover:underline">daniel@altchain.app</a></p>
             </div>
             
             <div>

@@ -71,11 +71,11 @@ export default function ContactForm() {
 
   return (
     <section className="bg-card rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold text-center mb-6 animate-slide-down">{t('contact.title')}</h2>
+      <h2 className="text-2xl font-bold text-center mb-6 animate-slide-down">Get In Touch</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col gap-4">
         <div className="flex flex-col space-y-1">
           <label htmlFor="name" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            {t('contact.name')}
+            Name
           </label>
           <ValidationInput
             type="text"
@@ -93,7 +93,7 @@ export default function ContactForm() {
         
         <div className="flex flex-col space-y-1">
           <label htmlFor="email" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            {t('contact.email')}
+            Email
           </label>
           <ValidationInput
             type="email"
@@ -145,7 +145,7 @@ export default function ContactForm() {
               {t('contact.sending')}
             </span>
           ) : (
-            t('contact.submit')
+            "Send Message"
           )}
         </button>
         
