@@ -8,25 +8,9 @@ import path from "path";
 import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Explicitly serve favicon.ico and site-icon.ico with strong cache-control headers
-  app.get(['/favicon.ico', '/favicon.ico*', '/site-icon.ico', '/site-icon.ico*'], (req, res) => {
-    const iconPath = req.path.startsWith('/site-icon') 
-      ? path.resolve('./public/site-icon.ico')
-      : path.resolve('./public/favicon.ico');
-      
-    if (fs.existsSync(iconPath)) {
-      // Set correct content type
-      res.set('Content-Type', 'image/x-icon');
-      
-      // Set cache control headers to prevent caching
-      res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
-      res.set('Pragma', 'no-cache');
-      res.set('Expires', '0');
-      
-      res.sendFile(iconPath);
-    } else {
-      res.status(404).end();
-    }
+  // Simple favicon serving
+  app.get('/favicon.ico', (req, res) => {
+    res.sendFile(path.resolve('./public/favicon.ico'));
   });
   // Test endpoint for SendGrid (remove in production)
   app.get('/api/test-email', async (req, res) => {
