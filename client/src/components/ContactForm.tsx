@@ -71,16 +71,16 @@ export default function ContactForm() {
 
   return (
     <section className="bg-card rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold text-center mb-6 animate-slide-down">Get In Touch</h2>
+      <h2 className="text-2xl font-bold text-center mb-6 animate-slide-down">{t('contact.title')}</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col gap-4">
         <div className="flex flex-col space-y-1">
           <label htmlFor="name" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            Name
+            {t('contact.name')}
           </label>
           <ValidationInput
             type="text"
             name="name"
-            placeholder="Your name"
+            placeholder={t('contact.namePlaceholder')}
             value={formData.name}
             onChange={handleChange}
             required
@@ -93,12 +93,12 @@ export default function ContactForm() {
         
         <div className="flex flex-col space-y-1">
           <label htmlFor="email" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            Email
+            {t('contact.email')}
           </label>
           <ValidationInput
             type="email"
             name="email"
-            placeholder="Your email address"
+            placeholder={t('contact.emailPlaceholder')}
             value={formData.email}
             onChange={handleChange}
             required
@@ -109,11 +109,11 @@ export default function ContactForm() {
         
         <div className="flex flex-col space-y-1">
           <label htmlFor="message" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            Message
+            {t('contact.message')}
           </label>
           <ValidationTextarea
             name="message"
-            placeholder="Your message here..."
+            placeholder={t('contact.messagePlaceholder')}
             rows={5}
             value={formData.message}
             onChange={handleChange}
@@ -142,10 +142,10 @@ export default function ContactForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              Sending...
+              {t('contact.sending')}
             </span>
           ) : (
-            "Send Message"
+            t('contact.submit')
           )}
         </button>
         
