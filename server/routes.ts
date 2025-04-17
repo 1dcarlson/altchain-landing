@@ -13,6 +13,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.set('Content-Type', 'image/x-icon');
     res.sendFile(path.resolve('./public/favicon.ico'));
   });
+  
+  // Apple touch icon serving with explicit MIME type for Safari
+  app.get('/apple-touch-icon.png', (req, res) => {
+    res.set('Content-Type', 'image/png');
+    res.sendFile(path.resolve('./public/apple-touch-icon.png'));
+  });
   // Test endpoint for SendGrid (remove in production)
   app.get('/api/test-email', async (req, res) => {
     try {
