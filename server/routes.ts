@@ -8,10 +8,11 @@ import path from "path";
 import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Explicitly serve favicon.ico
+  // Explicitly serve favicon.ico with proper content type
   app.get('/favicon.ico', (req, res) => {
     const faviconPath = path.resolve('./public/favicon.ico');
     if (fs.existsSync(faviconPath)) {
+      res.set('Content-Type', 'image/x-icon');
       res.sendFile(faviconPath);
     } else {
       res.status(404).end();
