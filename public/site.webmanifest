@@ -3,7 +3,7 @@
   "short_name": "AltChain",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }

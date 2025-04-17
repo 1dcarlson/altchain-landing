@@ -4,8 +4,19 @@ import { storage } from "./storage";
 import { sendEmail } from "./email";
 import { z } from "zod";
 import { insertWaitlistSchema } from "@shared/schema";
+import path from "path";
+import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Explicitly serve favicon.ico
+  app.get('/favicon.ico', (req, res) => {
+    const faviconPath = path.resolve('./public/favicon.ico');
+    if (fs.existsSync(faviconPath)) {
+      res.sendFile(faviconPath);
+    } else {
+      res.status(404).end();
+    }
+  });
   // Test endpoint for SendGrid (remove in production)
   app.get('/api/test-email', async (req, res) => {
     try {
