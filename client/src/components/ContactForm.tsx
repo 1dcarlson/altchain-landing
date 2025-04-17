@@ -37,7 +37,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus(t('contact.sending'));
+    setStatus('Sending your message...');
     setSubmitted(true);
 
     try {
@@ -49,7 +49,7 @@ export default function ContactForm() {
 
       const result = await response.json();
       if (response.ok && result.success) {
-        setStatus(t('contact.success') + ' ✅');
+        setStatus('Message sent successfully! ✅');
         // Reset the form completely
         resetForm();
         // After a successful submission, show the confetti
@@ -60,10 +60,10 @@ export default function ContactForm() {
           setStatus('');
         }, 5000);
       } else {
-        setStatus(result.error || t('contact.error') + ' ❌');
+        setStatus(result.error || 'Failed to send message. Please try again. ❌');
       }
     } catch (error) {
-      setStatus(t('contact.errorMessage') + ' ❌');
+      setStatus('Network error. Please check your connection and try again. ❌');
     } finally {
       setIsSubmitting(false);
     }
@@ -80,7 +80,7 @@ export default function ContactForm() {
           <ValidationInput
             type="text"
             name="name"
-            placeholder={t('contact.namePlaceholder')}
+            placeholder="Your name"
             value={formData.name}
             onChange={handleChange}
             required
@@ -98,7 +98,7 @@ export default function ContactForm() {
           <ValidationInput
             type="email"
             name="email"
-            placeholder={t('contact.emailPlaceholder')}
+            placeholder="Your email address"
             value={formData.email}
             onChange={handleChange}
             required
@@ -109,11 +109,11 @@ export default function ContactForm() {
         
         <div className="flex flex-col space-y-1">
           <label htmlFor="message" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            {t('contact.message')}
+            Message
           </label>
           <ValidationTextarea
             name="message"
-            placeholder={t('contact.messagePlaceholder')}
+            placeholder="Your message here..."
             rows={5}
             value={formData.message}
             onChange={handleChange}
@@ -142,7 +142,7 @@ export default function ContactForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>
-              {t('contact.sending')}
+              Sending...
             </span>
           ) : (
             "Send Message"
