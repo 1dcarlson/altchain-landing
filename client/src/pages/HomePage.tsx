@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Header from "@/components/Header";
-import WaitlistForm from "@/components/WaitlistForm";
+import SimpleWaitlistForm from "@/components/SimpleWaitlistForm";
 import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import Benefits from "@/components/Benefits";
@@ -27,7 +27,9 @@ export default function HomePage() {
               {t('hero.description')}
             </p>
 
-            <WaitlistForm />
+            <div id="waitlist-form" className="max-w-lg mx-auto bg-white/10 p-6 rounded-lg shadow-sm">
+              <SimpleWaitlistForm />
+            </div>
             
             <div className="mt-12 flex flex-col sm:flex-row justify-center items-center gap-8">
               <div className="flex items-center gap-2 text-gray-600">
