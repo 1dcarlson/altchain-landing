@@ -8,11 +8,36 @@ import path from "path";
 import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Explicitly serve favicon.ico with proper content type
+  // Explicitly serve favicon.ico with proper content type and cache-busting
   app.get('/favicon.ico', (req, res) => {
     const faviconPath = path.resolve('./public/favicon.ico');
     if (fs.existsSync(faviconPath)) {
+      // Set correct content type
       res.set('Content-Type', 'image/x-icon');
+      
+      // Set cache control headers to prevent caching
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.set('Pragma', 'no-cache');
+      res.set('Expires', '0');
+      
+      res.sendFile(faviconPath);
+    } else {
+      res.status(404).end();
+    }
+  });
+  
+  // Additional route for cache-busting favicon requests
+  app.get('/favicon.ico*', (req, res) => {
+    const faviconPath = path.resolve('./public/favicon.ico');
+    if (fs.existsSync(faviconPath)) {
+      // Set correct content type
+      res.set('Content-Type', 'image/x-icon');
+      
+      // Set cache control headers to prevent caching
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.set('Pragma', 'no-cache');
+      res.set('Expires', '0');
+      
       res.sendFile(faviconPath);
     } else {
       res.status(404).end();
