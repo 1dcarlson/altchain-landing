@@ -11,6 +11,7 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     message: ''
   });
   const [status, setStatus] = useState('');
@@ -21,15 +22,17 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     
-    // Check if form is valid (all fields have values)
+    // Check if required fields have values (phone is optional)
     const updatedData = { ...formData, [e.target.name]: e.target.value };
-    const isValid = Object.values(updatedData).every(val => val.trim() !== '');
+    const isValid = updatedData.name.trim() !== '' && 
+                   updatedData.email.trim() !== '' &&
+                   updatedData.message.trim() !== '';
     setFormValid(isValid);
   };
 
   // Function to reset the form completely
   const resetForm = () => {
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', phone: '', message: '' });
     setSubmitted(false);
     setFormValid(false);
   };
@@ -37,7 +40,7 @@ export default function ContactForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setStatus('Sending your message...');
+    setStatus(t('contact.sending'));
     setSubmitted(true);
 
     try {
@@ -49,7 +52,7 @@ export default function ContactForm() {
 
       const result = await response.json();
       if (response.ok && result.success) {
-        setStatus('Message sent successfully! ✅');
+        setStatus(t('contact.success') + ' ✅');
         // Reset the form completely
         resetForm();
         // After a successful submission, show the confetti
@@ -60,10 +63,10 @@ export default function ContactForm() {
           setStatus('');
         }, 5000);
       } else {
-        setStatus(result.error || 'Failed to send message. Please try again. ❌');
+        setStatus(result.error || t('contact.error') + ' ❌');
       }
     } catch (error) {
-      setStatus('Network error. Please check your connection and try again. ❌');
+      setStatus(t('contact.errorMessage') + ' ❌');
     } finally {
       setIsSubmitting(false);
     }
@@ -104,6 +107,21 @@ export default function ContactForm() {
             required
             autoComplete="email"
             className={`${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
+          />
+        </div>
+        
+        <div className="flex flex-col space-y-1">
+          <label htmlFor="phone" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
+            {t('contact.phone')} <span className="text-gray-400 text-xs">({t('contact.optional')})</span>
+          </label>
+          <ValidationInput
+            type="tel"
+            name="phone"
+            placeholder={t('contact.phonePlaceholder')}
+            value={formData.phone}
+            onChange={handleChange}
+            autoComplete="tel"
+            className=""
           />
         </div>
         
