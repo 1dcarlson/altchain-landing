@@ -11,7 +11,6 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
     message: ''
   });
   const [status, setStatus] = useState('');
@@ -22,7 +21,7 @@ export default function ContactForm() {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     
-    // Check if required fields have values (phone is optional)
+    // Check if all required fields have values
     const updatedData = { ...formData, [e.target.name]: e.target.value };
     const isValid = updatedData.name.trim() !== '' && 
                    updatedData.email.trim() !== '' &&
@@ -32,7 +31,7 @@ export default function ContactForm() {
 
   // Function to reset the form completely
   const resetForm = () => {
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: '', email: '', message: '' });
     setSubmitted(false);
     setFormValid(false);
   };
@@ -107,21 +106,6 @@ export default function ContactForm() {
             required
             autoComplete="email"
             className={`${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
-          />
-        </div>
-        
-        <div className="flex flex-col space-y-1">
-          <label htmlFor="phone" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
-            {t('contact.phone')} <span className="text-gray-400 text-xs">({t('contact.optional')})</span>
-          </label>
-          <ValidationInput
-            type="tel"
-            name="phone"
-            placeholder={t('contact.phonePlaceholder')}
-            value={formData.phone}
-            onChange={handleChange}
-            autoComplete="tel"
-            className=""
           />
         </div>
         
