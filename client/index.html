@@ -4,19 +4,7 @@
     <meta charset="UTF-8" />
     <title>AltChain – AI-Powered Global Sourcing</title>
     
-    <!-- Favicon with cache-busting query parameter -->
-    <link rel="shortcut icon" href="/favicon.ico?v=2" />
-    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2" />
-    
-    <!-- Force browsers to fetch the favicon by adding inline script -->
-    <script>
-      // Force favicon refresh with unique timestamp
-      const timestamp = new Date().getTime();
-      const link = document.querySelector('link[rel="shortcut icon"]');
-      if (link) {
-        link.href = '/favicon.ico?v=' + timestamp;
-      }
-    </script>
+    <!-- Favicon implementation removed for manual setup -->
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <meta name="theme-color" content="#1760EA" />
@@ -26,8 +14,7 @@
     <meta name="author" content="AltChain" />
     <meta name="keywords" content="global sourcing, AI, suppliers, trade, manufacturing, supply chain" />
     
-    <!-- Apple Touch Icon -->
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <!-- Apple Touch Icon removed for manual implementation -->
     
     <!-- Social Media Preview -->
     <meta property="og:title" content="AltChain - Smarter Global Sourcing" />
@@ -42,24 +29,7 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 
-    <!-- Additional favicon forcing script -->
-    <script>
-      // Force favicon with JavaScript DOM manipulation
-      window.addEventListener('DOMContentLoaded', (event) => {
-        // Create a new favicon link
-        const favicon = document.createElement('link');
-        favicon.rel = 'icon';
-        favicon.type = 'image/x-icon';
-        favicon.href = '/favicon.ico?t=' + new Date().getTime();
-        
-        // Remove any existing favicons
-        const existingFavicons = document.querySelectorAll('link[rel="icon"], link[rel="shortcut icon"]');
-        existingFavicons.forEach(icon => icon.parentNode.removeChild(icon));
-        
-        // Add the new favicon
-        document.head.appendChild(favicon);
-      });
-    </script>
+    <!-- Favicon script removed for manual implementation -->
 
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
     <script
