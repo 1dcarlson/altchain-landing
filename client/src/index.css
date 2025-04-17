@@ -52,6 +52,13 @@
   * {
     @apply border-border;
   }
+  
+  /* Darker placeholders for better visibility */
+  ::placeholder {
+    color: rgba(0, 0, 0, 0.7) !important;
+    opacity: 1 !important;
+    font-weight: 500;
+  }
 
   body {
     @apply font-sans antialiased text-foreground;

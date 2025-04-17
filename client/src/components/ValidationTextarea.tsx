@@ -151,7 +151,7 @@ export default function ValidationTextarea({
         disabled={disabled}
         rows={rows}
         className={cn(
-          "w-full px-4 py-2 border rounded-md transition-all duration-300",
+          "w-full px-4 py-2 border rounded-md transition-all duration-300 text-black font-medium",
           "focus:outline-none focus:ring-2 focus:ring-opacity-50 resize-y",
           isFocused ? "border-primary focus:ring-primary/30" : "border-gray-300", 
           !isValid && touched ? "border-red-500 focus:ring-red-200" : "",
