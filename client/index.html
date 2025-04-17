@@ -8,12 +8,21 @@
     <link rel="icon" href="/favicon.ico">
     <link rel="shortcut icon" href="/favicon.ico">
     
-    <!-- Safari-specific icons -->
+    <!-- Comprehensive Safari-specific icons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-precomposed.png">
     <link rel="mask-icon" href="/favicon.ico" color="#1760EA">
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
     <meta name="theme-color" content="#1760EA" />
+    <!-- Safari-specific favicon refresh directive -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     
     <!-- Basic SEO -->
     <meta name="description" content="Smarter global sourcing powered by AI. Save time, reduce costs, and avoid trade friction." />
@@ -33,7 +42,25 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
-
+    
+    <!-- Safari favicon fix -->
+    <script>
+      // This forces Safari to reload the favicon by changing the href slightly
+      window.onload = function() {
+        // Check if it's Safari
+        if (navigator.userAgent.indexOf('Safari') != -1 && 
+            navigator.userAgent.indexOf('Chrome') == -1) {
+          
+          // Get all favicon links
+          var links = document.querySelectorAll('link[rel*="icon"]');
+          
+          // Add a cache-busting parameter
+          links.forEach(function(link) {
+            link.href = link.href + '?v=' + new Date().getTime();
+          });
+        }
+      };
+    </script>
 
 
     <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->

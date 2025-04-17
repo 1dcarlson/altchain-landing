@@ -14,10 +14,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
     res.sendFile(path.resolve('./public/favicon.ico'));
   });
   
-  // Apple touch icon serving with explicit MIME type for Safari
-  app.get('/apple-touch-icon.png', (req, res) => {
-    res.set('Content-Type', 'image/png');
-    res.sendFile(path.resolve('./public/apple-touch-icon.png'));
+  // Apple touch icon variations with explicit MIME type for Safari
+  const appleIconVariations = [
+    '/apple-touch-icon.png',
+    '/apple-touch-icon-precomposed.png',
+    '/apple-touch-icon-57x57.png',
+    '/apple-touch-icon-57x57-precomposed.png',
+    '/apple-touch-icon-72x72.png',
+    '/apple-touch-icon-72x72-precomposed.png',
+    '/apple-touch-icon-114x114.png',
+    '/apple-touch-icon-114x114-precomposed.png',
+    '/apple-touch-icon-144x144.png',
+    '/apple-touch-icon-144x144-precomposed.png'
+  ];
+  
+  appleIconVariations.forEach(iconPath => {
+    app.get(iconPath, (req, res) => {
+      res.set('Content-Type', 'image/png');
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.set('Pragma', 'no-cache');
+      res.set('Expires', '0');
+      res.sendFile(path.resolve(`./public${iconPath}`));
+    });
   });
   // Test endpoint for SendGrid (remove in production)
   app.get('/api/test-email', async (req, res) => {
