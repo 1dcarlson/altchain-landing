@@ -169,17 +169,14 @@ export default function ValidationInput({
           isFocused ? "border-primary focus:ring-primary/30" : "border-gray-300", 
           !isValid && touched ? "border-red-500 focus:ring-red-200" : "",
           isValid && value && touched ? "border-green-500 focus:ring-green-200" : "",
-          isTyping ? "animate-pulse" : "",
           className
         )}
       />
       
       {/* Validation State Icons */}
-      {touched && value && (
+      {touched && value && !isTyping && (
         <div className="absolute right-3 top-1/2 transform -translate-y-1/2 transition-all duration-300">
-          {isTyping ? (
-            <span className="text-blue-500 animate-bounce">...</span>
-          ) : isValid ? (
+          {isValid ? (
             <svg 
               className="w-5 h-5 text-green-500 animate-scale-in"
               fill="none" 

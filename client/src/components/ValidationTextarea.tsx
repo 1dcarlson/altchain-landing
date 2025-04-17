@@ -156,17 +156,14 @@ export default function ValidationTextarea({
           isFocused ? "border-primary focus:ring-primary/30" : "border-gray-300", 
           !isValid && touched ? "border-red-500 focus:ring-red-200" : "",
           isValid && value && touched ? "border-green-500 focus:ring-green-200" : "",
-          isTyping ? "animate-pulse" : "",
           className
         )}
       />
       
       {/* Validation State Icons */}
-      {touched && value && (
+      {touched && value && !isTyping && (
         <div className="absolute right-3 top-3 transition-all duration-300">
-          {isTyping ? (
-            <span className="text-blue-500 animate-bounce">...</span>
-          ) : isValid ? (
+          {isValid ? (
             <svg 
               className="w-5 h-5 text-green-500 animate-scale-in"
               fill="none" 
@@ -195,7 +192,6 @@ export default function ValidationTextarea({
         <div className={`absolute right-3 bottom-2 text-xs ${getCharCountColor()} transition-colors`}>
           {charCount}
           {maxLength ? `/${maxLength}` : ''}
-          {isTyping && <span className="ml-1 animate-pulse">typing...</span>}
         </div>
       )}
       
