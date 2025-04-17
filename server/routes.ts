@@ -8,8 +8,9 @@ import path from "path";
 import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Simple favicon serving
+  // Simple favicon serving with explicit MIME type for Safari
   app.get('/favicon.ico', (req, res) => {
+    res.set('Content-Type', 'image/x-icon');
     res.sendFile(path.resolve('./public/favicon.ico'));
   });
   // Test endpoint for SendGrid (remove in production)
