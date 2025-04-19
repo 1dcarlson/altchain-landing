@@ -3,12 +3,19 @@
 @tailwind utilities;
 
 :root {
+  /* Base color variables - will be dynamically changed by theme provider */
   --primary: hsl(215, 100%, 50%);
   --secondary: hsl(165, 100%, 41%);
   --accent: hsl(280, 100%, 60%);
   --background: hsl(0, 0%, 100%);
   --text: hsl(215, 25%, 27%);
   
+  /* Gradient variants - dynamically set by theme provider */
+  --gradientPrimary: linear-gradient(135deg, hsl(215, 100%, 50%), hsl(240, 100%, 65%));
+  --gradientSecondary: linear-gradient(135deg, hsl(165, 100%, 41%), hsl(190, 100%, 50%));
+  --gradientBackground: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(220, 50%, 98%));
+  
+  /* UI component mappings */
   --foreground: var(--text);
   --card: hsl(0, 0%, 100%);
   --card-foreground: var(--text);
@@ -33,6 +40,7 @@
   
   /* Transition speeds for theme changes */
   --theme-transition: 0.7s ease-in-out;
+  --gradient-transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 [data-theme="dark"] {
@@ -73,7 +81,7 @@
 
   /* Animation for smooth transitions */
   .transition-gradient {
-    transition: background 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background var(--gradient-transition);
   }
   
   /* Apply transitions to common elements */
@@ -84,5 +92,30 @@
       border-color var(--theme-transition),
       color var(--theme-transition),
       box-shadow var(--theme-transition);
+  }
+  
+  /* Gradient components */
+  .bg-gradient-primary {
+    background: var(--gradientPrimary);
+    transition: background var(--gradient-transition);
+  }
+  
+  .bg-gradient-secondary {
+    background: var(--gradientSecondary);
+    transition: background var(--gradient-transition);
+  }
+  
+  .bg-gradient-background {
+    background: var(--gradientBackground);
+    transition: background var(--gradient-transition);
+  }
+  
+  /* Text with gradient background */
+  .text-gradient {
+    background-image: var(--gradientPrimary);
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    transition: background-image var(--gradient-transition);
   }
 }

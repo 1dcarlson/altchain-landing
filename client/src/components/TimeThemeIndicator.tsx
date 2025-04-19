@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 
 export default function TimeThemeIndicator() {
-  const { colors, timeTheme, isDark } = useTheme();
+  const { colors, timeTheme, isDark, progress, timePosition } = useTheme();
   const { t } = useTranslation();
   
   // Icons for different times of day - memoized to prevent re-renders
@@ -54,20 +54,57 @@ export default function TimeThemeIndicator() {
     }
   }, [timeTheme, t]);
   
-  // Get container styles - memoized to prevent re-renders
+  // Progress bar background style - changes with time
+  const progressBackground = useMemo(() => {
+    return `bg-gradient-primary rounded-full h-1.5 transition-all duration-1000 ease-in-out`;
+  }, []);
+  
+  // Get container styles - memoized to prevent re-renders with smoother gradient
   const containerStyles = useMemo(() => {
     return `
-      inline-flex items-center px-2 py-1 rounded-full text-xs font-medium
-      ${isDark ? 'bg-slate-700 text-slate-200' : 'bg-slate-200 text-slate-700'}
+      inline-flex flex-col items-start px-3 py-2 rounded-xl text-xs font-medium
+      ${isDark ? 'bg-slate-800/80 text-slate-200' : 'bg-white/80 text-slate-700 shadow-sm border border-slate-200'}
       transition-all duration-700 ease-in-out will-change-auto
-      shadow-sm transform hover:scale-105
+      backdrop-blur-sm
     `;
   }, [isDark]);
   
+  // Progress bar width style - changes with time position
+  const progressWidth = useMemo(() => {
+    return `${Math.round(progress * 100)}%`;
+  }, [progress]);
+  
+  // Format the current time nicely
+  const currentTime = useMemo(() => {
+    const date = new Date();
+    return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }, []);
+  
   return (
     <div className={containerStyles}>
-      {icon}
-      <span>{timeThemeText}</span>
+      <div className="flex w-full items-center justify-between mb-1.5">
+        <div className="flex items-center">
+          {icon}
+          <span>{timeThemeText}</span>
+        </div>
+        <span className="text-xs opacity-70 ml-2">{currentTime}</span>
+      </div>
+      
+      {/* Time progress bar */}
+      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 mb-1">
+        <div 
+          className={progressBackground}
+          style={{ width: progressWidth }}
+        ></div>
+      </div>
+      
+      {/* Show the transition text */}
+      <div className="flex justify-between w-full text-[10px] opacity-60">
+        <span>
+          {timePosition < 0.5 ? t('timeTheme.earlyIn', { time: timeThemeText }) : t('timeTheme.approachingNext')}
+        </span>
+        <span>{Math.round(progress * 24)}:00</span>
+      </div>
     </div>
   );
 }
