@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { Link } from 'wouter';
+import { useMemo } from 'react';
 import LanguageSelector from './LanguageSelector';
 import LogoIcon from './LogoIcon';
 import TimeThemeIndicator from './TimeThemeIndicator';
@@ -8,16 +9,20 @@ import Tooltip from './ui/custom-tooltip';
 
 export default function Header() {
   const { t } = useTranslation();
-  const { isDark } = useTheme();
+  const { isDark, colors } = useTheme();
+  
+  // Create dynamic header style
+  const headerStyle = useMemo(() => {
+    return {
+      backgroundImage: 'var(--gradientPrimary)',
+      boxShadow: isDark ? '0 2px 12px rgba(0, 0, 0, 0.15)' : '0 2px 12px rgba(0, 0, 0, 0.08)'
+    };
+  }, [isDark]);
   
   return (
     <header 
-      className={`
-        py-5 px-6 shadow-md sticky top-0 z-50 transition-colors duration-700
-        ${isDark 
-          ? 'bg-gradient-to-r from-blue-950 via-blue-900 to-blue-800' 
-          : 'bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700'}
-      `}
+      className="py-5 px-6 sticky top-0 z-50 transition-gradient"
+      style={headerStyle}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/">

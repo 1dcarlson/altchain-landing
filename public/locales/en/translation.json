@@ -154,7 +154,9 @@
     "day": "Day Mode",
     "evening": "Evening Mode",
     "night": "Night Mode",
-    "adaptiveTheme": "Adaptive colors based on your local time"
+    "adaptiveTheme": "Adaptive colors based on your local time",
+    "earlyIn": "Early {{time}}",
+    "approachingNext": "Approaching next phase"
   },
   "contact": {
     "navLink": "Contact",
