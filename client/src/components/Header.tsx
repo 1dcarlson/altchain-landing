@@ -3,9 +3,7 @@ import { Link } from 'wouter';
 import { useMemo } from 'react';
 import LanguageSelector from './LanguageSelector';
 import LogoIcon from './LogoIcon';
-import TimeThemeIndicator from './TimeThemeIndicator';
 import { useTheme } from '@/hooks/theme-provider';
-import Tooltip from './ui/custom-tooltip';
 
 export default function Header() {
   const { t } = useTranslation();
@@ -42,11 +40,6 @@ export default function Header() {
               {t('contact.navLink')}
             </span>
           </Link>
-          <Tooltip content={t('timeTheme.adaptiveTheme')}>
-            <div className="hidden md:block">
-              <TimeThemeIndicator />
-            </div>
-          </Tooltip>
           <LanguageSelector />
         </nav>
       </div>
