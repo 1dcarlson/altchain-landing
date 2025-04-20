@@ -11,6 +11,7 @@ export const users = pgTable("users", {
 export const waitlist = pgTable("waitlist", {
   id: serial("id").primaryKey(),
   email: text("email").notNull().unique(),
+  name: text("name"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
@@ -21,6 +22,7 @@ export const insertUserSchema = createInsertSchema(users).pick({
 
 export const insertWaitlistSchema = createInsertSchema(waitlist).pick({
   email: true,
+  name: true,
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

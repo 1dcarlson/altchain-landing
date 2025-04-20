@@ -82,7 +82,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       // Validate request body
       const validatedData = insertWaitlistSchema.parse(req.body);
-      const { email } = validatedData;
+      const { email, name } = validatedData;
       
       // Check if email already exists in waitlist
       const existingEntry = await storage.getWaitlistEntryByEmail(email);
@@ -92,8 +92,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         });
       }
       
-      // Store the email in the database
-      await storage.createWaitlistEntry({ email });
+      // Store the email and optional name in the database
+      await storage.createWaitlistEntry({ email, name });
       
       // Check if SendGrid is configured
       if (!process.env.SENDGRID_API_KEY) {
@@ -107,18 +107,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Send confirmation email to the user
       try {
+        const htmlContent = `
+          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #e0e0e0;">
+            <div style="text-align: center; margin-bottom: 20px;">
+              <img src="https://www.altchain.app/site-icon.ico" alt="AltChain Logo" width="64" height="64" style="border-radius: 12px;" />
+            </div>
+            <h2 style="color: #1760EA;">Welcome to AltChain${name ? `, ${name}` : ''}!</h2>
+            <p style="font-size: 16px; color: #333;">
+              Thanks for joining our waitlist. You're officially on the list to be among the first to experience our AI-powered global sourcing platform.
+            </p>
+            <p style="font-size: 16px; color: #333;">
+              We'll be in touch soon with updates. In the meantime, if you have questions, just reply to this email.
+            </p>
+            <p style="font-size: 16px; color: #333;">Warm regards,<br><strong>The AltChain Team</strong></p>
+          </div>
+        `;
+        
         await sendEmail({
           to: email,
-          subject: "Welcome to AltChain Waitlist!",
-          text: "Thank you for joining AltChain's waitlist! We're excited to have you on board.",
-          html: `
-            <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
-              <h2 style="color: #4c86f9;">Thank you for joining AltChain's waitlist!</h2>
-              <p>We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.</p>
-              <p>In the meantime, if you have any questions, feel free to contact us.</p>
-              <p>Best regards,<br>The AltChain Team</p>
-            </div>
-          `
+          subject: `Welcome to AltChain${name ? `, ${name}` : ''}!`,
+          text: `Thank you for joining AltChain's waitlist${name ? `, ${name}` : ''}! We're excited to have you on board.`,
+          html: htmlContent
         });
       } catch (emailError) {
         // Even if email fails, the user is on the waitlist
@@ -130,8 +139,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         await sendEmail({
           to: process.env.ADMIN_EMAIL || 'daniel@altchain.app',
           subject: "New AltChain Waitlist Signup",
-          text: `New waitlist signup: ${email}`,
-          html: `<p>New waitlist signup: <strong>${email}</strong></p>`
+          text: `New waitlist signup: ${email}${name ? ` (${name})` : ''}`,
+          html: `<p>New waitlist signup: <strong>${email}</strong>${name ? ` - ${name}` : ''}</p>`
         });
       } catch (notifyError) {
         console.warn("Failed to send admin notification:", notifyError);

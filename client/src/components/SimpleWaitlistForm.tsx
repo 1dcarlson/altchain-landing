@@ -7,6 +7,7 @@ import { useConfetti } from '@/hooks/use-confetti';
 export default function SimpleWaitlistForm() {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { toast } = useToast();
   const { triggerCelebration } = useConfetti();
@@ -16,11 +17,12 @@ export default function SimpleWaitlistForm() {
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', { email });
+      const response = await apiRequest('POST', '/api/waitlist', { email, name });
       
       if (response.ok) {
         setFormState('success');
         setEmail('');
+        setName('');
         
         // Delay the confetti slightly to let the success message appear first
         setTimeout(() => {
