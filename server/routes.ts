@@ -113,12 +113,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send confirmation email to the user
       try {
         const htmlContent = `
-          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
-            <img src="https://www.altchain.app/site-icon.ico" alt="AltChain Logo" style="width: 48px; height: 48px; margin-bottom: 12px;" />
-            <h2 style="color: #4c86f9;">Hi ${name ? name : 'there'}, thanks for joining AltChain!</h2>
-            <p>You're officially on our waitlist. You'll be among the first to access our AI-powered global sourcing platform when we launch.</p>
-            <p>If you have any questions, just reply to this email — we're here to help.</p>
-            <p>Best regards,<br/>The AltChain Team</p>
+          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+            <div style="display: flex; align-items: center; margin-bottom: 24px;">
+              <img src="https://altchain.app/favicon.ico" alt="AltChain Logo" width="32" height="32" style="margin-right: 10px; border-radius: 4px;">
+              <h1 style="font-size: 24px; color: #1a1a1a; margin: 0;">AltChain</h1>
+            </div>
+          
+            <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
+              ${name ? `Hi ${name}, thank you for joining AltChain's waitlist!` : 'Thank you for joining AltChain\'s waitlist!'}
+            </h2>
+            
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+              We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.
+            </p>
+          
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+              In the meantime, if you have any questions, feel free to reply to this email.
+            </p>
+          
+            <p style="font-size: 16px; color: #333; line-height: 1.6;">
+              Best regards,<br>
+              <strong>The AltChain Team</strong>
+            </p>
           </div>
         `;
         
@@ -179,12 +195,27 @@ export async function registerRoutes(app: Express): Promise<Server> {
         subject: `New message from ${name}`,
         text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
         html: `
-          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #1E3A8A;">New Contact Message</h2>
-            <p><strong>From:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Message:</strong></p>
-            <p>${message.replace(/\n/g, '<br>')}</p>
+          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+            <div style="display: flex; align-items: center; margin-bottom: 24px;">
+              <img src="https://altchain.app/favicon.ico" alt="AltChain Logo" width="32" height="32" style="margin-right: 10px; border-radius: 4px;">
+              <h1 style="font-size: 24px; color: #1a1a1a; margin: 0;">AltChain</h1>
+            </div>
+            
+            <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">New Contact Message</h2>
+            
+            <div style="padding: 15px; border-left: 4px solid #4c86f9; background-color: #f9fafb; margin-bottom: 20px;">
+              <p style="font-size: 16px; color: #333; line-height: 1.6; margin: 0;">
+                <strong>From:</strong> ${name}<br>
+                <strong>Email:</strong> ${email}
+              </p>
+            </div>
+            
+            <div style="margin-top: 16px;">
+              <p style="font-size: 16px; color: #333; line-height: 1.6; margin-bottom: 8px;"><strong>Message:</strong></p>
+              <p style="font-size: 16px; color: #333; line-height: 1.6; padding: 16px; background-color: #f9fafb; border-radius: 6px;">
+                ${message.replace(/\n/g, '<br>')}
+              </p>
+            </div>
           </div>
         `
       });
