@@ -15,10 +15,21 @@ export default function WaitlistForm() {
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Basic validation for name if provided
+    if (name && name.trim().length < 2) {
+      toast({
+        title: "Invalid Name",
+        description: "Name must be at least 2 characters long",
+        variant: "destructive"
+      });
+      return;
+    }
+    
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', { email, name });
+      const response = await apiRequest('POST', '/api/waitlist', { email, name: name.trim() });
       
       if (response.ok) {
         setFormState('success');

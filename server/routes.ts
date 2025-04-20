@@ -84,6 +84,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       const validatedData = insertWaitlistSchema.parse(req.body);
       const { email, name } = validatedData;
       
+      // Additional validation for name (if provided)
+      if (name !== undefined && (typeof name !== 'string' || name.trim().length < 2)) {
+        return res.status(400).json({ message: 'Name must be at least 2 characters long' });
+      }
+      
       // Check if email already exists in waitlist
       const existingEntry = await storage.getWaitlistEntryByEmail(email);
       if (existingEntry) {

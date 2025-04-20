@@ -23,6 +23,9 @@ export const insertUserSchema = createInsertSchema(users).pick({
 export const insertWaitlistSchema = createInsertSchema(waitlist).pick({
   email: true,
   name: true,
+}).extend({
+  // Make name optional but validate if provided
+  name: z.string().min(2, "Name must be at least 2 characters").optional(),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
