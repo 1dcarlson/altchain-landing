@@ -74,7 +74,7 @@ export default function SimpleWaitlistForm() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t('waitlist.namePlaceholder') || "Your name (optional)"}
-              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
               disabled={formState === 'submitting'}
             />
             <input
@@ -84,7 +84,7 @@ export default function SimpleWaitlistForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('waitlist.placeholder')}
               required
-              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
               disabled={formState === 'submitting'}
             />
           </div>
