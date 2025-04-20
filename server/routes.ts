@@ -113,25 +113,19 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send confirmation email to the user
       try {
         const htmlContent = `
-          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border-radius: 12px; background: #ffffff; border: 1px solid #e0e0e0;">
-            <div style="text-align: center; margin-bottom: 20px;">
-              <img src="https://www.altchain.app/site-icon.ico" alt="AltChain Logo" width="64" height="64" style="border-radius: 12px;" />
-            </div>
-            <h2 style="color: #1760EA;">Welcome to AltChain${name ? `, ${name}` : ''}!</h2>
-            <p style="font-size: 16px; color: #333;">
-              Thanks for joining our waitlist. You're officially on the list to be among the first to experience our AI-powered global sourcing platform.
-            </p>
-            <p style="font-size: 16px; color: #333;">
-              We'll be in touch soon with updates. In the meantime, if you have questions, just reply to this email.
-            </p>
-            <p style="font-size: 16px; color: #333;">Warm regards,<br><strong>The AltChain Team</strong></p>
+          <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto;">
+            <img src="https://www.altchain.app/site-icon.ico" alt="AltChain Logo" style="width: 48px; height: 48px; margin-bottom: 12px;" />
+            <h2 style="color: #4c86f9;">Hi ${name ? name : 'there'}, thanks for joining AltChain!</h2>
+            <p>You're officially on our waitlist. You'll be among the first to access our AI-powered global sourcing platform when we launch.</p>
+            <p>If you have any questions, just reply to this email — we're here to help.</p>
+            <p>Best regards,<br/>The AltChain Team</p>
           </div>
         `;
         
         await sendEmail({
           to: email,
           subject: `Welcome to AltChain${name ? `, ${name}` : ''}!`,
-          text: `Thank you for joining AltChain's waitlist${name ? `, ${name}` : ''}! We're excited to have you on board.`,
+          text: `Hi ${name ? name : 'there'}, thanks for joining AltChain! You're officially on our waitlist and will be among the first to access our platform when we launch.`,
           html: htmlContent
         });
       } catch (emailError) {
