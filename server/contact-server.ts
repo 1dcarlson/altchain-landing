@@ -13,6 +13,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// Redirect non-www to www for consistent domain access and simplified SSL management
+app.use((req, res, next) => {
+  if (req.headers.host === 'altchain.app') {
+    return res.redirect(301, `https://www.altchain.app${req.url}`);
+  }
+  next();
+});
+
 // Contact form endpoint
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;

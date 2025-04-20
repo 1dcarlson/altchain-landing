@@ -14,6 +14,14 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// Redirect non-www to www for consistent domain access and simplified SSL management
+app.use((req, res, next) => {
+  if (req.headers.host === 'altchain.app') {
+    return res.redirect(301, `https://www.altchain.app${req.url}`);
+  }
+  next();
+});
+
 // PostgreSQL database connection
 // This uses the existing database connection from your project
 let storage;
