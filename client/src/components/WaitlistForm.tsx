@@ -11,7 +11,7 @@ export default function WaitlistForm() {
   const [name, setName] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { toast } = useToast();
-  const { triggerCelebration } = useConfetti();
+  const { triggerWaitlistCelebration } = useConfetti();
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,10 +65,10 @@ export default function WaitlistForm() {
     if (formState === 'success') {
       // Delay the confetti slightly to let the success message appear first
       setTimeout(() => {
-        triggerCelebration();
+        triggerWaitlistCelebration();
       }, 300);
     }
-  }, [formState, triggerCelebration]);
+  }, [formState, triggerWaitlistCelebration]);
 
   return (
     <div id="waitlist-form" className="max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">

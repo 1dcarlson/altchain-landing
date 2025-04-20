@@ -96,11 +96,99 @@ export function useConfetti() {
     }, 500);
   }, [triggerConfetti, triggerMultipleSides, triggerCannon]);
 
+  /**
+   * Trigger an enhanced waitlist signup celebration with multiple waves
+   * This is a special celebration for when users successfully join the waitlist
+   */
+  const triggerWaitlistCelebration = useCallback(() => {
+    // Initial celebratory burst from the bottom
+    confetti({
+      particleCount: 200,
+      spread: 100,
+      origin: { y: 0.7 },
+      colors: ['#1E40AF', '#0EA5E9', '#22D3EE', '#2563EB', '#FFFFFF', '#7DD3FC'],
+      startVelocity: 40,
+      gravity: 1,
+      scalar: 1.2,
+      ticks: 100
+    });
+    
+    // Side bursts after a small delay - left side
+    setTimeout(() => {
+      confetti({
+        particleCount: 100,
+        angle: 60,
+        spread: 70,
+        origin: { x: 0, y: 0.65 },
+        colors: ['#1E40AF', '#0EA5E9', '#22D3EE', '#2563EB', '#38BDF8'],
+        startVelocity: 35
+      });
+    }, 300);
+    
+    // Side bursts after a small delay - right side
+    setTimeout(() => {
+      confetti({
+        particleCount: 100,
+        angle: 120,
+        spread: 70,
+        origin: { x: 1, y: 0.65 },
+        colors: ['#1E40AF', '#0EA5E9', '#22D3EE', '#2563EB', '#38BDF8'],
+        startVelocity: 35
+      });
+    }, 300);
+    
+    // Shower effect from the top
+    setTimeout(() => {
+      const end = Date.now() + 1000;
+      
+      const frame = () => {
+        confetti({
+          particleCount: 3,
+          angle: 140,
+          spread: 80,
+          origin: { x: Math.random(), y: 0 },
+          colors: ['#1E40AF', '#0EA5E9', '#22D3EE', '#2563EB', '#FFFFFF'],
+          ticks: 300
+        });
+        
+        confetti({
+          particleCount: 3,
+          angle: 40,
+          spread: 80,
+          origin: { x: Math.random(), y: 0 },
+          colors: ['#1E40AF', '#0EA5E9', '#22D3EE', '#2563EB', '#FFFFFF'],
+          ticks: 300
+        });
+        
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      };
+      
+      frame();
+    }, 800);
+    
+    // Final celebratory burst
+    setTimeout(() => {
+      confetti({
+        particleCount: 150,
+        spread: 100,
+        origin: { y: 0.55, x: 0.5 },
+        startVelocity: 35,
+        gravity: 1,
+        scalar: 1.2,
+        drift: 0,
+        ticks: 300
+      });
+    }, 1500);
+  }, []);
+
   return {
     triggerBasic,
     triggerConfetti,
     triggerCannon,
     triggerMultipleSides,
-    triggerCelebration
+    triggerCelebration,
+    triggerWaitlistCelebration
   };
 }
