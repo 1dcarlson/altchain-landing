@@ -8,6 +8,7 @@ import ValidationInput from './ValidationInput';
 export default function WaitlistForm() {
   const { t } = useTranslation();
   const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const { toast } = useToast();
   const { triggerCelebration } = useConfetti();
@@ -17,11 +18,12 @@ export default function WaitlistForm() {
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', { email });
+      const response = await apiRequest('POST', '/api/waitlist', { email, name });
       
       if (response.ok) {
         setFormState('success');
         setEmail('');
+        setName('');
       } else {
         setFormState('error');
         toast({
@@ -43,6 +45,7 @@ export default function WaitlistForm() {
 
   const resetForm = () => {
     setEmail('');
+    setName('');
     setFormState('idle');
   };
   
@@ -63,6 +66,18 @@ export default function WaitlistForm() {
       
       {formState === 'idle' || formState === 'submitting' ? (
         <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="relative">
+            <ValidationInput 
+              type="text" 
+              name="name"
+              value={name}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+              placeholder={t('waitlist.namePlaceholder') || "Your name (optional)"}
+              autoComplete="name"
+              className="py-3 text-gray-800 placeholder-gray-400 mb-3"
+              disabled={formState === 'submitting'}
+            />
+          </div>
           <div className="relative">
             <ValidationInput 
               type="email" 

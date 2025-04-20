@@ -55,17 +55,28 @@ export default function SimpleWaitlistForm() {
           <p className="text-sm mt-2">{t('waitlist.successDetail')}</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder={t('waitlist.placeholder')}
-            required
-            className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-            disabled={formState === 'submitting'}
-          />
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+          <div className="flex flex-col sm:flex-row gap-2 w-full">
+            <input
+              type="text"
+              name="name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              placeholder={t('waitlist.namePlaceholder') || "Your name (optional)"}
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              disabled={formState === 'submitting'}
+            />
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder={t('waitlist.placeholder')}
+              required
+              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
+              disabled={formState === 'submitting'}
+            />
+          </div>
           
           <button 
             type="submit" 

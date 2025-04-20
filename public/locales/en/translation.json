@@ -11,6 +11,7 @@
   "waitlist": {
     "title": "Join our waitlist",
     "description": "Be among the first to access our AI-powered sourcing platform.",
+    "namePlaceholder": "Your name (optional)",
     "placeholder": "Enter your work email",
     "button": "Join Waitlist",
     "submitting": "Submitting...",
