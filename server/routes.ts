@@ -202,8 +202,13 @@ export async function registerRoutes(app: Express): Promise<Server> {
         html: `
           <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
             <div style="display: flex; align-items: center; margin-bottom: 24px;">
-              <img src="https://altchain.app/favicon.ico" alt="AltChain Logo" width="32" height="32" style="margin-right: 10px; border-radius: 4px;">
-              <h1 style="font-size: 24px; color: #1a1a1a; margin: 0;">AltChain</h1>
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
             </div>
             
             <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">New Contact Message</h2>
