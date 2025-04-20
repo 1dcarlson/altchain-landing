@@ -12,11 +12,10 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Redirect www to non-www for consistent domain access and simplified SSL management
+// Redirect non-www to www for consistent domain access and simplified SSL management
 app.use((req, res, next) => {
-  if (req.headers.host && req.headers.host.startsWith('www.')) {
-    const newHost = req.headers.host.slice(4);
-    return res.redirect(301, `https://${newHost}${req.originalUrl}`);
+  if (req.headers.host === 'altchain.app') {
+    return res.redirect(301, `https://www.altchain.app${req.url}`);
   }
   next();
 });
