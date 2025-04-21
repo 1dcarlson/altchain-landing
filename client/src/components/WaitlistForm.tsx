@@ -83,7 +83,7 @@ export default function WaitlistForm() {
               name="name"
               value={name}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-              placeholder={t('waitlist.placeholder.name') || "Your name (optional)"}
+              placeholder={t('waitlist.namePlaceholder') || "Your name (optional)"}
               autoComplete="name"
               className="py-3 text-gray-800 placeholder-gray-400 mb-3"
               disabled={formState === 'submitting'}
@@ -95,7 +95,7 @@ export default function WaitlistForm() {
               name="email"
               value={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-              placeholder={t('waitlist.placeholder.email') || "Your email address"}
+              placeholder={t('waitlist.placeholder') || "Your email address"}
               required
               autoComplete="email"
               className="py-3 text-gray-800 placeholder-gray-400"
