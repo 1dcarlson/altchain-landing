@@ -5,48 +5,58 @@ import { useTranslation } from "react-i18next";
 export default function Benefits() {
   const { t } = useTranslation();
 
-  // Using translation namespaces for benefits
-  const benefitKeys = ["reducedTime", "riskMitigation", "costSavings"];
-  
-  const benefits = benefitKeys.map(key => {
-    // Safely handle items, providing a fallback empty array if translation fails
-    const itemsKey = `detailedBenefits.${key}.items`;
-    let items: string[] = [];
-    try {
-      const translatedItems = t(itemsKey, { returnObjects: true });
-      items = Array.isArray(translatedItems) ? translatedItems : [];
-    } catch (error) {
-      console.error(`Error translating ${itemsKey}:`, error);
-      items = [];
+  // Simple predefined benefits
+  const benefitItems = [
+    {
+      title: "Reduced Time",
+      description: "Save time with AI-powered sourcing recommendations.",
+      items: [
+        "Automated supplier discovery",
+        "Quick risk assessment",
+        "Streamlined compliance checks"
+      ]
+    },
+    {
+      title: "Risk Mitigation",
+      description: "Identify and mitigate supply chain risks proactively.",
+      items: [
+        "Real-time disruption alerts",
+        "Alternative supplier recommendations",
+        "Comprehensive risk scoring"
+      ]
+    },
+    {
+      title: "Cost Savings",
+      description: "Optimize spending and identify savings opportunities.",
+      items: [
+        "Total landed cost calculation",
+        "Automated price benchmarking",
+        "Duty and tariff optimization"
+      ]
     }
-    
-    return {
-      key,
-      items
-    };
-  });
+  ];
 
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold">{t('detailedBenefits.title')}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold">{t('benefits.title') || "Detailed Benefits"}</h2>
           <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
-            {t('detailedBenefits.description')}
+            {t('benefits.description') || "AltChain provides a comprehensive solution for global sourcing challenges."}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {benefits.map((benefit, index) => (
+          {benefitItems.map((benefit, index) => (
             <div 
               key={index} 
               className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">
-                {t(`detailedBenefits.${benefit.key}.title`)}
+                {benefit.title}
               </h3>
               <p className="text-gray-600 mb-6">
-                {t(`detailedBenefits.${benefit.key}.description`)}
+                {benefit.description}
               </p>
               
               <ul className="space-y-3">
@@ -75,8 +85,8 @@ export default function Benefits() {
             }}
           >
             <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
-            {t('cta.button')}
-            <ArrowRight className="ml-2 h-4 w-4 transition-all duration-300 group-hover:translate-x-1 group-hover:animate-bounce-subtle" />
+            {t('cta.button') || "Join Now"}
+            <ArrowRight className="ml-2 h-4 w-4 transition-all duration-300 group-hover:translate-x-1" />
           </Button>
         </div>
       </div>

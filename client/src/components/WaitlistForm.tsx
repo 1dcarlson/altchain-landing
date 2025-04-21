@@ -72,8 +72,8 @@ export default function WaitlistForm() {
 
   return (
     <div id="waitlist-form" className="max-w-md mx-auto bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-100">
-      <h3 className="text-xl font-semibold mb-4">{t('waitlist.title')}</h3>
-      <p className="text-gray-600 mb-6 text-sm">{t('waitlist.description')}</p>
+      <h3 className="text-xl font-semibold mb-4">{t('waitlist.title') || "Join our waitlist"}</h3>
+      <p className="text-gray-600 mb-6 text-sm">{t('waitlist.description') || "Be among the first to access AltChain's AI-powered sourcing platform."}</p>
       
       {formState === 'idle' || formState === 'submitting' ? (
         <form onSubmit={handleSubmit} className="space-y-4">
@@ -83,7 +83,7 @@ export default function WaitlistForm() {
               name="name"
               value={name}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-              placeholder={t('waitlist.namePlaceholder') || "Your name (optional)"}
+              placeholder={t('waitlist.placeholder.name') || "Your name (optional)"}
               autoComplete="name"
               className="py-3 text-gray-800 placeholder-gray-400 mb-3"
               disabled={formState === 'submitting'}
@@ -95,7 +95,7 @@ export default function WaitlistForm() {
               name="email"
               value={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-              placeholder={t('waitlist.placeholder')}
+              placeholder={t('waitlist.placeholder.email') || "Your email address"}
               required
               autoComplete="email"
               className="py-3 text-gray-800 placeholder-gray-400"
