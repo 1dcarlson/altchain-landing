@@ -18,6 +18,14 @@ const fallbackTranslations = {
     title: "Contact Us",
     description: "Have questions? We'd love to hear from you!"
   },
+  languageSwitch: {
+    detected: "We detected your browser language is {{language}}",
+    suggestion: "Would you like to switch to this language?",
+    accept: "Yes, switch language",
+    decline: "No, thank you",
+    switched: "Switched to {{language}}",
+    confirmation: "Your language preference has been saved"
+  },
   hero: {
     title: "Smarter Global Sourcing with AI",
     description: "AltChain helps companies worldwide navigate the evolving landscape of trade wars, tariffs, and supply chain shifts — using AI to optimize sourcing, reduce risk, and save time."
