@@ -23,20 +23,48 @@ export default function SmartLanguageSuggestion() {
   };
 
   useEffect(() => {
+    // For testing purposes, let's clear any previous suggestion flag
+    // Comment this line out for production
+    sessionStorage.removeItem('language_suggested');
+    
     // Only show suggestion once per session
     const hasSuggested = sessionStorage.getItem('language_suggested');
-    if (hasSuggested) return;
+    if (hasSuggested) {
+      console.log('Language suggestion already shown this session');
+      return;
+    }
     
     // Get user's browser languages
     const browserLanguages = navigator.languages || [navigator.language];
-    console.log('Browser languages:', browserLanguages);
+    console.log('Browser languages detected:', browserLanguages);
     
     // Get current language
     const currentLanguage = i18n.language.split('-')[0]; // Strip region code if present
+    console.log('Current language:', currentLanguage);
     
     // Find the first supported browser language that's not the current one
     const supportedLanguages = Object.keys(languageNames);
+    console.log('Supported languages:', supportedLanguages);
     
+    // For testing purposes, always suggest Spanish if current language is English
+    // and vice versa. Remove this for production.
+    if (currentLanguage === 'en') {
+      setSuggestedLanguage('es');
+      setSuggestedLanguageName(languageNames['es']);
+      setShowSuggestion(true);
+      console.log('Suggesting Spanish to English users for testing');
+      sessionStorage.setItem('language_suggested', 'true');
+      return;
+    } else if (currentLanguage === 'es') {
+      setSuggestedLanguage('en');
+      setSuggestedLanguageName(languageNames['en']);
+      setShowSuggestion(true);
+      console.log('Suggesting English to Spanish users for testing');
+      sessionStorage.setItem('language_suggested', 'true');
+      return;
+    }
+    
+    // Normal browser language detection flow
     for (const lang of browserLanguages) {
       const simpleLang = lang.split('-')[0]; // Strip region code
       
@@ -47,6 +75,7 @@ export default function SmartLanguageSuggestion() {
         setSuggestedLanguage(simpleLang);
         setSuggestedLanguageName(languageNames[simpleLang]);
         setShowSuggestion(true);
+        console.log(`Suggesting ${languageNames[simpleLang]} based on browser language`);
         break;
       }
     }
@@ -75,12 +104,15 @@ export default function SmartLanguageSuggestion() {
   if (!showSuggestion) return null;
   
   return (
-    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white border border-gray-200 rounded-lg shadow-lg p-4 w-full max-w-sm z-50 animate-fade-in-up">
-      <div className="flex items-start">
-        <div className="flex-shrink-0 pt-0.5">
+    <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-white border border-gray-200 rounded-lg shadow-xl p-4 w-full max-w-sm z-50 animate-fade-in-up">
+      {/* Blue accent bar at top */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-primary rounded-t-lg"></div>
+      
+      <div className="flex items-start mt-1">
+        <div className="flex-shrink-0 bg-blue-100 p-2 rounded-full">
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
-            className="h-6 w-6 text-blue-500" 
+            className="h-6 w-6 text-primary" 
             fill="none" 
             viewBox="0 0 24 24" 
             stroke="currentColor"
@@ -94,24 +126,29 @@ export default function SmartLanguageSuggestion() {
           </svg>
         </div>
         <div className="ml-3 flex-1">
-          <p className="text-sm font-medium text-gray-900">
+          <p className="text-base font-semibold text-gray-900">
             {t('languageSwitch.detected', { language: suggestedLanguageName })}
           </p>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-gray-600">
             {t('languageSwitch.suggestion')}
           </p>
-          <div className="mt-3 flex space-x-2">
+          
+          <div className="mt-4 flex space-x-3">
             <button
               type="button"
               onClick={handleAccept}
-              className="inline-flex items-center rounded-md bg-primary px-3 py-2 text-sm font-semibold text-white hover:bg-primary/90"
+              className="flex-1 inline-flex justify-center items-center rounded-md bg-primary hover:bg-primary/90 
+                px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all 
+                hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
             >
               {t('languageSwitch.accept')}
             </button>
             <button
               type="button"
               onClick={handleDecline}
-              className="inline-flex items-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+              className="flex-1 inline-flex justify-center items-center rounded-md bg-white 
+                px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm 
+                ring-1 ring-inset ring-gray-300 hover:bg-gray-50 transition-all"
             >
               {t('languageSwitch.decline')}
             </button>
