@@ -3,30 +3,53 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
-// Import translation files directly for immediate loading
+// Load English translation directly - required for initial render
 import enTranslation from '../../public/locales/en/translation.json';
-import esTranslation from '../../public/locales/es/translation.json';
-import zhTranslation from '../../public/locales/zh/translation.json';
-import frTranslation from '../../public/locales/fr/translation.json';
-import ruTranslation from '../../public/locales/ru/translation.json';
 
-const resources = {
+// Define interface for resources type safety
+interface Resources {
+  [key: string]: {
+    translation: any;
+  };
+}
+
+// Create a resources object with English as the default
+const resources: Resources = {
   en: {
     translation: enTranslation
-  },
-  es: {
-    translation: esTranslation
-  },
-  zh: {
-    translation: zhTranslation
-  },
-  fr: {
-    translation: frTranslation
-  },
-  ru: {
-    translation: ruTranslation
   }
 };
+
+// Load other translations on demand to improve initial load time
+const loadTranslations = async () => {
+  try {
+    // Using dynamic imports to load other translations in parallel
+    const [esModule, zhModule, frModule, ruModule] = await Promise.all([
+      import('../../public/locales/es/translation.json'),
+      import('../../public/locales/zh/translation.json'),
+      import('../../public/locales/fr/translation.json'),
+      import('../../public/locales/ru/translation.json')
+    ]);
+    
+    // Add translations to resources after they're loaded
+    resources['es'] = { translation: esModule.default };
+    resources['zh'] = { translation: zhModule.default };
+    resources['fr'] = { translation: frModule.default };
+    resources['ru'] = { translation: ruModule.default };
+    
+    // Notify i18next that resources have changed
+    if (i18n.isInitialized) {
+      Object.keys(resources).forEach(lng => {
+        i18n.addResourceBundle(lng, 'translation', resources[lng].translation, true, true);
+      });
+    }
+  } catch (error) {
+    console.error('Failed to load translations:', error);
+  }
+};
+
+// Start loading other translations in the background
+loadTranslations();
 
 i18n
   // Detect user language
