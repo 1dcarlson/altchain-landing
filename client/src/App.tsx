@@ -27,25 +27,15 @@ function Router() {
 function App() {
   const { isDark, timeTheme } = useTheme();
   
-  // Apply dynamic background color based on time theme (memoized)
+  // Apply consistent background color regardless of time theme
   const bgColorClass = useMemo(() => {
     if (isDark) {
       return 'bg-slate-900';
     }
     
-    switch (timeTheme) {
-      case 'morning':
-        return 'bg-amber-50';
-      case 'day':
-        return 'bg-slate-50';
-      case 'evening':
-        return 'bg-purple-50';
-      case 'night':
-        return 'bg-slate-900';
-      default:
-        return 'bg-slate-50';
-    }
-  }, [isDark, timeTheme]);
+    // Use the same bg color for all daytime themes for consistency
+    return 'bg-white';
+  }, [isDark]);
   
   return (
     <QueryClientProvider client={queryClient}>
