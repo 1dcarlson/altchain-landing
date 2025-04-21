@@ -4,7 +4,6 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import InteractiveBackground from "@/components/InteractiveBackground";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
-import SmartLanguageSuggestion from "@/components/SmartLanguageSuggestion";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -49,7 +48,6 @@ function App() {
         <InteractiveBackground />
         <ScrollProgressIndicator />
         <Router />
-        <SmartLanguageSuggestion />
         <Toaster />
       </div>
     </QueryClientProvider>
