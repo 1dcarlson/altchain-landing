@@ -28,33 +28,36 @@ export default function SimpleWaitlistForm() {
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', { email, name: name.trim() });
+      const response = await apiRequest('POST', '/api/waitlist', { email, name: name.trim() || undefined });
       
-      if (response.ok) {
-        setFormState('success');
-        setEmail('');
-        setName('');
-        
-        // Delay the confetti slightly to let the success message appear first
-        setTimeout(() => {
-          triggerWaitlistCelebration();
-        }, 300);
-      } else {
-        setFormState('error');
-        toast({
-          title: t('waitlist.error'),
-          description: t('waitlist.errorDetail'),
-          variant: 'destructive'
-        });
-      }
+      // Always mark as success if we reached this point
+      setFormState('success');
+      setEmail('');
+      setName('');
+      
+      // Delay the confetti slightly to let the success message appear first
+      setTimeout(() => {
+        triggerWaitlistCelebration();
+      }, 300);
+      
+      // Log the successful response
+      const responseData = await response.json().catch(() => ({}));
+      console.log('Waitlist submission successful:', responseData);
     } catch (error) {
+      console.error('Waitlist submission error:', error);
       setFormState('error');
+      let errorMessage = t('waitlist.errorDetail');
+      
+      // Try to get a more specific error message if possible
+      if (error instanceof Error) {
+        errorMessage = error.message || errorMessage;
+      }
+      
       toast({
         title: t('waitlist.error'),
-        description: t('waitlist.errorDetail'),
+        description: errorMessage,
         variant: 'destructive'
       });
-      console.error('Waitlist submission error:', error);
     }
   };
 

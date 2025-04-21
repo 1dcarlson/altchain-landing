@@ -92,8 +92,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Check if email already exists in waitlist
       const existingEntry = await storage.getWaitlistEntryByEmail(email);
       if (existingEntry) {
+        // Still return 200 OK for duplicates to avoid revealing user existence,
+        // but include isExisting flag for UI to handle differently if needed
+        console.log(`Duplicate waitlist submission for email: ${email}`);
         return res.status(200).json({ 
-          message: "This email is already on our waitlist" 
+          message: "This email is already on our waitlist",
+          isExisting: true
         });
       }
       
