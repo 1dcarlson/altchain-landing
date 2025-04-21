@@ -13,6 +13,11 @@ import ruTranslation from '../../public/locales/ru/translation.json';
 // Fallback translations for any missing keys
 const fallbackTranslations = {
   about: "Home",
+  contact: {
+    navLink: "Contact",
+    title: "Contact Us",
+    description: "Have questions? We'd love to hear from you!"
+  },
   hero: {
     title: "Smarter Global Sourcing with AI",
     description: "AltChain helps companies worldwide navigate the evolving landscape of trade wars, tariffs, and supply chain shifts — using AI to optimize sourcing, reduce risk, and save time."

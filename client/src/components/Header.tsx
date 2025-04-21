@@ -31,13 +31,13 @@ export default function Header() {
         </Link>
         <nav className="flex items-center gap-6">
           <Link href="/">
-            <span className="text-blue-100 hover:text-white text-sm font-medium hidden sm:inline-block transition-colors cursor-pointer">
+            <span className="text-blue-100 hover:text-white text-sm font-medium transition-colors cursor-pointer">
               {t('about')}
             </span>
           </Link>
           <Link href="/contact">
-            <span className="text-blue-100 hover:text-white text-sm font-medium hidden sm:inline-block transition-colors cursor-pointer">
-              {t('contact.navLink')}
+            <span className="text-blue-100 hover:text-white text-sm font-medium transition-colors cursor-pointer font-bold">
+              {t('contact.navLink') || "Contact"}
             </span>
           </Link>
           <LanguageSelector />
