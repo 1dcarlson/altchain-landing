@@ -3,53 +3,50 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import Backend from 'i18next-http-backend';
 
-// Load English translation directly - required for initial render
-import enTranslation from '../../public/locales/en/translation.json';
-
-// Define interface for resources type safety
-interface Resources {
-  [key: string]: {
-    translation: any;
-  };
-}
-
-// Create a resources object with English as the default
-const resources: Resources = {
+// Simple hard-coded English translations for fallback
+const resources = {
   en: {
-    translation: enTranslation
-  }
-};
-
-// Load other translations on demand to improve initial load time
-const loadTranslations = async () => {
-  try {
-    // Using dynamic imports to load other translations in parallel
-    const [esModule, zhModule, frModule, ruModule] = await Promise.all([
-      import('../../public/locales/es/translation.json'),
-      import('../../public/locales/zh/translation.json'),
-      import('../../public/locales/fr/translation.json'),
-      import('../../public/locales/ru/translation.json')
-    ]);
-    
-    // Add translations to resources after they're loaded
-    resources['es'] = { translation: esModule.default };
-    resources['zh'] = { translation: zhModule.default };
-    resources['fr'] = { translation: frModule.default };
-    resources['ru'] = { translation: ruModule.default };
-    
-    // Notify i18next that resources have changed
-    if (i18n.isInitialized) {
-      Object.keys(resources).forEach(lng => {
-        i18n.addResourceBundle(lng, 'translation', resources[lng].translation, true, true);
-      });
+    translation: {
+      about: "Home",
+      hero: {
+        title: "Smarter Global Sourcing with AI",
+        description: "AltChain helps companies worldwide navigate the evolving landscape of trade wars, tariffs, and supply chain shifts — using AI to optimize sourcing, reduce risk, and save time."
+      },
+      waitlist: {
+        title: "Join our waitlist",
+        button: "Join Waitlist"
+      },
+      features: {
+        title: "Why choose AltChain?",
+        description: "Our AI-powered platform helps you navigate global sourcing with confidence.",
+        riskAnalysis: {
+          title: "Risk Analysis",
+          description: "Analyze and mitigate risks in your global supply chain with AI insights.",
+          tooltip: "Our AI analyzes thousands of data points to identify potential supply chain disruptions before they affect your business."
+        },
+        compliance: {
+          title: "Compliance Management",
+          description: "Stay compliant with changing trade regulations and requirements worldwide.",
+          tooltip: "Automatically check compliance with international trade regulations, tariffs, and country-specific requirements."
+        },
+        costOptimization: {
+          title: "Cost Optimization",
+          description: "Identify cost-saving opportunities and optimize your sourcing strategy.",
+          tooltip: "Compare suppliers, shipping routes, and total landed costs to maximize savings."
+        }
+      },
+      benefits: {
+        free: "Free for early access",
+        noCard: "No credit card required"
+      },
+      cta: {
+        title: "Ready to transform your global sourcing?",
+        description: "Join our waitlist to be among the first to access AltChain.",
+        button: "Join Now"
+      }
     }
-  } catch (error) {
-    console.error('Failed to load translations:', error);
   }
 };
-
-// Start loading other translations in the background
-loadTranslations();
 
 i18n
   // Detect user language
