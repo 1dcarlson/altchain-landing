@@ -32,10 +32,10 @@ type BaseThemeColors = {
 // Theme configurations with type safety
 const themeConfigs: Record<'morning' | 'day' | 'evening' | 'night', BaseThemeColors> = {
   morning: {
-    primary: 'hsl(35, 100%, 50%)', // Warm orange
-    secondary: 'hsl(160, 100%, 45%)',
-    accent: 'hsl(320, 100%, 65%)',
-    background: 'hsl(48, 100%, 97%)', // Light warm yellow
+    primary: 'hsl(215, 100%, 50%)', // Blue (same as day)
+    secondary: 'hsl(165, 100%, 41%)',
+    accent: 'hsl(280, 100%, 60%)',
+    background: 'hsl(0, 0%, 100%)', // White (same as day)
     text: 'hsl(215, 25%, 27%)'
   },
   day: {
