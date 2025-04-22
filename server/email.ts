@@ -57,21 +57,24 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
     html: string;
   };
   
+  // Define common header to match website design
+  const commonHeader = `<div style="display: flex; align-items: center; margin-bottom: 24px; background-image: linear-gradient(to right, #1E40AF, #3B82F6); padding: 10px 16px; border-radius: 8px;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14.6667 22L17.3333 10" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h1 style="font-size: 24px; color: white; margin: 0; font-weight: bold;">AltChain</h1>
+  </div>`;
+  
   // Define email templates for different languages
   const templates: Record<SupportedLanguage, EmailTemplate> = {
     en: {
       subject: 'Welcome to AltChain Waitlist',
       text: `Thank you for joining the AltChain waitlist!\n\nWe're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.\n\nWant to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.\n\nVisit us at: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
-  <div style="display: flex; align-items: center; margin-bottom: 24px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
-  </div>
+  ${commonHeader}
 
   <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
     Thank you for joining AltChain's waitlist!
@@ -106,15 +109,7 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
       subject: 'Bienvenido a la Lista de Espera de AltChain',
       text: `¡Gracias por unirse a la lista de espera de AltChain!\n\nEstamos emocionados de tenerlo a bordo. Será de los primeros en saber cuando estemos listos para lanzar nuestra plataforma de abastecimiento global impulsada por IA.\n\n¿Quiere ayudar a dar forma al futuro? Responda a este correo electrónico y díganos qué le frustra más sobre el abastecimiento global.\n\nVisítenos en: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
-  <div style="display: flex; align-items: center; margin-bottom: 24px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
-  </div>
+  ${commonHeader}
 
   <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
     ¡Bienvenido a la Lista de Espera de AltChain!
@@ -152,15 +147,7 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
       subject: 'Bienvenue sur la Liste d\'Attente AltChain',
       text: `Merci d'avoir rejoint la liste d'attente AltChain!\n\nNous sommes ravis de vous avoir à bord. Vous serez parmi les premiers à être informés quand nous serons prêts à lancer notre plateforme d'approvisionnement mondial alimentée par l'IA.\n\nVous souhaitez aider à façonner l'avenir? Répondez à cet e-mail et dites-nous ce qui vous frustre le plus dans l'approvisionnement mondial.\n\nVisitez-nous sur: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
-  <div style="display: flex; align-items: center; margin-bottom: 24px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
-  </div>
+  ${commonHeader}
 
   <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
     Bienvenue sur la Liste d'Attente AltChain!
@@ -198,15 +185,7 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
       subject: '欢迎加入AltChain等候名单',
       text: `感谢您加入AltChain等候名单！\n\n我们很高兴有您的加入。当我们准备推出我们的AI驱动的全球采购平台时，您将成为最先知道的人之一。\n\n想帮助塑造未来吗？回复此电子邮件，告诉我们全球采购中最让您感到沮丧的是什么。\n\n访问我们: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
-  <div style="display: flex; align-items: center; margin-bottom: 24px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
-  </div>
+  ${commonHeader}
 
   <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
     欢迎加入AltChain等候名单！
@@ -244,15 +223,7 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
       subject: 'Добро пожаловать в список ожидания AltChain',
       text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту. Вы будете одним из первых, кто узнает, когда мы будем готовы запустить нашу платформу глобальных поставок с искусственным интеллектом.\n\nХотите помочь сформировать будущее? Ответьте на это письмо и расскажите, что вас больше всего раздражает в глобальных поставках.\n\nПосетите нас: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
-  <div style="display: flex; align-items: center; margin-bottom: 24px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
-  </div>
+  ${commonHeader}
 
   <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
     Добро пожаловать в список ожидания AltChain!
