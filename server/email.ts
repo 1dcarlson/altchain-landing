@@ -24,9 +24,10 @@ export async function sendEmail({ to, subject, text, html }) {
  * Send a waitlist confirmation email
  * @param {string} email Recipient email address
  * @param {string} language Language code for localization (en, es, fr, zh, ru)
+ * @param {string} name Optional name for personalization
  * @returns {Promise<void>}
  */
-export async function sendWaitlistConfirmation(email, language = 'en') {
+export async function sendWaitlistConfirmation(email, language = 'en', name = '') {
   // Define email templates for different languages
   const templates = {
     en: {
@@ -112,11 +113,29 @@ export async function sendWaitlistConfirmation(email, language = 'en') {
 
   // Use the specified language template or fall back to English
   const template = templates[language] || templates.en;
+  
+  // Personalize subject and content if name is provided
+  let subject = template.subject;
+  let text = template.text;
+  let html = template.html;
+  
+  // Add personalization with name if provided
+  if (name) {
+    // For email subject - only English for now
+    if (language === 'en') {
+      subject = `Welcome to AltChain, ${name}!`;
+    }
+    
+    // Insert name in the HTML content for all languages
+    html = html.replace('<h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">', 
+      `<h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
+      ${language === 'en' ? `Hi ${name}, ` : ''}`)
+  }
 
   return sendEmail({
     to: email,
-    subject: template.subject,
-    text: template.text,
-    html: template.html
+    subject: subject,
+    text: text,
+    html: html
   });
 }

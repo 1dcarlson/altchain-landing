@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { sendEmail } from "./email";
+import { sendEmail, sendWaitlistConfirmation } from "./email";
 import { z } from "zod";
 import { insertWaitlistSchema } from "@shared/schema";
 import path from "path";
@@ -82,7 +82,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     try {
       // Validate request body
       const validatedData = insertWaitlistSchema.parse(req.body);
-      const { email, name } = validatedData;
+      const { email, name, language } = validatedData;
       
       // Additional validation for name (if provided)
       if (name !== undefined && (typeof name !== 'string' || name.trim().length < 2)) {
@@ -113,49 +113,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Set up email parameters
       const fromEmail = process.env.FROM_EMAIL || 'AltChain <welcome@em7255.altchain.app>';
       
-      // Send confirmation email to the user
+      // Send confirmation email to the user in their preferred language
       try {
-        const htmlContent = `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
-  <div style="display: flex; align-items: center; margin-bottom: 24px;">
-    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-    </svg>
-    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
-  </div>
-
-  <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
-    ${name ? `Hi ${name}, thank you for joining AltChain's waitlist!` : 'Thank you for joining AltChain\'s waitlist!'}
-  </h2>
-  
-  <p style="font-size: 16px; color: #333; line-height: 1.6;">
-    We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.
-  </p>
-
-  <p style="font-size: 16px; color: #333; line-height: 1.6;">
-    Want to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.
-  </p>
-
-  <div style="text-align: center; margin: 30px 0;">
-    <a href="https://altchain.app" style="background-color: #4c86f9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; display: inline-block; font-size: 16px;">
-      Visit AltChain
-    </a>
-  </div>
-
-  <p style="font-size: 12px; color: #999; text-align: center; margin-top: 24px;">
-    You're receiving this email because you signed up at altchain.app<br>
-    AltChain, Inc. | <a href="mailto:daniel@altchain.app" style="color: #999;">daniel@altchain.app</a>
-  </p>
-</div>`;
+        // Use the user's selected language or fall back to English
+        const userLanguage = language || 'en';
         
-        await sendEmail({
-          to: email,
-          subject: `Welcome to AltChain${name ? `, ${name}` : ''}!`,
-          text: `Hi ${name ? name : 'there'}, thanks for joining AltChain! You're officially on our waitlist and will be among the first to access our platform when we launch.\n\nWant to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.\n\nAltChain, Inc. | daniel@altchain.app`,
-          html: htmlContent
-        });
+        // Log which language we're using for the email
+        console.log(`Sending waitlist confirmation email in ${userLanguage} language`);
+        
+        // Use the multilingual email function with the user's language and name
+        await sendWaitlistConfirmation(email, userLanguage, name || '');
+        
+        // Additional personalized line for name if provided
+        if (name) {
+          console.log(`Email sent to ${name} at ${email}`);
+        }
       } catch (emailError) {
         // Even if email fails, the user is on the waitlist
         console.warn("Failed to send confirmation email, but user added to waitlist:", emailError);

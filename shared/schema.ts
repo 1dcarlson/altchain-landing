@@ -26,6 +26,8 @@ export const insertWaitlistSchema = createInsertSchema(waitlist).pick({
 }).extend({
   // Make name optional but validate if provided
   name: z.string().min(2, "Name must be at least 2 characters").optional(),
+  // Add language field (not stored in DB but used for email)
+  language: z.string().min(2).max(5).optional(),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
