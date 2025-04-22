@@ -97,26 +97,26 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
     },
     zh: {
       subject: '欢迎加入AltChain等候名单',
-      text: `感谢您加入AltChain等候名单！\n\n我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。\n\nAltChain团队`,
+      text: `感谢您加入AltChain等候名单！\n\n我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。\n\n访问我们: https://altchain.app\n\nAltChain团队`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1E3A8A;">欢迎加入AltChain等候名单！</h2>
         <p>感谢您加入AltChain等候名单！</p>
         <p>我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://www.altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">访问 AltChain</a>
+          <a href="https://altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">访问 AltChain</a>
         </div>
         <p>此致,<br>AltChain团队</p>
       </div>`
     },
     ru: {
       subject: 'Добро пожаловать в список ожидания AltChain',
-      text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.\n\nКоманда AltChain`,
+      text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.\n\nПосетите нас: https://altchain.app\n\nКоманда AltChain`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1E3A8A;">Добро пожаловать в список ожидания AltChain!</h2>
         <p>Спасибо за присоединение к списку ожидания AltChain!</p>
         <p>Мы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://www.altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Посетить AltChain</a>
+          <a href="https://altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Посетить AltChain</a>
         </div>
         <p>С уважением,<br>Команда AltChain</p>
       </div>`
