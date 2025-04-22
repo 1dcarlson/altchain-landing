@@ -9,12 +9,12 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-// Animation variants for indicator
+// Animation variants for indicator - more subtle
 const flagVariants = {
-  initial: { scale: 0.8, opacity: 0, rotate: -10 },
-  animate: { scale: 1, opacity: 1, rotate: 0, transition: { type: "spring", stiffness: 260, damping: 20 } },
-  exit: { scale: 0.8, opacity: 0, rotate: 10, transition: { duration: 0.2 } },
-  hover: { scale: 1.1, rotate: 5, transition: { type: "spring", stiffness: 400, damping: 10 } }
+  initial: { scale: 0.9, opacity: 0 },
+  animate: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 260, damping: 20 } },
+  exit: { scale: 0.9, opacity: 0, transition: { duration: 0.2 } },
+  hover: { scale: 1.05, transition: { type: "spring", stiffness: 400, damping: 10 } }
 };
 
 // Animation for menu items
@@ -31,7 +31,7 @@ const menuItemVariants = {
     } 
   }),
   exit: { opacity: 0, y: -5 },
-  hover: { scale: 1.05, x: 5, transition: { type: "spring", stiffness: 300, damping: 10 } }
+  hover: { scale: 1.02, x: 2, transition: { type: "spring", stiffness: 300, damping: 10 } }
 };
 
 // Flag SVG definitions directly embedded
@@ -149,7 +149,7 @@ const LanguageSelector = () => {
               <DropdownMenuItem 
                 onClick={() => changeLanguage(language.code)}
                 className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all ${
-                  i18n.language === language.code ? 'bg-blue-50 text-blue-900 font-medium' : ''
+                  i18n.language === language.code ? 'bg-gray-100 text-gray-800 font-medium' : ''
                 }`}
               >
                 <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">

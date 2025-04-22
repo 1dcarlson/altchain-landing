@@ -32,7 +32,7 @@ export async function sendWaitlistConfirmation(email, language = 'en') {
     en: {
       subject: 'Welcome to AltChain Waitlist',
       text: `Thank you for joining the AltChain waitlist!\n\nWe're excited to have you on board as we prepare to launch our AI-powered global sourcing platform. You'll be among the first to know when we launch.\n\nThe AltChain Team`,
-      html: html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+      html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
           <div style="display: flex; align-items: center; margin-bottom: 24px;">
             <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
               <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
