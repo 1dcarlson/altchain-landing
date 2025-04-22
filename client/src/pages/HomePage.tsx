@@ -27,7 +27,7 @@ export default function HomePage() {
               {t('hero.description')}
             </p>
 
-            <div id="waitlist-form" className="max-w-lg mx-auto bg-white/10 p-6 rounded-lg shadow-sm">
+            <div id="waitlist-form" className="max-w-lg mx-auto bg-white/10 p-6 rounded-lg shadow-sm flex justify-center">
               <SimpleWaitlistForm />
             </div>
             

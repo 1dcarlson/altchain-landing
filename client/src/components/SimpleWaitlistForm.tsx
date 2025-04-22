@@ -62,22 +62,22 @@ export default function SimpleWaitlistForm() {
   };
 
   return (
-    <div className="waitlist-form-container">
+    <div className="waitlist-form-container w-full">
       {formState === 'success' ? (
         <div className="success-message text-center p-4 bg-green-50 text-green-700 rounded-lg">
           <p className="font-medium">{t('waitlist.success')}</p>
           <p className="text-sm mt-2">{t('waitlist.successDetail')}</p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-          <div className="flex flex-col sm:flex-row gap-2 w-full">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 w-full">
             <input
               type="text"
               name="name"
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder={t('waitlist.namePlaceholder') || "Your name (optional)"}
-              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
               disabled={formState === 'submitting'}
             />
             <input
@@ -87,7 +87,7 @@ export default function SimpleWaitlistForm() {
               onChange={(e) => setEmail(e.target.value)}
               placeholder={t('waitlist.placeholder')}
               required
-              className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary text-gray-800"
               disabled={formState === 'submitting'}
             />
           </div>
@@ -95,7 +95,7 @@ export default function SimpleWaitlistForm() {
           <button 
             type="submit" 
             disabled={formState === 'submitting'}
-            className="px-4 py-2 bg-primary text-white font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-70"
+            className="w-full sm:w-auto sm:mx-auto px-6 py-2 bg-primary text-white font-medium rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-70"
           >
             {formState === 'submitting' ? (
               <span className="flex items-center justify-center">
