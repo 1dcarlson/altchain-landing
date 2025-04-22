@@ -1,0 +1,40 @@
+Edit the English HTML Template
+
+In Replit, open server/routes.ts (or wherever your sendWaitlistConfirmation lives).
+Scroll down to the templates.en.html block. It currently looks like:
+html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+  <h2 style="color: #1E3A8A;">Welcome to AltChain Waitlist!</h2>
+  … old content …
+</div>`
+Replace everything between the backticks (`…`) with this new HTML:
+html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+  <div style="display: flex; align-items: center; margin-bottom: 24px;">
+    <svg width="32" height="32" … style="margin-right: 10px;">
+      <!-- SVG paths here (you can copy your existing logo SVG) -->
+    </svg>
+    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
+  </div>
+
+  <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
+    ${name ? `Hi ${name}, thank you for joining AltChain's waitlist!` : 'Thank you for joining AltChain\'s waitlist!'}
+  </h2>
+  
+  <p style="font-size: 16px; color: #333; line-height: 1.6;">
+    We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.
+  </p>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.6;">
+    Want to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.
+  </p>
+
+  <div style="text-align: center; margin: 30px 0;">
+    <a href="https://altchain.app" style="background-color: #4c86f9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; display: inline-block; font-size: 16px;">
+      Visit AltChain
+    </a>
+  </div>
+
+  <p style="font-size: 12px; color: #999; text-align: center; margin-top: 24px;">
+    You’re receiving this email because you signed up at altchain.app<br>
+    AltChain, Inc. | <a href="mailto:daniel@altchain.app" style="color: #999;">daniel@altchain.app</a>
+  </p>
+</div>`
