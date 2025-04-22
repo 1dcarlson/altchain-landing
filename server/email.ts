@@ -156,19 +156,44 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
     ru: {
       subject: 'Добро пожаловать в список ожидания AltChain',
       text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.\n\nПосетите нас: https://altchain.app\n\nКоманда AltChain`,
-      html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-        <h2 style="color: #1E3A8A;">Добро пожаловать в список ожидания AltChain!</h2>
-        <p>Спасибо за присоединение к списку ожидания AltChain!</p>
-        <p>Мы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.</p>
-        <div style="text-align: center; margin: 30px 0;">
-          <a href="https://altchain.app" target="_blank" style="background-color: #4F46E5; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: bold;">Посетить AltChain</a>
-          <p style="margin-top: 10px; font-size: 12px;">
-            Если кнопка не работает, скопируйте и вставьте этот URL в ваш браузер: <br>
-            <a href="https://altchain.app" style="color: #4F46E5;"><strong>https://altchain.app</strong></a>
-          </p>
-        </div>
-        <p>С уважением,<br>Команда AltChain</p>
-      </div>`
+      html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+  <div style="display: flex; align-items: center; margin-bottom: 24px;">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+      <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
+  </div>
+
+  <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
+    Добро пожаловать в список ожидания AltChain!
+  </h2>
+  
+  <p style="font-size: 16px; color: #333; line-height: 1.6;">
+    Спасибо за присоединение к списку ожидания AltChain!
+  </p>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.6;">
+    Мы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.
+  </p>
+
+  <div style="text-align: center; margin: 30px 0;">
+    <a href="https://altchain.app" target="_blank" style="background-color: #4F46E5; color: white; padding: 12px 24px; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: bold;">
+      Посетить AltChain
+    </a>
+    <p style="margin-top: 10px; font-size: 12px;">
+      Если кнопка не работает, скопируйте и вставьте этот URL в ваш браузер: <br>
+      <a href="https://altchain.app" style="color: #4F46E5;"><strong>https://altchain.app</strong></a>
+    </p>
+  </div>
+
+  <p style="font-size: 12px; color: #999; text-align: center; margin-top: 24px;">
+    Вы получили это письмо, потому что зарегистрировались на altchain.app<br>
+    AltChain, Inc. | <a href="mailto:daniel@altchain.app" style="color: #999;">daniel@altchain.app</a>
+  </p>
+</div>`
     }
   };
 

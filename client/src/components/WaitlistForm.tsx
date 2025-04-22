@@ -6,7 +6,7 @@ import { useConfetti } from '@/hooks/use-confetti';
 import ValidationInput from './ValidationInput';
 
 export default function WaitlistForm() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -29,7 +29,13 @@ export default function WaitlistForm() {
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', { email, name: name.trim() || undefined });
+      // Get current language and include it in the request
+      const currentLanguage = i18n.language.split('-')[0]; // Get base language code (e.g., 'en' from 'en-US')
+      const response = await apiRequest('POST', '/api/waitlist', { 
+        email, 
+        name: name.trim() || undefined,
+        language: currentLanguage
+      });
       
       // Always mark as success if we reached this point
       setFormState('success');
