@@ -1,8 +1,19 @@
 import sgMail from '@sendgrid/mail';
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+if (!process.env.SENDGRID_API_KEY) {
+  console.warn('SENDGRID_API_KEY is not set. Email features will not work.');
+} else {
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+}
 
-export async function sendEmail({ to, subject, text, html }) {
+interface EmailParams {
+  to: string;
+  subject: string;
+  text: string;
+  html: string;
+}
+
+export async function sendEmail({ to, subject, text, html }: EmailParams): Promise<void> {
   const msg = {
     to,
     from: 'Daniel from AltChain <daniel@altchain.app>', // 👈 must match your verified sender
@@ -14,25 +25,26 @@ export async function sendEmail({ to, subject, text, html }) {
   try {
     await sgMail.send(msg);
     console.log('Email sent successfully');
-  } catch (error) {
-    console.error('SendGrid Error:', error.response?.body || error.message);
+  } catch (error: unknown) {
+    const errMsg = error instanceof Error ? error.message : 'Unknown error';
+    console.error('SendGrid Error:', errMsg);
     throw new Error('Email failed to send');
   }
 }
 
 /**
  * Send a waitlist confirmation email
- * @param {string} email Recipient email address
- * @param {string} language Language code for localization (en, es, fr, zh, ru)
- * @param {string} name Optional name for personalization
- * @returns {Promise<void>}
+ * @param email Recipient email address
+ * @param language Language code for localization (en, es, fr, zh, ru)
+ * @param name Optional name for personalization
+ * @returns Promise indicating success/failure
  */
-export async function sendWaitlistConfirmation(email, language = 'en', name = '') {
+export async function sendWaitlistConfirmation(email: string, language: 'en' | 'es' | 'fr' | 'zh' | 'ru' = 'en', name = ''): Promise<void> {
   // Define email templates for different languages
   const templates = {
     en: {
       subject: 'Welcome to AltChain Waitlist',
-      text: `Thank you for joining the AltChain waitlist!\n\nWe're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.\n\nWant to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.\n\nVisit us at: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
+      text: `Thank you for joining the AltChain waitlist!\n\nWe're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.\n\nWant to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.\n\nVisit us at: https://altchain.app\nOr use our secure link: https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
   <div style="display: flex; align-items: center; margin-bottom: 24px;">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
@@ -75,7 +87,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
     },
     es: {
       subject: 'Bienvenido a la Lista de Espera de AltChain',
-      text: `¡Gracias por unirse a la lista de espera de AltChain!\n\nEstamos emocionados de tenerlo a bordo mientras nos preparamos para lanzar nuestra plataforma de abastecimiento global impulsada por IA. Será de los primeros en saber cuando lancemos.\n\nVisítenos en: https://altchain.app\n\nEl Equipo de AltChain`,
+      text: `¡Gracias por unirse a la lista de espera de AltChain!\n\nEstamos emocionados de tenerlo a bordo mientras nos preparamos para lanzar nuestra plataforma de abastecimiento global impulsada por IA. Será de los primeros en saber cuando lancemos.\n\nVisítenos en: https://altchain.app\nO use nuestro enlace seguro: https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site\n\nEl Equipo de AltChain`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1E3A8A;">¡Bienvenido a la Lista de Espera de AltChain!</h2>
         <p>¡Gracias por unirse a la lista de espera de AltChain!</p>
@@ -92,7 +104,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
     },
     fr: {
       subject: 'Bienvenue sur la Liste d\'Attente AltChain',
-      text: `Merci d'avoir rejoint la liste d'attente AltChain!\n\nNous sommes ravis de vous avoir à bord alors que nous nous préparons à lancer notre plateforme d'approvisionnement mondial alimentée par l'IA. Vous serez parmi les premiers à être informés de notre lancement.\n\nVisitez-nous sur: https://altchain.app\n\nL'équipe AltChain`,
+      text: `Merci d'avoir rejoint la liste d'attente AltChain!\n\nNous sommes ravis de vous avoir à bord alors que nous nous préparons à lancer notre plateforme d'approvisionnement mondial alimentée par l'IA. Vous serez parmi les premiers à être informés de notre lancement.\n\nVisitez-nous sur: https://altchain.app\nOu utilisez notre lien sécurisé: https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site\n\nL'équipe AltChain`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1E3A8A;">Bienvenue sur la Liste d'Attente AltChain!</h2>
         <p>Merci d'avoir rejoint la liste d'attente AltChain!</p>
@@ -109,7 +121,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
     },
     zh: {
       subject: '欢迎加入AltChain等候名单',
-      text: `感谢您加入AltChain等候名单！\n\n我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。\n\n访问我们: https://altchain.app\n\nAltChain团队`,
+      text: `感谢您加入AltChain等候名单！\n\n我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。\n\n访问我们: https://altchain.app\n使用我们的安全链接: https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site\n\nAltChain团队`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1E3A8A;">欢迎加入AltChain等候名单！</h2>
         <p>感谢您加入AltChain等候名单！</p>
@@ -126,13 +138,13 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
     },
     ru: {
       subject: 'Добро пожаловать в список ожидания AltChain',
-      text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.\n\nПосетите нас: https://altchain.app\n\nКоманда AltChain`,
+      text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.\n\nПосетите нас: https://altchain.app\nИли используйте нашу безопасную ссылку: https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site\n\nКоманда AltChain`,
       html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
         <h2 style="color: #1E3A8A;">Добро пожаловать в список ожидания AltChain!</h2>
         <p>Спасибо за присоединение к списку ожидания AltChain!</p>
         <p>Мы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Посетить AltChain</a>
+          <a href="https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Посетить AltChain</a>
           <p style="margin-top: 10px; font-size: 12px;">
             Если кнопка не работает, скопируйте и вставьте этот URL в ваш браузер: <br>
             <strong>https://altchain.app</strong>
