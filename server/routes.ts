@@ -8,6 +8,12 @@ import path from "path";
 import fs from "fs";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Redirect route for email links
+  app.get('/go-to-site', (req, res) => {
+    // Redirect to the actual website
+    return res.redirect("https://altchain.app");
+  });
+  
   // Simple favicon serving with explicit MIME type for Safari
   app.get('/favicon.ico', (req, res) => {
     res.set('Content-Type', 'image/x-icon');

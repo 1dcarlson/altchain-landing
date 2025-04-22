@@ -57,7 +57,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
   </p>
 
   <div style="text-align: center; margin: 30px 0;">
-    <a href="https://altchain.app" style="background-color: #4c86f9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; display: inline-block; font-size: 16px;">
+    <a href="https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site" style="background-color: #4c86f9; color: white; text-decoration: none; padding: 12px 24px; border-radius: 8px; display: inline-block; font-size: 16px;">
       Visit AltChain
     </a>
     <p style="margin-top: 10px; font-size: 12px;">
@@ -81,7 +81,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
         <p>¡Gracias por unirse a la lista de espera de AltChain!</p>
         <p>Estamos emocionados de tenerlo a bordo mientras nos preparamos para lanzar nuestra plataforma de abastecimiento global impulsada por IA. Será de los primeros en saber cuando lancemos.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Visitar AltChain</a>
+          <a href="https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Visitar AltChain</a>
           <p style="margin-top: 10px; font-size: 12px;">
             Si el botón no funciona, copie y pegue esta URL en su navegador: <br>
             <strong>https://altchain.app</strong>
@@ -98,7 +98,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
         <p>Merci d'avoir rejoint la liste d'attente AltChain!</p>
         <p>Nous sommes ravis de vous avoir à bord alors que nous nous préparons à lancer notre plateforme d'approvisionnement mondial alimentée par l'IA. Vous serez parmi les premiers à être informés de notre lancement.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Visiter AltChain</a>
+          <a href="https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Visiter AltChain</a>
           <p style="margin-top: 10px; font-size: 12px;">
             Si le bouton ne fonctionne pas, copiez et collez cette URL dans votre navigateur: <br>
             <strong>https://altchain.app</strong>
@@ -115,7 +115,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
         <p>感谢您加入AltChain等候名单！</p>
         <p>我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">访问 AltChain</a>
+          <a href="https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">访问 AltChain</a>
           <p style="margin-top: 10px; font-size: 12px;">
             如果按钮不起作用，请将此URL复制并粘贴到您的浏览器中：<br>
             <strong>https://altchain.app</strong>
