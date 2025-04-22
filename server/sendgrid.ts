@@ -32,7 +32,12 @@ export async function sendEmail(params: EmailParams): Promise<boolean> {
       from: params.from,
       subject: params.subject,
       text: params.text ?? '',
-      html: params.html ?? ''
+      html: params.html ?? '',
+      trackingSettings: {
+        clickTracking: {
+          enable: false
+        }
+      }
     };
     
     await sgMail.send(message);
