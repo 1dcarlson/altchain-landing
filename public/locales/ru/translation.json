@@ -169,7 +169,11 @@
     "office": "Расположение офиса",
     "phone": "Телефон",
     "hours": "Часы работы",
-    "businessHours": "С понедельника по пятницу, с 9:00 до 17:00 PST"
+    "businessHours": "С понедельника по пятницу, с 9:00 до 17:00 PST",
+    "companyName": "AltChain Inc.",
+    "companyLocation": "Феникс, Аризона",
+    "companyCountry": "США",
+    "companyEmailAddress": "daniel@altchain.app"
   },
   "legal": {
     "date": "13 апреля 2025 г.",

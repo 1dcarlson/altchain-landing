@@ -169,7 +169,11 @@
     "office": "Ubicación de la oficina",
     "phone": "Teléfono",
     "hours": "Horario de atención",
-    "businessHours": "Lunes a viernes, 9am a 5pm PST"
+    "businessHours": "Lunes a viernes, 9am a 5pm PST",
+    "companyName": "AltChain Inc.",
+    "companyLocation": "Phoenix, AZ",
+    "companyCountry": "Estados Unidos",
+    "companyEmailAddress": "daniel@altchain.app"
   },
   "legal": {
     "date": "13 de abril de 2025",

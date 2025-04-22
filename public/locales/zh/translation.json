@@ -169,7 +169,11 @@
     "office": "办公地点",
     "phone": "电话",
     "hours": "营业时间",
-    "businessHours": "周一至周五，上午9点至下午5点（太平洋标准时间）"
+    "businessHours": "周一至周五，上午9点至下午5点（太平洋标准时间）",
+    "companyName": "AltChain Inc.",
+    "companyLocation": "Phoenix, AZ",
+    "companyCountry": "美国",
+    "companyEmailAddress": "daniel@altchain.app"
   },
   "legal": {
     "date": "2025年4月13日",
