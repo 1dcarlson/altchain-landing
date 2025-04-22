@@ -166,6 +166,7 @@ export default function ValidationInput({
         className={cn(
           "w-full px-4 py-2 border rounded-md transition-all duration-300 text-gray-900 font-medium",
           "focus:outline-none focus:ring-2 focus:ring-opacity-50",
+          "text-center block mx-auto", // Add these classes for Firefox compatibility
           isFocused ? "border-primary focus:ring-primary/30" : "border-gray-300", 
           !isValid && touched ? "border-red-500 focus:ring-red-200" : "",
           isValid && value && touched ? "border-green-500 focus:ring-green-200" : "",
