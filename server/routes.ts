@@ -111,7 +111,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Set up email parameters
-      const fromEmail = process.env.FROM_EMAIL || 'AltChain <noreply@em7255.altchain.app>';
+      const fromEmail = process.env.FROM_EMAIL || 'AltChain <welcome@em7255.altchain.app>';
       
       // Send confirmation email to the user
       try {
