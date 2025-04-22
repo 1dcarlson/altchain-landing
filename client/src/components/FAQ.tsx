@@ -27,7 +27,7 @@ export default function FAQ() {
     <section className="py-16 bg-white">
       <div className="max-w-4xl mx-auto px-6">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold">{t('faq.title')}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">{t('faq.title')}</h2>
           <p className="text-gray-800 mt-4 font-medium">
             {t('faq.description')}
           </p>
@@ -36,7 +36,7 @@ export default function FAQ() {
         <Accordion type="single" collapsible className="space-y-4">
           {faqKeys.map((faq, index) => (
             <AccordionItem key={index} value={`item-${index}`} className="border rounded-lg px-4">
-              <AccordionTrigger className="text-left font-medium py-4">
+              <AccordionTrigger className="text-left font-medium py-4 text-gray-800">
                 {t(`faq.questions.${faq.key}.question`)}
               </AccordionTrigger>
               <AccordionContent className="text-gray-800 font-medium pb-4 leading-relaxed">

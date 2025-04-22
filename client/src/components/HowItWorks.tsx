@@ -42,8 +42,8 @@ export default function HowItWorks() {
                 } items-center gap-8`}
               >
                 <div className={`md:w-1/2 ${index % 2 === 0 ? "md:text-right" : ""}`}>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-gray-600">{step.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-gray-800">{step.title}</h3>
+                  <p className="text-gray-800 font-medium">{step.description}</p>
                 </div>
                 
                 <div className="relative z-10 flex items-center justify-center w-16 h-16 bg-white rounded-full border-2 border-primary shadow-sm">
@@ -57,8 +57,8 @@ export default function HowItWorks() {
         </div>
         
         <div className="mt-16 bg-primary/5 p-8 rounded-xl border border-primary/10">
-          <h3 className="text-xl font-semibold mb-4 text-center">{t('howItWorks.aiInsights.title')}</h3>
-          <p className="text-center text-gray-700">
+          <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">{t('howItWorks.aiInsights.title')}</h3>
+          <p className="text-center text-gray-800 font-medium">
             {t('howItWorks.aiInsights.description')}
           </p>
         </div>

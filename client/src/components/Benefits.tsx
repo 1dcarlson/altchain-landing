@@ -40,8 +40,8 @@ export default function Benefits() {
     <section className="py-16 bg-gray-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold">{t('benefits.title') || "Detailed Benefits"}</h2>
-          <p className="text-gray-600 mt-4 max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800">{t('benefits.title') || "Detailed Benefits"}</h2>
+          <p className="text-gray-800 font-medium mt-4 max-w-2xl mx-auto">
             {t('benefits.description') || "AltChain provides a comprehensive solution for global sourcing challenges."}
           </p>
         </div>
@@ -55,7 +55,7 @@ export default function Benefits() {
               <h3 className="text-xl font-semibold mb-3 text-primary">
                 {benefit.title}
               </h3>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-800 font-medium mb-6">
                 {benefit.description}
               </p>
               
@@ -63,7 +63,7 @@ export default function Benefits() {
                 {benefit.items.map((item, idx) => (
                   <li key={idx} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{item}</span>
+                    <span className="text-sm text-gray-800 font-medium">{item}</span>
                   </li>
                 ))}
               </ul>
