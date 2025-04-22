@@ -1,6 +1,5 @@
 import { useTranslation } from 'react-i18next';
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { Globe } from 'lucide-react';
 import {
   DropdownMenu,
@@ -8,28 +7,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-
-// Simple fade animation for flags
-const flagVariants = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1, transition: { duration: 0.2 } },
-  exit: { opacity: 0, transition: { duration: 0.2 } },
-  hover: { scale: 1.05, transition: { duration: 0.2 } }
-};
-
-// Animation for menu items
-const menuItemVariants = {
-  initial: { opacity: 0 },
-  animate: (i: number) => ({ 
-    opacity: 1,
-    transition: { 
-      delay: i * 0.05,
-      duration: 0.2
-    } 
-  }),
-  exit: { opacity: 0 },
-  hover: { backgroundColor: '#f8fafc' }
-};
 
 // Flag SVG definitions directly embedded
 const flagSvgs = {
@@ -109,24 +86,12 @@ const LanguageSelector = () => {
   return (
     <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger className="flex items-center gap-2 text-sm focus:outline-none text-blue-100 hover:text-white transition-colors p-1 rounded-full">
-        <div className="relative flex items-center">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedLang}
-              variants={flagVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              whileHover="hover"
-              className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm"
-            >
-              {flagSvgs[selectedLang as keyof typeof flagSvgs] || 
-               <div className="bg-blue-500 w-full h-full flex items-center justify-center">
-                 <Globe className="w-4 h-4 text-white" />
-               </div>
-              }
-            </motion.div>
-          </AnimatePresence>
+        <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">
+          {flagSvgs[selectedLang as keyof typeof flagSvgs] || 
+           <div className="bg-blue-500 w-full h-full flex items-center justify-center">
+             <Globe className="w-4 h-4 text-white" />
+           </div>
+          }
         </div>
         <span className="hidden md:inline font-medium">{currentLanguage.name}</span>
       </DropdownMenuTrigger>
@@ -141,39 +106,41 @@ const LanguageSelector = () => {
           borderRadius: '12px'
         }}
         className="border">
-        <AnimatePresence>
-          {languages.map((language, index) => (
-            <motion.div
-              key={language.code}
-              variants={menuItemVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              custom={index}
-              whileHover="hover"
-            >
-              <DropdownMenuItem 
-                onClick={() => changeLanguage(language.code)}
-                style={{
-                  backgroundColor: i18n.language === language.code ? '#f1f5f9' : 'transparent',
-                  color: i18n.language === language.code ? '#1e293b' : '#334155'
-                }}
-                className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all ${
-                  i18n.language === language.code ? 'font-medium' : ''
-                }`}
-              >
-                <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">
-                  {flagSvgs[language.code as keyof typeof flagSvgs] || 
-                   <div className="bg-blue-500 w-full h-full flex items-center justify-center">
-                     <Globe className="w-4 h-4 text-white" />
-                   </div>
-                  }
-                </div>
-                <span>{language.name}</span>
-              </DropdownMenuItem>
-            </motion.div>
-          ))}
-        </AnimatePresence>
+        {languages.map((language) => (
+          <DropdownMenuItem 
+            key={language.code}
+            onClick={() => changeLanguage(language.code)}
+            style={{
+              backgroundColor: i18n.language === language.code ? '#f1f5f9' : 'transparent',
+              color: i18n.language === language.code ? '#1e293b' : '#334155',
+              padding: '8px 12px',
+              margin: '2px',
+              borderRadius: '6px'
+            }}
+            onMouseEnter={(e) => {
+              if (i18n.language !== language.code) {
+                e.currentTarget.style.backgroundColor = '#f8fafc';
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (i18n.language !== language.code) {
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }
+            }}
+            className={`cursor-pointer flex items-center gap-3 ${
+              i18n.language === language.code ? 'font-medium' : ''
+            }`}
+          >
+            <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">
+              {flagSvgs[language.code as keyof typeof flagSvgs] || 
+               <div className="bg-blue-500 w-full h-full flex items-center justify-center">
+                 <Globe className="w-4 h-4 text-white" />
+               </div>
+              }
+            </div>
+            <span>{language.name}</span>
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
