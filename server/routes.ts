@@ -111,7 +111,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
 
       // Set up email parameters
-      const fromEmail = process.env.FROM_EMAIL || 'noreply@altchain.com';
+      const fromEmail = process.env.FROM_EMAIL || 'AltChain <noreply@em7255.altchain.app>';
       
       // Send confirmation email to the user
       try {
@@ -167,7 +167,28 @@ export async function registerRoutes(app: Express): Promise<Server> {
           to: process.env.ADMIN_EMAIL || 'daniel@altchain.app',
           subject: "New AltChain Waitlist Signup",
           text: `New waitlist signup: ${email}${name ? ` (${name})` : ''}`,
-          html: `<p>New waitlist signup: <strong>${email}</strong>${name ? ` - ${name}` : ''}</p>`
+          html: `
+            <div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+              <div style="display: flex; align-items: center; margin-bottom: 24px;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+                  <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
+              </div>
+              
+              <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">New Waitlist Signup</h2>
+              
+              <div style="padding: 15px; border-left: 4px solid #4c86f9; background-color: #f9fafb; margin-bottom: 20px;">
+                <p style="font-size: 16px; color: #333; line-height: 1.6; margin: 0;">
+                  <strong>Email:</strong> ${email}<br>
+                  ${name ? `<strong>Name:</strong> ${name}` : ''}
+                </p>
+              </div>
+            </div>
+          `
         });
       } catch (notifyError) {
         console.warn("Failed to send admin notification:", notifyError);
