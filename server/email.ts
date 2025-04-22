@@ -217,7 +217,11 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
   </p>
 
   <p style="font-size: 16px; color: #333; line-height: 1.6;">
-    我们很高兴在准备推出我们的AI驱动的全球采购平台时，有您的加入。您将成为我们启动时最先知道的人之一。
+    我们很高兴有您的加入。当我们准备推出我们的AI驱动的全球采购平台时，您将成为最先知道的人之一。
+  </p>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.6;">
+    想帮助塑造未来吗？回复此电子邮件，告诉我们全球采购中最让您感到沮丧的是什么。
   </p>
 
   <div style="text-align: center; margin: 30px 0;">
@@ -238,7 +242,7 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
     },
     ru: {
       subject: 'Добро пожаловать в список ожидания AltChain',
-      text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.\n\nПосетите нас: https://altchain.app\n\nКоманда AltChain`,
+      text: `Спасибо за присоединение к списку ожидания AltChain!\n\nМы рады приветствовать вас на борту. Вы будете одним из первых, кто узнает, когда мы будем готовы запустить нашу платформу глобальных поставок с искусственным интеллектом.\n\nХотите помочь сформировать будущее? Ответьте на это письмо и расскажите, что вас больше всего раздражает в глобальных поставках.\n\nПосетите нас: https://altchain.app\n\nAltChain, Inc. | daniel@altchain.app`,
       html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
   <div style="display: flex; align-items: center; margin-bottom: 24px;">
     <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
@@ -259,7 +263,11 @@ export async function sendWaitlistConfirmation(email: string, language: Supporte
   </p>
 
   <p style="font-size: 16px; color: #333; line-height: 1.6;">
-    Мы рады приветствовать вас на борту, пока мы готовимся к запуску нашей платформы глобальных поставок с искусственным интеллектом. Вы будете одним из первых, кто узнает о нашем запуске.
+    Мы рады приветствовать вас на борту. Вы будете одним из первых, кто узнает, когда мы будем готовы запустить нашу платформу глобальных поставок с искусственным интеллектом.
+  </p>
+
+  <p style="font-size: 16px; color: #333; line-height: 1.6;">
+    Хотите помочь сформировать будущее? Ответьте на это письмо и расскажите, что вас больше всего раздражает в глобальных поставках.
   </p>
 
   <div style="text-align: center; margin: 30px 0;">
