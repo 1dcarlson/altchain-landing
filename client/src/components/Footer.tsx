@@ -15,13 +15,13 @@ export default function Footer() {
           
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
             <Link href="/privacy-policy">
-              <a className="text-gray-800 hover:text-primary text-sm font-medium">{t('footer.privacy')}</a>
+              <span className="text-gray-800 hover:text-primary text-sm font-medium cursor-pointer">{t('footer.privacy')}</span>
             </Link>
             <Link href="/terms-of-service">
-              <a className="text-gray-800 hover:text-primary text-sm font-medium">{t('footer.terms')}</a>
+              <span className="text-gray-800 hover:text-primary text-sm font-medium cursor-pointer">{t('footer.terms')}</span>
             </Link>
             <Link href="/contact">
-              <a className="text-gray-800 hover:text-primary text-sm font-medium">{t('footer.contact')}</a>
+              <span className="text-gray-800 hover:text-primary text-sm font-medium cursor-pointer">{t('footer.contact')}</span>
             </Link>
           </div>
         </div>
