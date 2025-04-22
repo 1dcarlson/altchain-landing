@@ -35,7 +35,7 @@ export default function ContactPage() {
             
             <div>
               <h3 className="text-xl font-medium mb-2">{t('contact.email')}</h3>
-              <p><a href="mailto:daniel@altchain.app" className="text-primary hover:underline">daniel@altchain.app</a></p>
+              <p><a href="mailto:daniel@altchain.app" className="text-primary hover:underline">{t('contact.companyEmailAddress') || "daniel@altchain.app"}</a></p>
             </div>
             
             <div>

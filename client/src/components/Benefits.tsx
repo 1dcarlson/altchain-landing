@@ -5,42 +5,33 @@ import { useTranslation } from "react-i18next";
 export default function Benefits() {
   const { t } = useTranslation();
 
-  // Define benefit items using translation keys
+  // Simple predefined benefits
   const benefitItems = [
     {
-      titleKey: 'detailedBenefits.reducedTime.title',
-      descriptionKey: 'detailedBenefits.reducedTime.description',
-      itemsKey: 'detailedBenefits.reducedTime.items',
-      fallbackTitle: "Reduced Time",
-      fallbackDescription: "Save time with AI-powered sourcing recommendations.",
-      fallbackItems: [
-        "Automated supplier discovery",
-        "Quick risk assessment",
-        "Streamlined compliance checks"
+      title: t('detailedBenefits.reducedTime.title') || "Reduced Time",
+      description: t('detailedBenefits.reducedTime.description') || "Save time with AI-powered sourcing recommendations.",
+      items: [
+        t('detailedBenefits.reducedTime.items.0') || "Automated supplier discovery",
+        t('detailedBenefits.reducedTime.items.1') || "Quick risk assessment",
+        t('detailedBenefits.reducedTime.items.2') || "Streamlined compliance checks"
       ]
     },
     {
-      titleKey: 'detailedBenefits.riskMitigation.title',
-      descriptionKey: 'detailedBenefits.riskMitigation.description',
-      itemsKey: 'detailedBenefits.riskMitigation.items',
-      fallbackTitle: "Risk Mitigation",
-      fallbackDescription: "Identify and mitigate supply chain risks proactively.",
-      fallbackItems: [
-        "Real-time disruption alerts",
-        "Alternative supplier recommendations",
-        "Comprehensive risk scoring"
+      title: t('detailedBenefits.riskMitigation.title') || "Risk Mitigation",
+      description: t('detailedBenefits.riskMitigation.description') || "Identify and mitigate supply chain risks proactively.",
+      items: [
+        t('detailedBenefits.riskMitigation.items.0') || "Real-time disruption alerts",
+        t('detailedBenefits.riskMitigation.items.1') || "Alternative supplier recommendations",
+        t('detailedBenefits.riskMitigation.items.2') || "Comprehensive risk scoring"
       ]
     },
     {
-      titleKey: 'detailedBenefits.costSavings.title',
-      descriptionKey: 'detailedBenefits.costSavings.description',
-      itemsKey: 'detailedBenefits.costSavings.items',
-      fallbackTitle: "Cost Savings",
-      fallbackDescription: "Optimize spending and identify savings opportunities.",
-      fallbackItems: [
-        "Total landed cost calculation",
-        "Automated price benchmarking",
-        "Duty and tariff optimization"
+      title: t('detailedBenefits.costSavings.title') || "Cost Savings",
+      description: t('detailedBenefits.costSavings.description') || "Optimize spending and identify savings opportunities.",
+      items: [
+        t('detailedBenefits.costSavings.items.0') || "Total landed cost calculation",
+        t('detailedBenefits.costSavings.items.1') || "Automated price benchmarking",
+        t('detailedBenefits.costSavings.items.2') || "Duty and tariff optimization"
       ]
     }
   ];
@@ -62,16 +53,14 @@ export default function Benefits() {
               className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">
-                {t(benefit.titleKey) || benefit.fallbackTitle}
+                {benefit.title}
               </h3>
               <p className="text-gray-800 font-medium mb-6">
-                {t(benefit.descriptionKey) || benefit.fallbackDescription}
+                {benefit.description}
               </p>
               
               <ul className="space-y-3">
-                {(Array.isArray(t(benefit.itemsKey, { returnObjects: true })) 
-                  ? t(benefit.itemsKey, { returnObjects: true }) 
-                  : benefit.fallbackItems).map((item: string, idx: number) => (
+                {benefit.items.map((item: string, idx: number) => (
                   <li key={idx} className="flex items-start">
                     <CheckCircle2 className="h-5 w-5 text-green-500 mt-0.5 mr-2 flex-shrink-0" />
                     <span className="text-sm text-gray-800 font-medium">{item}</span>
