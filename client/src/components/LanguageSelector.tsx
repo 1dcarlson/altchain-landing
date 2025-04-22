@@ -31,7 +31,7 @@ const menuItemVariants = {
     } 
   }),
   exit: { opacity: 0, y: -5 },
-  hover: { scale: 1.02, x: 2, transition: { type: "spring", stiffness: 300, damping: 10 } }
+  hover: { scale: 1.02, x: 2, backgroundColor: '#f8fafc', transition: { type: "spring", stiffness: 300, damping: 10 } }
 };
 
 // Flag SVG definitions directly embedded
@@ -134,7 +134,16 @@ const LanguageSelector = () => {
         <span className="hidden md:inline font-medium">{currentLanguage.name}</span>
       </DropdownMenuTrigger>
       
-      <DropdownMenuContent align="end" className="min-w-[180px] p-1 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+      <DropdownMenuContent 
+        align="end" 
+        style={{
+          backgroundColor: 'white',
+          borderColor: '#e2e8f0',
+          minWidth: '180px',
+          padding: '4px',
+          borderRadius: '12px'
+        }}
+        className="border">
         <AnimatePresence>
           {languages.map((language, index) => (
             <motion.div
@@ -148,8 +157,12 @@ const LanguageSelector = () => {
             >
               <DropdownMenuItem 
                 onClick={() => changeLanguage(language.code)}
-                className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all text-slate-700 dark:text-slate-300 ${
-                  i18n.language === language.code ? 'bg-slate-100 text-slate-800 font-medium dark:bg-slate-800 dark:text-slate-200' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                style={{
+                  backgroundColor: i18n.language === language.code ? '#f1f5f9' : 'transparent',
+                  color: i18n.language === language.code ? '#1e293b' : '#334155'
+                }}
+                className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all ${
+                  i18n.language === language.code ? 'font-medium' : 'hover:bg-slate-50'
                 }`}
               >
                 <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">
