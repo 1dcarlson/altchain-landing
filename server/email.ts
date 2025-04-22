@@ -5,7 +5,7 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 export async function sendEmail({ to, subject, text, html }) {
   const msg = {
     to,
-    from: 'AltChain <welcome@em7255.altchain.app>', // 👈 must match your verified sender
+    from: 'Daniel from AltChain <daniel@altchain.app>', // 👈 must match your verified sender
     subject,
     text,
     html,
