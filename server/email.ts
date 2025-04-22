@@ -32,12 +32,35 @@ export async function sendWaitlistConfirmation(email, language = 'en') {
     en: {
       subject: 'Welcome to AltChain Waitlist',
       text: `Thank you for joining the AltChain waitlist!\n\nWe're excited to have you on board as we prepare to launch our AI-powered global sourcing platform. You'll be among the first to know when we launch.\n\nThe AltChain Team`,
-      html: `<div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-        <h2 style="color: #1E3A8A;">Welcome to AltChain Waitlist!</h2>
-        <p>Thank you for joining the AltChain waitlist!</p>
-        <p>We're excited to have you on board as we prepare to launch our AI-powered global sourcing platform. You'll be among the first to know when we launch.</p>
-        <p>Best regards,<br>The AltChain Team</p>
-      </div>`
+      html: html: `<div style="font-family: 'Inter', sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px;">
+          <div style="display: flex; align-items: center; margin-bottom: 24px;">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
+              <path d="M16 2.66667L29.3333 16L16 29.3333L2.66667 16L16 2.66667Z" fill="#1E3A8A" fill-opacity="0.1" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 11.3333L25.3333 16L22 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M10 11.3333L6.66667 16L10 20.6667" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14.6667 22L17.3333 10" stroke="#1E3A8A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h1 style="font-size: 24px; color: #1a1a1a; margin: 0; font-weight: bold;">AltChain</h1>
+          </div>
+
+          <h2 style="color: #4c86f9; font-size: 20px; margin-bottom: 12px;">
+            Thank you for joining AltChain's waitlist!
+          </h2>
+
+          <p style="font-size: 16px; color: #333; line-height: 1.6;">
+            We're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.
+          </p>
+
+          <p style="font-size: 16px; color: #333; line-height: 1.6;">
+            In the meantime, if you have any questions, feel free to reply to this email.
+          </p>
+
+          <p style="font-size: 16px; color: #333; line-height: 1.6;">
+            Best regards,<br>
+            <strong>The AltChain Team</strong>
+          </p>
+        </div>`
+
     },
     es: {
       subject: 'Bienvenido a la Lista de Espera de AltChain',
