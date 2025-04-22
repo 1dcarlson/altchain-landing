@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useConfetti } from '@/hooks/use-confetti';
 
 export default function SimpleWaitlistForm() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
@@ -28,7 +28,13 @@ export default function SimpleWaitlistForm() {
     setFormState('submitting');
     
     try {
-      const response = await apiRequest('POST', '/api/waitlist', { email, name: name.trim() || undefined });
+      // Get current language and include it in the request
+      const currentLanguage = i18n.language.split('-')[0]; // Get base language code (e.g., 'en' from 'en-US')
+      const response = await apiRequest('POST', '/api/waitlist', { 
+        email, 
+        name: name.trim() || undefined,
+        language: currentLanguage
+      });
       
       // Always mark as success if we reached this point
       setFormState('success');
