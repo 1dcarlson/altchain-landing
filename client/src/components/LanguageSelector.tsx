@@ -134,7 +134,7 @@ const LanguageSelector = () => {
         <span className="hidden md:inline font-medium">{currentLanguage.name}</span>
       </DropdownMenuTrigger>
       
-      <DropdownMenuContent align="end" className="min-w-[180px] p-1 rounded-xl">
+      <DropdownMenuContent align="end" className="min-w-[180px] p-1 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
         <AnimatePresence>
           {languages.map((language, index) => (
             <motion.div
@@ -148,8 +148,8 @@ const LanguageSelector = () => {
             >
               <DropdownMenuItem 
                 onClick={() => changeLanguage(language.code)}
-                className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all ${
-                  i18n.language === language.code ? 'bg-gray-100 text-gray-800 font-medium' : ''
+                className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all text-slate-700 dark:text-slate-300 ${
+                  i18n.language === language.code ? 'bg-slate-100 text-slate-800 font-medium dark:bg-slate-800 dark:text-slate-200' : 'hover:bg-slate-50 dark:hover:bg-slate-800/50'
                 }`}
               >
                 <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">
