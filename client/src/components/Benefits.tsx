@@ -53,10 +53,10 @@ export default function Benefits() {
               className="bg-white rounded-xl p-8 shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300"
             >
               <h3 className="text-xl font-semibold mb-3 text-primary">
-                {benefit.title}
+                {t(`detailedBenefits.${index === 0 ? 'reducedTime' : index === 1 ? 'riskMitigation' : 'costSavings'}.title`) || benefit.title}
               </h3>
               <p className="text-gray-800 font-medium mb-6">
-                {benefit.description}
+                {t(`detailedBenefits.${index === 0 ? 'reducedTime' : index === 1 ? 'riskMitigation' : 'costSavings'}.description`) || benefit.description}
               </p>
               
               <ul className="space-y-3">
