@@ -77,7 +77,7 @@ export async function sendWaitlistConfirmation(email, language = 'en', name = ''
         <p>¡Gracias por unirse a la lista de espera de AltChain!</p>
         <p>Estamos emocionados de tenerlo a bordo mientras nos preparamos para lanzar nuestra plataforma de abastecimiento global impulsada por IA. Será de los primeros en saber cuando lancemos.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://www.altchain.app" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Visitar AltChain</a>
+          <a href="http://www.replit.app/altchain" style="background-color: #4c86f9; padding: 10px 20px; color: white; text-decoration: none; border-radius: 5px;">Visitar AltChain</a>
         </div>
         <p>Saludos cordiales,<br>El Equipo de AltChain</p>
       </div>`
