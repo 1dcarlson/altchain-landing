@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { sendEmail, sendWaitlistConfirmation } from "./email";
+import { sendEmail, sendWaitlistConfirmation, type SupportedLanguage } from "./email";
 import { z } from "zod";
 import { insertWaitlistSchema } from "@shared/schema";
 import path from "path";
@@ -122,7 +122,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // Send confirmation email to the user in their preferred language
       try {
         // Use the user's selected language or fall back to English
-        const userLanguage = language || 'en';
+        // Validate the language is one of our supported ones
+        const supportedLanguages = ['en', 'es', 'fr', 'zh', 'ru'] as const;
+        type SupportedLanguage = typeof supportedLanguages[number];
+        
+        // Check if language is supported, default to 'en' if not
+        const userLanguage = (language && supportedLanguages.includes(language as SupportedLanguage)) 
+          ? (language as SupportedLanguage) 
+          : 'en';
         
         // Log which language we're using for the email
         console.log(`Sending waitlist confirmation email in ${userLanguage} language`);

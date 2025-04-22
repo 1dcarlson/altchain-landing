@@ -39,9 +39,26 @@ export async function sendEmail({ to, subject, text, html }: EmailParams): Promi
  * @param name Optional name for personalization
  * @returns Promise indicating success/failure
  */
-export async function sendWaitlistConfirmation(email: string, language: 'en' | 'es' | 'fr' | 'zh' | 'ru' = 'en', name = ''): Promise<void> {
+// Define supported languages
+export type SupportedLanguage = 'en' | 'es' | 'fr' | 'zh' | 'ru';
+
+/**
+ * Send a waitlist confirmation email
+ * @param email Recipient email address
+ * @param language Language code for localization (en, es, fr, zh, ru)
+ * @param name Optional name for personalization
+ * @returns Promise indicating success/failure
+ */
+export async function sendWaitlistConfirmation(email: string, language: SupportedLanguage = 'en', name = ''): Promise<void> {
+  // Define email template structure
+  type EmailTemplate = {
+    subject: string;
+    text: string;
+    html: string;
+  };
+  
   // Define email templates for different languages
-  const templates = {
+  const templates: Record<SupportedLanguage, EmailTemplate> = {
     en: {
       subject: 'Welcome to AltChain Waitlist',
       text: `Thank you for joining the AltChain waitlist!\n\nWe're excited to have you on board. You'll be among the first to know when we're ready to launch our AI-powered global sourcing platform.\n\nWant to help shape the future? Reply to this email and tell us what frustrates you most about global sourcing.\n\nVisit us at: https://altchain.app\nOr use our secure link: https://7652a375-ca9d-47a8-a2b6-2ef1f514af72.id.repl.co/go-to-site\n\nAltChain, Inc. | daniel@altchain.app`,
