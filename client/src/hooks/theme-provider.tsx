@@ -36,21 +36,21 @@ const themeConfigs: Record<'morning' | 'day' | 'evening' | 'night', BaseThemeCol
     secondary: 'hsl(165, 100%, 41%)',
     accent: 'hsl(280, 100%, 60%)',
     background: 'hsl(0, 0%, 100%)', // White (same as day)
-    text: 'hsl(215, 25%, 27%)'
+    text: 'hsl(215, 30%, 20%)' // Darker text for better readability
   },
   day: {
     primary: 'hsl(215, 100%, 50%)', // Bright blue
     secondary: 'hsl(165, 100%, 41%)',
     accent: 'hsl(280, 100%, 60%)',
     background: 'hsl(0, 0%, 100%)', // Pure white
-    text: 'hsl(215, 25%, 27%)'
+    text: 'hsl(215, 30%, 20%)' // Darker text for better readability
   },
   evening: {
     primary: 'hsl(280, 80%, 50%)', // Purple
     secondary: 'hsl(340, 100%, 65%)',
     accent: 'hsl(180, 100%, 45%)',
     background: 'hsl(240, 25%, 98%)', // Slight blue-purple tint
-    text: 'hsl(215, 25%, 27%)'
+    text: 'hsl(215, 30%, 20%)' // Darker text for better readability
   },
   night: {
     primary: 'hsl(215, 70%, 60%)', // Softer blue
@@ -162,7 +162,8 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
       secondary: interpolateHSL(currentTheme.secondary, nextTheme.secondary, timePosition),
       accent: interpolateHSL(currentTheme.accent, nextTheme.accent, timePosition),
       background: interpolateHSL(currentTheme.background, nextTheme.background, timePosition),
-      text: isNight ? themeConfigs.night.text : themeConfigs.day.text // Keep text consistent for readability
+      // Always use a darker text color for better readability, regardless of time theme
+      text: isNight ? themeConfigs.night.text : 'hsl(215, 30%, 20%)' // Darker text for better contrast
     };
     
     // Create gradient variants - adjusting the balance based on time of day
