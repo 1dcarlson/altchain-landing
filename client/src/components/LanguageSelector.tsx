@@ -9,29 +9,26 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 
-// Animation variants for indicator - more subtle
+// Simple fade animation for flags
 const flagVariants = {
-  initial: { scale: 0.9, opacity: 0 },
-  animate: { scale: 1, opacity: 1, transition: { type: "spring", stiffness: 260, damping: 20 } },
-  exit: { scale: 0.9, opacity: 0, transition: { duration: 0.2 } },
-  hover: { scale: 1.05, transition: { type: "spring", stiffness: 400, damping: 10 } }
+  initial: { opacity: 0 },
+  animate: { opacity: 1, transition: { duration: 0.2 } },
+  exit: { opacity: 0, transition: { duration: 0.2 } },
+  hover: { scale: 1.05, transition: { duration: 0.2 } }
 };
 
 // Animation for menu items
 const menuItemVariants = {
-  initial: { opacity: 0, y: 5 },
+  initial: { opacity: 0 },
   animate: (i: number) => ({ 
-    opacity: 1, 
-    y: 0, 
+    opacity: 1,
     transition: { 
       delay: i * 0.05,
-      type: "spring", 
-      stiffness: 300, 
-      damping: 24 
+      duration: 0.2
     } 
   }),
-  exit: { opacity: 0, y: -5 },
-  hover: { scale: 1.02, x: 2, backgroundColor: '#f8fafc', transition: { type: "spring", stiffness: 300, damping: 10 } }
+  exit: { opacity: 0 },
+  hover: { backgroundColor: '#f8fafc' }
 };
 
 // Flag SVG definitions directly embedded
@@ -162,7 +159,7 @@ const LanguageSelector = () => {
                   color: i18n.language === language.code ? '#1e293b' : '#334155'
                 }}
                 className={`cursor-pointer group flex items-center gap-3 rounded-lg transition-all ${
-                  i18n.language === language.code ? 'font-medium' : 'hover:bg-slate-50'
+                  i18n.language === language.code ? 'font-medium' : ''
                 }`}
               >
                 <div className="w-6 h-6 rounded-full overflow-hidden flex items-center justify-center shadow-sm">
