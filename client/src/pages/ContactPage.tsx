@@ -15,10 +15,10 @@ export default function ContactPage() {
       <main className="flex-grow container mx-auto px-4 py-12">
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            Contact Us
+            {t('contact.pageTitle')}
           </h1>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            We'd love to hear from you. Whether you have questions, feedback, or partnership ideas—reach out any time.
+            {t('contact.pageDescription')}
           </p>
         </div>
         
@@ -27,9 +27,9 @@ export default function ContactPage() {
             <div>
               <h3 className="text-xl font-medium mb-2">{t('contact.office')}</h3>
               <address className="not-italic">
-                AltChain Inc.<br />
-                Phoenix, AZ<br />
-                United States
+                {t('contact.companyName') || "AltChain Inc."}<br />
+                {t('contact.companyLocation') || "Phoenix, AZ"}<br />
+                {t('contact.companyCountry') || "United States"}
               </address>
             </div>
             
