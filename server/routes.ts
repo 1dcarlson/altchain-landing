@@ -123,12 +123,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       try {
         // Use the user's selected language or fall back to English
         // Validate the language is one of our supported ones
-        const supportedLanguages = ['en', 'es', 'fr', 'zh', 'ru'] as const;
-        type SupportedLanguage = typeof supportedLanguages[number];
+        const supportedLanguages: SupportedLanguage[] = ['en', 'es', 'fr', 'zh', 'ru'];
         
         // Check if language is supported, default to 'en' if not
-        const userLanguage = (language && supportedLanguages.includes(language as SupportedLanguage)) 
-          ? (language as SupportedLanguage) 
+        const userLanguage: SupportedLanguage = (language && supportedLanguages.includes(language as SupportedLanguage))
+          ? (language as SupportedLanguage)
           : 'en';
         
         // Log which language we're using for the email
