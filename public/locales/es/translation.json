@@ -185,7 +185,7 @@
     "detected": "Detectamos que tu idioma preferido es {{language}}",
     "suggestion": "¿Te gustaría ver este sitio en tu idioma preferido?",
     "stayInCurrent": "Sí, permanecer en {{language}}",
-    "changeLanguage": "No, cambiar idioma",
+    "changeLanguage": "No, cambiar a {{language}}",
     "switched": "Cambiado a {{language}}",
     "confirmation": "Todo el contenido del sitio ahora se muestra en tu idioma preferido"
   },

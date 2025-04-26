@@ -127,7 +127,7 @@ export default function SmartLanguageSuggestion() {
     return () => clearTimeout(timer);
   }, [detectPreferredLanguage]);
   
-  // This now means "stay in current language" (declining the change)
+  // This function is for staying in the current language
   const handleStayInCurrentLanguage = () => {
     setShowSuggestion(false);
     
@@ -135,7 +135,7 @@ export default function SmartLanguageSuggestion() {
     console.log(`User chose to stay in current language instead of switching to ${suggestedLanguageName}`);
   };
   
-  // This now means "change to suggested language" (accepting the change)
+  // This function is for changing to the suggested language
   const handleChangeLanguage = () => {
     if (suggestedLanguage) {
       i18n.changeLanguage(suggestedLanguage);
@@ -202,7 +202,7 @@ export default function SmartLanguageSuggestion() {
                 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 shadow-sm 
                 ring-1 ring-inset ring-gray-300 dark:ring-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all"
             >
-              {t('languageSwitch.changeLanguage')}
+              {t('languageSwitch.changeLanguage', { language: suggestedLanguageName })}
             </button>
           </div>
         </div>
