@@ -13,26 +13,27 @@ interface PageTransitionProps {
 export default function PageTransition({ children }: PageTransitionProps) {
   const [location] = useLocation();
   
-  // Animation variants for page transitions
+  // Animation variants for page transitions - refined for smoother feel
   const variants = {
     initial: {
       opacity: 0,
-      y: 8,
+      y: 5,
     },
     animate: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1], // Custom ease curve for smooth feel
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1.0], // Cubic bezier curve for smoother easing
+        staggerChildren: 0.1, // Add stagger effect for child elements
       }
     },
     exit: {
       opacity: 0,
-      y: -8,
+      y: -5,
       transition: {
-        duration: 0.2,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.3,
+        ease: [0.25, 0.1, 0.25, 1.0],
       }
     }
   };
