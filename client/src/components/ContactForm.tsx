@@ -72,8 +72,8 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-card rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold text-center mb-6 animate-slide-down">{t('contact.title')}</h2>
+    <section className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
+      <h2 className="text-2xl font-bold text-center text-gray-900 mb-6 animate-slide-down">{t('contact.title')}</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col gap-4">
         <div className="flex flex-col space-y-1">
           <label htmlFor="name" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
