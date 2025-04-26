@@ -127,7 +127,16 @@ export default function SmartLanguageSuggestion() {
     return () => clearTimeout(timer);
   }, [detectPreferredLanguage]);
   
-  const handleAccept = () => {
+  // This now means "stay in current language" (declining the change)
+  const handleStayInCurrentLanguage = () => {
+    setShowSuggestion(false);
+    
+    // Log the choice to stay in current language for potential analytics
+    console.log(`User chose to stay in current language instead of switching to ${suggestedLanguageName}`);
+  };
+  
+  // This now means "change to suggested language" (accepting the change)
+  const handleChangeLanguage = () => {
     if (suggestedLanguage) {
       i18n.changeLanguage(suggestedLanguage);
       
@@ -138,13 +147,6 @@ export default function SmartLanguageSuggestion() {
       });
     }
     setShowSuggestion(false);
-  };
-  
-  const handleDecline = () => {
-    setShowSuggestion(false);
-    
-    // Log the decline for potential analytics
-    console.log(`User declined language suggestion to switch to ${suggestedLanguageName}`);
   };
   
   if (!showSuggestion) return null;
@@ -182,21 +184,25 @@ export default function SmartLanguageSuggestion() {
           <div className="mt-4 flex space-x-3">
             <button
               type="button"
-              onClick={handleAccept}
+              onClick={handleStayInCurrentLanguage}
               className="flex-1 inline-flex justify-center items-center rounded-md bg-primary hover:bg-primary/90 
                 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all 
                 hover:shadow-md hover:-translate-y-0.5 active:translate-y-0"
             >
-              {t('languageSwitch.accept')}
+              {t('languageSwitch.stayInCurrent', { language: i18n.language.split('-')[0] === 'en' ? 'English' : 
+                 i18n.language.split('-')[0] === 'es' ? 'español' :
+                 i18n.language.split('-')[0] === 'fr' ? 'français' :
+                 i18n.language.split('-')[0] === 'zh' ? '中文' :
+                 i18n.language.split('-')[0] === 'ru' ? 'русском' : 'current language' })}
             </button>
             <button
               type="button"
-              onClick={handleDecline}
+              onClick={handleChangeLanguage}
               className="flex-1 inline-flex justify-center items-center rounded-md bg-white dark:bg-gray-700
                 px-4 py-2 text-sm font-semibold text-gray-700 dark:text-gray-200 shadow-sm 
                 ring-1 ring-inset ring-gray-300 dark:ring-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 transition-all"
             >
-              {t('languageSwitch.decline')}
+              {t('languageSwitch.changeLanguage')}
             </button>
           </div>
         </div>

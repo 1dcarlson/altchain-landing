@@ -195,8 +195,8 @@
   "languageSwitch": {
     "detected": "We detected that your preferred language is {{language}}",
     "suggestion": "Would you like to view this site in your preferred language?",
-    "accept": "Yes, change language",
-    "decline": "No, stay in English",
+    "stayInCurrent": "Yes, stay in {{language}}",
+    "changeLanguage": "No, change language",
     "switched": "Changed to {{language}}",
     "confirmation": "All site content is now displayed in your preferred language"
   },

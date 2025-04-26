@@ -184,8 +184,8 @@
   "languageSwitch": {
     "detected": "Detectamos que tu idioma preferido es {{language}}",
     "suggestion": "¿Te gustaría ver este sitio en tu idioma preferido?",
-    "accept": "Sí, cambiar idioma",
-    "decline": "No, permanecer en español",
+    "stayInCurrent": "Sí, permanecer en {{language}}",
+    "changeLanguage": "No, cambiar idioma",
     "switched": "Cambiado a {{language}}",
     "confirmation": "Todo el contenido del sitio ahora se muestra en tu idioma preferido"
   },
