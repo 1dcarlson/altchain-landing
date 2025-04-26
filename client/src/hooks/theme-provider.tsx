@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useMemo } from 'react';
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { useTimeTheme } from './use-time-theme';
 
 interface ThemeColors {
@@ -16,6 +16,7 @@ interface ThemeContextType {
   colors: ThemeColors;
   timeTheme: 'morning' | 'day' | 'evening' | 'night';
   isDark: boolean;
+  prefersDarkMode: boolean; // System preference for dark mode
   progress: number; // 0-1 position through the entire day
   timePosition: number; // 0-1 position within current time period
 }
@@ -81,6 +82,7 @@ const ThemeContext = createContext<ThemeContextType>({
   colors: defaultThemeColors,
   timeTheme: 'day',
   isDark: false,
+  prefersDarkMode: false,
   progress: 0.5,
   timePosition: 0.5
 });
@@ -148,6 +150,40 @@ const formatHSL = (hslString: string): string => {
  */
 export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children }) => {
   const { timeTheme, isNight, progress, timePosition } = useTimeTheme();
+  
+  // State to track system preference for dark mode
+  const [prefersDarkMode, setPrefersDarkMode] = useState<boolean>(() => {
+    // Check system preference on initial render
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+  });
+  
+  // Listen for changes to system color scheme preference
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    // Define the handler to update state
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersDarkMode(e.matches);
+    };
+    
+    // Add the listener to the media query
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener('change', handleChange);
+    } else {
+      // Fallback for older browsers
+      mediaQuery.addListener(handleChange);
+    }
+    
+    // Clean up
+    return () => {
+      if (mediaQuery.removeEventListener) {
+        mediaQuery.removeEventListener('change', handleChange);
+      } else {
+        // Fallback for older browsers
+        mediaQuery.removeListener(handleChange);
+      }
+    };
+  }, []);
   
   // Create dynamic color palette with gradients based on time position
   const colors = useMemo(() => {
@@ -226,8 +262,15 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
         root.style.setProperty(`--${key}`, value);
       });
       
-      // Set data-theme attribute
-      root.setAttribute('data-theme', isNight ? 'dark' : 'light');
+      // Set data-theme attribute - use system preference OR time-based theme
+      const isDarkTheme = prefersDarkMode || isNight;
+      root.setAttribute('data-theme', isDarkTheme ? 'dark' : 'light');
+      
+      // For dark mode, apply custom colors defined in our CSS
+      if (isDarkTheme) {
+        root.style.setProperty('--background', 'hsl(222, 25%, 8%)');
+        root.style.setProperty('--text', 'hsl(220, 15%, 90%)');
+      }
       
       // Update meta theme-color
       const metaThemeColor = document.querySelector('meta[name="theme-color"]');
@@ -242,16 +285,17 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
     }, 100); // Small delay to batch updates
 
     return () => clearTimeout(timeoutId);
-  }, [colors, isNight]);
+  }, [colors, isNight, prefersDarkMode]);
   
   // Memoize context value to prevent unnecessary re-renders
   const contextValue = useMemo(() => ({
     colors,
     timeTheme,
     isDark: isNight,
+    prefersDarkMode,
     progress,
     timePosition
-  }), [colors, timeTheme, isNight, progress, timePosition]);
+  }), [colors, timeTheme, isNight, prefersDarkMode, progress, timePosition]);
   
   return (
     <ThemeContext.Provider value={contextValue}>
