@@ -181,6 +181,14 @@
     "contact": "联系我们",
     "copyright": "版权所有。"
   },
+  "languageSwitch": {
+    "detected": "我们检测到您的首选语言是{{language}}",
+    "suggestion": "您想要以您的首选语言查看本网站吗？",
+    "accept": "是的，更改语言",
+    "decline": "不，保持中文",
+    "switched": "已更改为{{language}}",
+    "confirmation": "所有网站内容现在都以您的首选语言显示"
+  },
   "legal": {
     "date": "2025年4月13日",
     "lastUpdated": "最后更新",

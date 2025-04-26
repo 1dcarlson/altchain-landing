@@ -192,6 +192,14 @@
     "contact": "Contact Us",
     "copyright": "All rights reserved."
   },
+  "languageSwitch": {
+    "detected": "We detected that your preferred language is {{language}}",
+    "suggestion": "Would you like to view this site in your preferred language?",
+    "accept": "Yes, change language",
+    "decline": "No, stay in English",
+    "switched": "Changed to {{language}}",
+    "confirmation": "All site content is now displayed in your preferred language"
+  },
   "legal": {
     "date": "April 13, 2025",
     "lastUpdated": "Last updated",

@@ -181,6 +181,14 @@
     "contact": "Contáctanos",
     "copyright": "Todos los derechos reservados."
   },
+  "languageSwitch": {
+    "detected": "Detectamos que tu idioma preferido es {{language}}",
+    "suggestion": "¿Te gustaría ver este sitio en tu idioma preferido?",
+    "accept": "Sí, cambiar idioma",
+    "decline": "No, permanecer en español",
+    "switched": "Cambiado a {{language}}",
+    "confirmation": "Todo el contenido del sitio ahora se muestra en tu idioma preferido"
+  },
   "legal": {
     "date": "13 de abril de 2025",
     "lastUpdated": "Última actualización",
