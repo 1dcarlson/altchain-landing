@@ -59,16 +59,19 @@
 }
 
 [data-theme="dark"] {
-  --card: hsl(215, 28%, 17%);
-  --popover: hsl(215, 28%, 17%);
-  --card-foreground: hsl(215, 15%, 85%);
-  --popover-foreground: hsl(215, 15%, 85%);
+  --background: hsl(222, 25%, 8%); /* #0d1117 - Dark navy/black, easy on eyes */
+  --text: hsl(220, 15%, 90%); /* #e5e7eb - Light gray text for readability */
+
+  --card: hsl(222, 22%, 11%); /* #161b22 - Slightly lighter dark background */
+  --popover: hsl(222, 22%, 11%);
+  --card-foreground: hsl(220, 15%, 90%);
+  --popover-foreground: hsl(220, 15%, 90%);
   
   --muted: hsl(215, 25%, 20%);
   --muted-foreground: hsl(215, 10%, 65%);
   
-  --border: hsl(215, 25%, 25%);
-  --input: hsl(215, 25%, 25%);
+  --border: hsl(220, 15%, 25%); /* #30363d - Border color for contrast */
+  --input: hsl(220, 15%, 25%);
 }
 
 @layer base {
@@ -76,7 +79,7 @@
     @apply border-border;
   }
   
-  /* Darker placeholders for better visibility */
+  /* Placeholders for better visibility */
   ::placeholder {
     color: rgba(0, 0, 0, 0.7) !important;
     opacity: 1 !important;
@@ -132,5 +135,24 @@
     color: transparent;
     background-size: 200% 200%;
     transition: background-image var(--gradient-transition);
+  }
+}
+
+/* Detect system dark mode preference */
+@media (prefers-color-scheme: dark) {
+  body:not([data-theme="light"]) {
+    --background: hsl(222, 25%, 8%); /* #0d1117 - Dark navy/black, easy on eyes */
+    --text: hsl(220, 15%, 90%); /* #e5e7eb - Light gray text for readability */
+    --card: hsl(222, 22%, 11%); /* #161b22 - Slightly lighter dark background */
+    --popover: hsl(222, 22%, 11%);
+    --card-foreground: hsl(220, 15%, 90%);
+    --popover-foreground: hsl(220, 15%, 90%);
+    --border: hsl(220, 15%, 25%); /* #30363d - Border color for contrast */
+    --input: hsl(220, 15%, 25%);
+  }
+  
+  /* Dark mode link color */
+  body:not([data-theme="light"]) a:not([class*="bg-"]):not(.text-gradient) {
+    color: #60a5fa; /* Softer blue for links */
   }
 }
