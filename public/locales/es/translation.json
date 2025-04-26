@@ -175,6 +175,12 @@
     "companyCountry": "Estados Unidos",
     "companyEmailAddress": "daniel@altchain.app"
   },
+  "footer": {
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "contact": "Contáctanos",
+    "copyright": "Todos los derechos reservados."
+  },
   "legal": {
     "date": "13 de abril de 2025",
     "lastUpdated": "Última actualización",
