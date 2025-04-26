@@ -6,7 +6,7 @@ import { useToast } from '@/hooks/use-toast';
 /**
  * Component that suggests language changes based on browser preferences
  */
-export default function SmartLanguageSuggestion() {
+export default function LanguageSuggestion() {
   const { t } = useTranslation();
   const [showSuggestion, setShowSuggestion] = useState(false);
   const [suggestedLanguage, setSuggestedLanguage] = useState<string | null>(null);
