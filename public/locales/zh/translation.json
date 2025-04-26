@@ -175,6 +175,12 @@
     "companyCountry": "美国",
     "companyEmailAddress": "daniel@altchain.app"
   },
+  "footer": {
+    "privacy": "隐私政策",
+    "terms": "服务条款",
+    "contact": "联系我们",
+    "copyright": "版权所有。"
+  },
   "legal": {
     "date": "2025年4月13日",
     "lastUpdated": "最后更新",
