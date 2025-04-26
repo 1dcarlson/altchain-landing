@@ -3,6 +3,8 @@ import { Link } from 'wouter';
 import { useMemo } from 'react';
 import LanguageSelector from './LanguageSelector';
 import LogoIcon from './LogoIcon';
+import NavLink from './NavLink';
+import { motion } from 'framer-motion';
 import { useTheme } from '@/hooks/theme-provider';
 
 export default function Header() {
@@ -24,22 +26,31 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link href="/">
-          <div className="flex items-center gap-2 cursor-pointer">
+          <motion.div 
+            className="flex items-center gap-2 cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            transition={{ duration: 0.2 }}
+          >
             <LogoIcon />
             <span className="text-white font-bold text-2xl">AltChain</span>
-          </div>
+          </motion.div>
         </Link>
         <nav className="flex items-center gap-6">
-          <Link href="/">
-            <span className="text-blue-100 hover:text-white text-sm font-medium transition-colors cursor-pointer">
-              {t('about')}
-            </span>
-          </Link>
-          <Link href="/contact">
-            <span className="text-blue-100 hover:text-white text-sm font-medium transition-colors cursor-pointer font-bold">
-              {t('contact.navLink') || "Contact"}
-            </span>
-          </Link>
+          <NavLink 
+            href="/" 
+            className="text-blue-100 hover:text-white text-sm font-medium transition-colors"
+            activeClassName="text-white font-medium"
+          >
+            {t('about')}
+          </NavLink>
+          <NavLink 
+            href="/contact" 
+            className="text-blue-100 hover:text-white text-sm font-medium transition-colors"
+            activeClassName="text-white font-bold"
+          >
+            {t('contact.navLink') || "Contact"}
+          </NavLink>
           <LanguageSelector />
         </nav>
       </div>

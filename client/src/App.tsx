@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import InteractiveBackground from "@/components/InteractiveBackground";
 import ScrollProgressIndicator from "@/components/ScrollProgressIndicator";
 import LanguageSuggestion from "@/components/LanguageSuggestion";
+import PageTransition from "@/components/PageTransition";
 import NotFound from "@/pages/not-found";
 import HomePage from "@/pages/HomePage";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
@@ -15,13 +16,15 @@ import { useMemo } from "react";
 
 function Router() {
   return (
-    <Switch>
-      <Route path="/" component={HomePage} />
-      <Route path="/contact" component={ContactPage} />
-      <Route path="/privacy-policy" component={PrivacyPolicy} />
-      <Route path="/terms-of-service" component={TermsOfService} />
-      <Route component={NotFound} />
-    </Switch>
+    <PageTransition>
+      <Switch>
+        <Route path="/" component={HomePage} />
+        <Route path="/contact" component={ContactPage} />
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/terms-of-service" component={TermsOfService} />
+        <Route component={NotFound} />
+      </Switch>
+    </PageTransition>
   );
 }
 
