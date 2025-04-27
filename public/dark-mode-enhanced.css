@@ -1,0 +1,58 @@
+/* Enhanced dark mode styles that target specific components */
+
+/* Target the PersonalWelcome component with blue background in dark mode */
+html.dark [class*="from-blue-50"][class*="to-indigo-50"] {
+  background: linear-gradient(to right, #1e3a8a, #312e81) !important;
+  border-color: #1e40af !important;
+}
+
+html.dark [class*="from-blue-50"][class*="to-indigo-50"] h3 {
+  color: white !important;
+}
+
+html.dark [class*="from-blue-50"][class*="to-indigo-50"] p {
+  color: #bfdbfe !important;
+}
+
+/* Contact form specific elements in dark mode */
+html.dark section[class*="from-gray-50"][class*="to-white"] {
+  background: linear-gradient(to bottom, #111827, #0f172a) !important;
+  border-color: #374151 !important;
+}
+
+html.dark section[class*="from-gray-50"][class*="to-white"] h2 {
+  color: white !important;
+}
+
+html.dark section[class*="from-gray-50"][class*="to-white"] label {
+  color: #d1d5db !important;
+}
+
+html.dark section[class*="from-gray-50"][class*="to-white"] input,
+html.dark section[class*="from-gray-50"][class*="to-white"] textarea {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
+}
+
+html.dark section[class*="from-gray-50"][class*="to-white"] input::placeholder,
+html.dark section[class*="from-gray-50"][class*="to-white"] textarea::placeholder {
+  color: #9ca3af !important;
+}
+
+/* Buttons in dark mode */
+html.dark button[type="submit"] {
+  background-color: #4F46E5 !important;
+  color: white !important;
+}
+
+/* Success/Error messages in dark mode */
+html.dark [class*="bg-green-50"] {
+  background-color: rgba(6, 78, 59, 0.2) !important;
+  color: #10b981 !important;
+}
+
+html.dark [class*="bg-red-50"] {
+  background-color: rgba(127, 29, 29, 0.2) !important;
+  color: #ef4444 !important;
+}

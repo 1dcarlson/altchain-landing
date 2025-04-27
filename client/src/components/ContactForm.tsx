@@ -72,11 +72,11 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="bg-white rounded-lg shadow-sm border border-gray-100 p-6">
-      <h2 className="text-2xl font-bold text-center text-gray-900 mb-6 animate-slide-down">{t('contact.title')}</h2>
+    <section className="bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 rounded-lg shadow-md border border-gray-200 dark:border-gray-800 p-6">
+      <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6 animate-slide-down">{t('contact.title')}</h2>
       <form onSubmit={handleSubmit} className="max-w-md mx-auto flex flex-col gap-4">
         <div className="flex flex-col space-y-1">
-          <label htmlFor="name" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
+          <label htmlFor="name" className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 mb-1 animate-slide-down">
             {t('contact.name')}
           </label>
           <ValidationInput
@@ -89,12 +89,12 @@ export default function ContactForm() {
             minLength={2}
             maxLength={50}
             autoComplete="name"
-            className={`${submitted && !formData.name && formData.name !== '' ? 'animate-shake border-red-500' : ''}`}
+            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 ${submitted && !formData.name && formData.name !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
         <div className="flex flex-col space-y-1">
-          <label htmlFor="email" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
+          <label htmlFor="email" className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 mb-1 animate-slide-down">
             {t('contact.email')}
           </label>
           <ValidationInput
@@ -105,12 +105,12 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             autoComplete="email"
-            className={`${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
+            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 ${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
         <div className="flex flex-col space-y-1">
-          <label htmlFor="message" className="text-sm font-medium text-gray-700 ml-1 mb-1 animate-slide-down">
+          <label htmlFor="message" className="text-sm font-semibold text-gray-700 dark:text-gray-300 ml-1 mb-1 animate-slide-down">
             {t('contact.message')}
           </label>
           <ValidationTextarea
@@ -122,7 +122,7 @@ export default function ContactForm() {
             required
             minLength={10}
             maxLength={500}
-            className={`${submitted && !formData.message && formData.message !== '' ? 'animate-shake border-red-500' : ''}`}
+            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 ${submitted && !formData.message && formData.message !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
@@ -130,10 +130,10 @@ export default function ContactForm() {
           type="submit" 
           disabled={isSubmitting}
           className={`
-            mt-2 bg-primary hover:bg-primary/90 text-white font-medium py-3 px-4 rounded
+            w-full py-3 px-6 bg-primary hover:bg-primary/90 text-white font-medium rounded-lg 
             transition-all duration-300 transform hover:-translate-y-1 active:translate-y-0
-            focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2
-            disabled:opacity-70 relative overflow-hidden group
+            focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2
+            disabled:opacity-70 relative overflow-hidden hover:shadow-lg hover:shadow-primary/30 group
             ${formValid ? 'animate-pulse-once' : ''}
           `}
         >
