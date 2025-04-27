@@ -58,10 +58,11 @@
   --gradient-transition: 1.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-[data-theme="dark"] {
+[data-theme="dark"], .dark {
   --background: hsl(222, 25%, 8%); /* #0d1117 - Dark navy/black, easy on eyes */
   --text: hsl(220, 15%, 90%); /* #e5e7eb - Light gray text for readability */
 
+  --foreground: hsl(220, 15%, 90%);
   --card: hsl(222, 22%, 11%); /* #161b22 - Slightly lighter dark background */
   --popover: hsl(222, 22%, 11%);
   --card-foreground: hsl(220, 15%, 90%);
@@ -72,6 +73,19 @@
   
   --border: hsl(220, 15%, 25%); /* #30363d - Border color for contrast */
   --input: hsl(220, 15%, 25%);
+  
+  /* Gradient background for dark theme */
+  --gradientBackground: linear-gradient(135deg, hsl(222, 25%, 8%), hsl(222, 25%, 12%));
+}
+
+/* Enhance dark mode text opacity for better readability */
+.dark a, .dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark span {
+  color: var(--text);
+}
+
+/* Dark mode link styling */
+.dark a:not([class*="bg-"]):not(.text-gradient) {
+  color: #60a5fa; /* Softer blue for links */
 }
 
 @layer base {
