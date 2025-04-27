@@ -45,6 +45,38 @@
 
       gtag('config', 'G-6DPJBFBYP2');
     </script>
+    
+    <!-- Dark mode detection -->
+    <script>
+      // Check for dark mode preference and set data-theme attribute
+      function setDarkModeIfPreferred() {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        
+        // Listen for changes in dark mode preference
+        try {
+          const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+          
+          // Use the appropriate event listener based on browser support
+          if (darkModeMediaQuery.addEventListener) {
+            darkModeMediaQuery.addEventListener('change', e => {
+              document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            });
+          } else if (darkModeMediaQuery.addListener) {
+            // Older browser support
+            darkModeMediaQuery.addListener(e => {
+              document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            });
+          }
+        } catch (e) {
+          console.warn('Dark mode detection not supported in this browser');
+        }
+      }
+
+      // Run as soon as possible to prevent flash of wrong theme
+      setDarkModeIfPreferred();
+    </script>
   </head>
   <body>
     <div id="root"></div>
