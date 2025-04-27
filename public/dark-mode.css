@@ -1,131 +1,142 @@
 /* Dark Mode Styles with strong overrides */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: hsl(222, 25%, 8%) !important; /* #0d1117 - Dark navy/black */
-    --text: hsl(220, 15%, 90%) !important; /* #e5e7eb - Light gray text */
-    --card: hsl(222, 22%, 11%) !important; /* #161b22 - Slightly lighter dark background */
-    --popover: hsl(222, 22%, 11%) !important;
-    --card-foreground: hsl(220, 15%, 90%) !important;
-    --popover-foreground: hsl(220, 15%, 90%) !important;
-    --border: hsl(220, 15%, 25%) !important; /* #30363d - Border color */
-    --input: hsl(220, 15%, 25%) !important;
-    --foreground: var(--text) !important;
-    --muted: hsl(215, 25%, 20%) !important;
-    --muted-foreground: hsl(215, 10%, 65%) !important;
+    --background: #121212 !important; /* Darker background */
+    --text: #ffffff !important; /* Pure white text for maximum contrast */
+    --card: #1e1e1e !important; /* Lighter background for cards */
+    --popover: #1e1e1e !important;
+    --card-foreground: #ffffff !important;
+    --popover-foreground: #ffffff !important;
+    --border: #555555 !important; /* Lighter visible border */
+    --input: #2a2a2a !important;
+    --foreground: #ffffff !important;
+    --muted: #333333 !important;
+    --muted-foreground: #dddddd !important;
   }
   
   /* Apply to dark mode class as well */
   html, body, body.dark-mode {
-    background-color: hsl(222, 25%, 8%) !important;
-    color: hsl(220, 15%, 90%) !important;
+    background-color: #121212 !important;
+    color: #ffffff !important;
   }
   
   /* Base elements */
   body {
-    background-color: var(--background) !important;
-    color: var(--text) !important;
+    background-color: #121212 !important;
+    color: #ffffff !important;
   }
   
   /* Stronger overrides for specific elements */
   header, footer {
-    background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
+    background-color: #1e1e1e !important; /* Slightly lighter for contrast */
+    color: #ffffff !important;
   }
   
   .card, .section, .content, .bg-white {
-    background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
-    border-color: hsl(220, 15%, 25%) !important; /* #30363d */
+    background-color: #1e1e1e !important; /* Slightly lighter for better readability */
+    border-color: #555555 !important; /* Lighter border for visibility */
+    color: #ffffff !important;
   }
   
   /* Link colors */
   a:not([class*="bg-"]):not(.primary):not(.btn):not(.button):not([style*="color"]) {
-    color: #60a5fa !important; /* Softer blue for links */
+    color: #81c8ff !important; /* Lighter blue for better contrast */
+    text-decoration: underline !important; /* Added for visibility */
   }
   
   /* Form elements */
   input, textarea, select {
-    background-color: hsl(222, 20%, 13%) !important;
-    color: hsl(220, 15%, 90%) !important;
-    border-color: hsl(220, 15%, 25%) !important;
+    background-color: #2a2a2a !important; /* Lighter for visibility */
+    color: #ffffff !important; /* White text */
+    border-color: #666666 !important; /* More visible border */
   }
   
   /* Form placeholders */
   ::placeholder {
-    color: rgba(255, 255, 255, 0.5) !important;
+    color: rgba(255, 255, 255, 0.7) !important; /* Brighter for readability */
   }
   
   /* Button text */
   button:not([class*="bg-"]) {
-    color: hsl(220, 15%, 90%) !important;
+    color: #ffffff !important; /* Pure white for maximum contrast */
   }
   
   /* Text in containers */
   .container *, .prose * {
-    color: var(--text) !important;
+    color: #ffffff !important; /* White text for contrast */
   }
   
   /* Headings */
   h1, h2, h3, h4, h5, h6 {
-    color: hsl(220, 15%, 95%) !important;
+    color: #ffffff !important; /* Pure white for clarity */
+  }
+  
+  /* Extra elements for completeness */
+  p, span, div, li {
+    color: #ffffff !important; /* White text */
   }
 }
 
 /* Dark mode for [data-theme="dark"] - for manual toggling */
 [data-theme="dark"] {
-  --background: hsl(222, 25%, 8%) !important; /* #0d1117 - Dark navy/black */
-  --text: hsl(220, 15%, 90%) !important; /* #e5e7eb - Light gray text */
-  --card: hsl(222, 22%, 11%) !important; /* #161b22 - Slightly lighter dark background */
-  --popover: hsl(222, 22%, 11%) !important;
-  --card-foreground: hsl(220, 15%, 90%) !important;
-  --popover-foreground: hsl(220, 15%, 90%) !important;
-  --border: hsl(220, 15%, 25%) !important; /* #30363d - Border color */
-  --input: hsl(220, 15%, 25%) !important;
-  --foreground: var(--text) !important;
-  --muted: hsl(215, 25%, 20%) !important;
-  --muted-foreground: hsl(215, 10%, 65%) !important;
+  --background: #121212 !important; /* Darker background */
+  --text: #ffffff !important; /* Pure white text for maximum contrast */
+  --card: #1e1e1e !important; /* Lighter background for cards */
+  --popover: #1e1e1e !important;
+  --card-foreground: #ffffff !important;
+  --popover-foreground: #ffffff !important;
+  --border: #555555 !important; /* Lighter visible border */
+  --input: #2a2a2a !important;
+  --foreground: #ffffff !important;
+  --muted: #333333 !important;
+  --muted-foreground: #dddddd !important;
 }
 
 /* Base elements for data-theme="dark" */
 [data-theme="dark"] body {
-  background-color: hsl(222, 25%, 8%) !important;
-  color: hsl(220, 15%, 90%) !important;
+  background-color: #121212 !important;
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] header, 
 [data-theme="dark"] footer {
-  background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
+  background-color: #1e1e1e !important; /* Slightly lighter for contrast */
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] .card, 
 [data-theme="dark"] .section, 
 [data-theme="dark"] .content, 
 [data-theme="dark"] .bg-white {
-  background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
-  border-color: hsl(220, 15%, 25%) !important; /* #30363d */
+  background-color: #1e1e1e !important; /* Slightly lighter for better readability */
+  border-color: #555555 !important; /* Lighter border for visibility */
+  color: #ffffff !important;
 }
 
 [data-theme="dark"] a:not([class*="bg-"]):not(.primary):not(.btn):not(.button):not([style*="color"]) {
-  color: #60a5fa !important; /* Softer blue for links */
+  color: #81c8ff !important; /* Lighter blue for better contrast */
+  text-decoration: underline !important; /* Added for visibility */
 }
 
 [data-theme="dark"] input, 
 [data-theme="dark"] textarea, 
 [data-theme="dark"] select {
-  background-color: hsl(222, 20%, 13%) !important;
-  color: hsl(220, 15%, 90%) !important;
-  border-color: hsl(220, 15%, 25%) !important;
+  background-color: #2a2a2a !important; /* Lighter for visibility */
+  color: #ffffff !important; /* White text */
+  border-color: #666666 !important; /* More visible border */
 }
 
 [data-theme="dark"] ::placeholder {
-  color: rgba(255, 255, 255, 0.5) !important;
+  color: rgba(255, 255, 255, 0.7) !important; /* Brighter for readability */
 }
 
 [data-theme="dark"] button:not([class*="bg-"]) {
-  color: hsl(220, 15%, 90%) !important;
+  color: #ffffff !important; /* Pure white for maximum contrast */
 }
 
 [data-theme="dark"] .container *, 
 [data-theme="dark"] .prose * {
-  color: var(--text) !important;
+  color: #ffffff !important; /* White text for contrast */
 }
 
 [data-theme="dark"] h1, 
@@ -134,5 +145,13 @@
 [data-theme="dark"] h4, 
 [data-theme="dark"] h5, 
 [data-theme="dark"] h6 {
-  color: hsl(220, 15%, 95%) !important;
+  color: #ffffff !important; /* Pure white for clarity */
+}
+
+/* Extra elements for completeness */
+[data-theme="dark"] p, 
+[data-theme="dark"] span, 
+[data-theme="dark"] div, 
+[data-theme="dark"] li {
+  color: #ffffff !important; /* White text */
 }

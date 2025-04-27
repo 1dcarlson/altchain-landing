@@ -29,59 +29,91 @@
     <style>
       /* Force dark mode in Replit preview */
       .dark-mode-replit {
-        background-color: #0d1117 !important;
-        color: #e5e7eb !important;
+        background-color: #121212 !important; /* Darker background */
+        color: #ffffff !important; /* Pure white text for maximum contrast */
       }
       
       .dark-mode-replit header, 
       .dark-mode-replit footer {
-        background-color: #161b22 !important;
+        background-color: #1e1e1e !important; /* Slightly lighter than body for contrast */
+        color: #ffffff !important; /* White text */
       }
       
       .dark-mode-replit .card, 
       .dark-mode-replit .section, 
       .dark-mode-replit .content, 
       .dark-mode-replit .bg-white {
-        background-color: #161b22 !important;
-        border-color: #30363d !important;
+        background-color: #1e1e1e !important; /* Slightly lighter for card readability */
+        border-color: #555555 !important; /* Lighter border for visibility */
+        color: #ffffff !important; /* White text */
       }
       
       .dark-mode-replit a:not(.bg-primary):not(.primary-btn) {
-        color: #60a5fa !important;
+        color: #81c8ff !important; /* Lighter blue for better contrast */
+        text-decoration: underline !important; /* Added underline for better visibility */
       }
       
       .dark-mode-replit input, 
       .dark-mode-replit textarea, 
       .dark-mode-replit select {
-        background-color: #1a1f29 !important;
-        color: #e5e7eb !important;
-        border-color: #30363d !important;
+        background-color: #2a2a2a !important; /* Lighter for better visibility */
+        color: #ffffff !important; /* White text */
+        border-color: #666666 !important; /* More visible border */
+      }
+      
+      /* Extra selectors for text contrast */
+      .dark-mode-replit h1, 
+      .dark-mode-replit h2, 
+      .dark-mode-replit h3, 
+      .dark-mode-replit h4, 
+      .dark-mode-replit h5, 
+      .dark-mode-replit h6 {
+        color: #ffffff !important; /* Pure white headings */
+      }
+      
+      .dark-mode-replit p, 
+      .dark-mode-replit span, 
+      .dark-mode-replit div, 
+      .dark-mode-replit li {
+        color: #ffffff !important; /* White text */
       }
       
       /* System dark mode detection */
       @media (prefers-color-scheme: dark) {
         body {
-          background-color: #0d1117 !important;
-          color: #e5e7eb !important;
+          background-color: #121212 !important; /* Darker background */
+          color: #ffffff !important; /* Pure white text for maximum contrast */
         }
         
         header, footer {
-          background-color: #161b22 !important;
+          background-color: #1e1e1e !important; /* Slightly lighter than body for contrast */
+          color: #ffffff !important; /* White text */
         }
         
         .card, .section, .content, .bg-white {
-          background-color: #161b22 !important;
-          border-color: #30363d !important;
+          background-color: #1e1e1e !important; /* Slightly lighter for card readability */
+          border-color: #555555 !important; /* Lighter border for visibility */
+          color: #ffffff !important; /* White text */
         }
         
         a:not(.bg-primary):not(.primary-btn) {
-          color: #60a5fa !important;
+          color: #81c8ff !important; /* Lighter blue for better contrast */
+          text-decoration: underline !important; /* Added underline for better visibility */
         }
         
         input, textarea, select {
-          background-color: #1a1f29 !important;
-          color: #e5e7eb !important;
-          border-color: #30363d !important;
+          background-color: #2a2a2a !important; /* Lighter for better visibility */
+          color: #ffffff !important; /* White text */
+          border-color: #666666 !important; /* More visible border */
+        }
+        
+        /* Extra selectors for text contrast */
+        h1, h2, h3, h4, h5, h6 {
+          color: #ffffff !important; /* Pure white headings */
+        }
+        
+        p, span, div, li {
+          color: #ffffff !important; /* White text */
         }
       }
     </style>
