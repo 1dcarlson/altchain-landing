@@ -95,9 +95,18 @@
   
   /* Placeholders for better visibility */
   ::placeholder {
-    color: rgba(0, 0, 0, 0.7) !important;
     opacity: 1 !important;
     font-weight: 500;
+  }
+  
+  /* Light mode placeholders */
+  :root:not(.dark) ::placeholder {
+    color: rgba(0, 0, 0, 0.7) !important;
+  }
+  
+  /* Dark mode placeholders */
+  .dark ::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
   }
 
   body {

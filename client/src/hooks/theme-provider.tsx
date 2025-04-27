@@ -8,7 +8,9 @@ const ThemeContext = createContext<ThemeContextType>({
   isDarkMode: false
 });
 
-export const useTheme = () => useContext(ThemeContext);
+export function useTheme() {
+  return useContext(ThemeContext);
+}
 
 /**
  * Simplified ThemeProvider component that only tracks dark mode preference
@@ -20,7 +22,7 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
   });
   
-  // Listen for changes to system color scheme preference
+  // Apply dark mode to the DOM and listen for system changes
   useEffect(() => {
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     
@@ -29,6 +31,26 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
       setIsDarkMode(e.matches);
     };
     
+    // Function to apply dark mode classes and attributes
+    const applyDarkMode = (isDark: boolean) => {
+      // Set data attributes for CSS targeting
+      document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      
+      // Apply/remove classes for additional CSS targeting
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.body.classList.add('dark');
+        document.body.classList.add('dark-mode');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.body.classList.remove('dark');
+        document.body.classList.remove('dark-mode');
+      }
+    };
+    
+    // Apply dark mode immediately
+    applyDarkMode(isDarkMode);
+    
     // Add the listener to the media query
     if (mediaQuery.addEventListener) {
       mediaQuery.addEventListener('change', handleChange);
@@ -36,9 +58,6 @@ export const ThemeProvider: React.FC<{children: React.ReactNode}> = ({ children 
       // Fallback for older browsers
       mediaQuery.addListener(handleChange);
     }
-    
-    // Set data-theme attribute on the document root
-    document.documentElement.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
     
     // Clean up
     return () => {

@@ -1,73 +1,142 @@
-/* Default light mode styles */
-body {
-  background-color: #ffffff;
-  color: #1a1a1a;
+/* 
+ * Dark Mode CSS
+ * This file implements a comprehensive dark mode
+ * that works with both system preference and
+ * manually applied dark mode classes
+ */
+
+/* 
+ * Apply to all elements with the .dark class,
+ * to HTML elements with data-theme="dark",
+ * and to body in dark mode
+ */
+html.dark, 
+body.dark, 
+.dark, 
+[data-theme="dark"],
+.dark-mode,
+html[data-theme="dark"] body {
+  /* Core colors */
+  --background: #0d1117 !important; /* Deep navy background */
+  --text: #e5e7eb !important; /* Light gray text */
+  --foreground: #e5e7eb !important;
+  
+  /* UI elements */
+  --card: #161b22 !important; /* Slightly lighter dark for cards */
+  --card-foreground: #e5e7eb !important;
+  --popover: #161b22 !important;
+  --popover-foreground: #e5e7eb !important;
+  --muted: #1f2937 !important;
+  --muted-foreground: #9ca3af !important;
+  
+  /* Borders */
+  --border: #30363d !important;
+  --input: #30363d !important;
+  
+  /* Text on colored backgrounds */
+  --primary-foreground: #ffffff !important;
+  --secondary-foreground: #ffffff !important;
+  --accent-foreground: #ffffff !important;
+  
+  /* Gradient backgrounds */
+  --gradientBackground: linear-gradient(135deg, #0d1117, #161b22) !important;
+  
+  /* Apply base colors */
+  background-color: var(--background) !important;
+  color: var(--text) !important;
 }
 
-/* Dark mode styles */
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: #0d1117; /* Deep navy for background */
-    color: #e5e7eb; /* Light gray text */
-  }
-
-  a {
-    color: #60a5fa; /* Soft blue links */
-  }
-
-  header, footer {
-    background-color: #161b22; /* Slightly lighter dark for nav/footer */
-  }
-
-  .card, .section, .content {
-    background-color: #161b22;
-    border-color: #30363d;
-  }
-
-  button {
-    background-color: #4c86f9;
-    color: white;
-    border-radius: 6px;
-    font-weight: 600;
-  }
-
-  input, textarea {
-    background-color: #0d1117;
-    color: #e5e7eb;
-    border: 1px solid #30363d;
-  }
+/* Dark mode links */
+html.dark a, 
+body.dark a, 
+.dark a, 
+[data-theme="dark"] a,
+html[data-theme="dark"] a {
+  color: #60a5fa !important; /* Soft blue for links */
 }
 
-/* Support for data-theme attribute */
-[data-theme="dark"] {
-  background-color: #0d1117;
-  color: #e5e7eb;
+/* Dark mode text contrast enhancement */
+html.dark p, body.dark p, .dark p,
+html.dark h1, body.dark h1, .dark h1,
+html.dark h2, body.dark h2, .dark h2,
+html.dark h3, body.dark h3, .dark h3,
+html.dark h4, body.dark h4, .dark h4,
+html.dark h5, body.dark h5, .dark h5,
+html.dark h6, body.dark h6, .dark h6,
+html.dark span, body.dark span, .dark span,
+[data-theme="dark"] p, [data-theme="dark"] h1, [data-theme="dark"] h2,
+[data-theme="dark"] h3, [data-theme="dark"] h4, [data-theme="dark"] h5,
+[data-theme="dark"] h6, [data-theme="dark"] span {
+  color: var(--text) !important;
 }
 
-[data-theme="dark"] a {
-  color: #60a5fa;
+/* Dark mode header/footer */
+html.dark header, body.dark header, .dark header,
+html.dark footer, body.dark footer, .dark footer,
+[data-theme="dark"] header, [data-theme="dark"] footer {
+  background-color: #161b22 !important; /* Slightly lighter dark for structural elements */
 }
 
-[data-theme="dark"] header,
-[data-theme="dark"] footer {
-  background-color: #161b22;
+/* Dark mode cards and content sections */
+html.dark .card, body.dark .card, .dark .card,
+html.dark .section, body.dark .section, .dark .section,
+html.dark .content, body.dark .content, .dark .content,
+[data-theme="dark"] .card, [data-theme="dark"] .section, [data-theme="dark"] .content {
+  background-color: #161b22 !important;
+  border-color: #30363d !important;
 }
 
-[data-theme="dark"] .card,
-[data-theme="dark"] .section,
-[data-theme="dark"] .content {
-  background-color: #161b22;
-  border-color: #30363d;
+/* Form controls in dark mode */
+html.dark input, body.dark input, .dark input,
+html.dark textarea, body.dark textarea, .dark textarea,
+[data-theme="dark"] input, [data-theme="dark"] textarea {
+  background-color: #0d1117 !important;
+  color: #e5e7eb !important;
+  border: 1px solid #30363d !important;
 }
 
+/* Dark mode buttons */
+html.dark button, body.dark button, .dark button,
 [data-theme="dark"] button {
-  background-color: #4c86f9;
-  color: white;
+  background-color: #4c86f9 !important;
+  color: white !important;
 }
 
-[data-theme="dark"] input,
-[data-theme="dark"] textarea {
-  background-color: #0d1117;
-  color: #e5e7eb;
-  border: 1px solid #30363d;
+/* System dark mode preference */
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]),
+  body:not([data-theme="light"]) {
+    --background: #0d1117 !important;
+    --text: #e5e7eb !important;
+    --foreground: #e5e7eb !important;
+    --card: #161b22 !important;
+    --popover: #161b22 !important;
+    --card-foreground: #e5e7eb !important;
+    --popover-foreground: #e5e7eb !important;
+    --border: #30363d !important;
+    --input: #30363d !important;
+    background-color: var(--background) !important;
+    color: var(--text) !important;
+  }
+  
+  html:not([data-theme="light"]) a,
+  body:not([data-theme="light"]) a {
+    color: #60a5fa !important;
+  }
+  
+  html:not([data-theme="light"]) header,
+  body:not([data-theme="light"]) header,
+  html:not([data-theme="light"]) footer,
+  body:not([data-theme="light"]) footer {
+    background-color: #161b22 !important;
+  }
+  
+  html:not([data-theme="light"]) input,
+  body:not([data-theme="light"]) input,
+  html:not([data-theme="light"]) textarea,
+  body:not([data-theme="light"]) textarea {
+    background-color: #0d1117 !important;
+    color: #e5e7eb !important;
+    border: 1px solid #30363d !important;
+  }
 }

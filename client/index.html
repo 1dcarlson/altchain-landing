@@ -51,41 +51,65 @@
     
     <!-- Dark mode detection -->
     <script>
-      // Check for dark mode preference and set data-theme attribute
-      function setDarkModeIfPreferred() {
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // Enhanced dark mode detection and application
+      function applyDarkMode() {
+        // Check for system dark mode preference
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (prefersDark) {
+          // Apply dark mode to HTML and BODY elements for maximum CSS coverage
           document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.classList.add('dark');
+          
+          // Apply on document ready
+          if (document.body) {
+            document.body.classList.add('dark');
+            document.body.classList.add('dark-mode');
+          } else {
+            document.addEventListener('DOMContentLoaded', function() {
+              document.body.classList.add('dark');
+              document.body.classList.add('dark-mode');
+            });
+          }
         }
         
         // Listen for changes in dark mode preference
         try {
           const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
           
+          const handleDarkModeChange = (e) => {
+            // Update theme attribute
+            document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            
+            // Update classes
+            if (e.matches) {
+              document.documentElement.classList.add('dark');
+              document.body.classList.add('dark');
+              document.body.classList.add('dark-mode');
+            } else {
+              document.documentElement.classList.remove('dark');
+              document.body.classList.remove('dark');
+              document.body.classList.remove('dark-mode');
+            }
+          };
+          
           // Use the appropriate event listener based on browser support
           if (darkModeMediaQuery.addEventListener) {
-            darkModeMediaQuery.addEventListener('change', e => {
-              document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-            });
+            darkModeMediaQuery.addEventListener('change', handleDarkModeChange);
           } else if (darkModeMediaQuery.addListener) {
             // Older browser support
-            darkModeMediaQuery.addListener(e => {
-              document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-            });
+            darkModeMediaQuery.addListener(handleDarkModeChange);
           }
         } catch (e) {
           console.warn('Dark mode detection not supported in this browser');
         }
       }
 
-      // Run as soon as possible to prevent flash of wrong theme
-      setDarkModeIfPreferred();
-
-      // Also apply dark mode class to body for stronger CSS targeting
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.addEventListener('DOMContentLoaded', function() {
-          document.body.classList.add('dark-mode');
-        });
-      }
+      // Run immediately to prevent flash of wrong theme
+      applyDarkMode();
+      
+      // Run again when DOM is loaded to ensure body classes are applied
+      document.addEventListener('DOMContentLoaded', applyDarkMode);
     </script>
   </head>
   <body>
