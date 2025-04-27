@@ -22,6 +22,70 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     
+    <!-- Dark mode styles with strong overrides -->
+    <link rel="stylesheet" href="/dark-mode.css" />
+    
+    <!-- Inline dark mode styles for immediate effect -->
+    <style>
+      /* Force dark mode in Replit preview */
+      .dark-mode-replit {
+        background-color: #0d1117 !important;
+        color: #e5e7eb !important;
+      }
+      
+      .dark-mode-replit header, 
+      .dark-mode-replit footer {
+        background-color: #161b22 !important;
+      }
+      
+      .dark-mode-replit .card, 
+      .dark-mode-replit .section, 
+      .dark-mode-replit .content, 
+      .dark-mode-replit .bg-white {
+        background-color: #161b22 !important;
+        border-color: #30363d !important;
+      }
+      
+      .dark-mode-replit a:not(.bg-primary):not(.primary-btn) {
+        color: #60a5fa !important;
+      }
+      
+      .dark-mode-replit input, 
+      .dark-mode-replit textarea, 
+      .dark-mode-replit select {
+        background-color: #1a1f29 !important;
+        color: #e5e7eb !important;
+        border-color: #30363d !important;
+      }
+      
+      /* System dark mode detection */
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #0d1117 !important;
+          color: #e5e7eb !important;
+        }
+        
+        header, footer {
+          background-color: #161b22 !important;
+        }
+        
+        .card, .section, .content, .bg-white {
+          background-color: #161b22 !important;
+          border-color: #30363d !important;
+        }
+        
+        a:not(.bg-primary):not(.primary-btn) {
+          color: #60a5fa !important;
+        }
+        
+        input, textarea, select {
+          background-color: #1a1f29 !important;
+          color: #e5e7eb !important;
+          border-color: #30363d !important;
+        }
+      }
+    </style>
+    
     <!-- Basic SEO -->
     <meta name="description" content="Smarter global sourcing powered by AI. Save time, reduce costs, and avoid trade friction." />
     <meta name="author" content="AltChain" />
@@ -76,9 +140,16 @@
 
       // Run as soon as possible to prevent flash of wrong theme
       setDarkModeIfPreferred();
+
+      // Also apply dark mode class to body for stronger CSS targeting
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.body.classList.add('dark-mode');
+        });
+      }
     </script>
   </head>
-  <body>
+  <body class="dark-mode-replit">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     

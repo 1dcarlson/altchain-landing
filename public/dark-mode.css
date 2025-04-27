@@ -1,0 +1,138 @@
+/* Dark Mode Styles with strong overrides */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(222, 25%, 8%) !important; /* #0d1117 - Dark navy/black */
+    --text: hsl(220, 15%, 90%) !important; /* #e5e7eb - Light gray text */
+    --card: hsl(222, 22%, 11%) !important; /* #161b22 - Slightly lighter dark background */
+    --popover: hsl(222, 22%, 11%) !important;
+    --card-foreground: hsl(220, 15%, 90%) !important;
+    --popover-foreground: hsl(220, 15%, 90%) !important;
+    --border: hsl(220, 15%, 25%) !important; /* #30363d - Border color */
+    --input: hsl(220, 15%, 25%) !important;
+    --foreground: var(--text) !important;
+    --muted: hsl(215, 25%, 20%) !important;
+    --muted-foreground: hsl(215, 10%, 65%) !important;
+  }
+  
+  /* Apply to dark mode class as well */
+  html, body, body.dark-mode {
+    background-color: hsl(222, 25%, 8%) !important;
+    color: hsl(220, 15%, 90%) !important;
+  }
+  
+  /* Base elements */
+  body {
+    background-color: var(--background) !important;
+    color: var(--text) !important;
+  }
+  
+  /* Stronger overrides for specific elements */
+  header, footer {
+    background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
+  }
+  
+  .card, .section, .content, .bg-white {
+    background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
+    border-color: hsl(220, 15%, 25%) !important; /* #30363d */
+  }
+  
+  /* Link colors */
+  a:not([class*="bg-"]):not(.primary):not(.btn):not(.button):not([style*="color"]) {
+    color: #60a5fa !important; /* Softer blue for links */
+  }
+  
+  /* Form elements */
+  input, textarea, select {
+    background-color: hsl(222, 20%, 13%) !important;
+    color: hsl(220, 15%, 90%) !important;
+    border-color: hsl(220, 15%, 25%) !important;
+  }
+  
+  /* Form placeholders */
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
+  
+  /* Button text */
+  button:not([class*="bg-"]) {
+    color: hsl(220, 15%, 90%) !important;
+  }
+  
+  /* Text in containers */
+  .container *, .prose * {
+    color: var(--text) !important;
+  }
+  
+  /* Headings */
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(220, 15%, 95%) !important;
+  }
+}
+
+/* Dark mode for [data-theme="dark"] - for manual toggling */
+[data-theme="dark"] {
+  --background: hsl(222, 25%, 8%) !important; /* #0d1117 - Dark navy/black */
+  --text: hsl(220, 15%, 90%) !important; /* #e5e7eb - Light gray text */
+  --card: hsl(222, 22%, 11%) !important; /* #161b22 - Slightly lighter dark background */
+  --popover: hsl(222, 22%, 11%) !important;
+  --card-foreground: hsl(220, 15%, 90%) !important;
+  --popover-foreground: hsl(220, 15%, 90%) !important;
+  --border: hsl(220, 15%, 25%) !important; /* #30363d - Border color */
+  --input: hsl(220, 15%, 25%) !important;
+  --foreground: var(--text) !important;
+  --muted: hsl(215, 25%, 20%) !important;
+  --muted-foreground: hsl(215, 10%, 65%) !important;
+}
+
+/* Base elements for data-theme="dark" */
+[data-theme="dark"] body {
+  background-color: hsl(222, 25%, 8%) !important;
+  color: hsl(220, 15%, 90%) !important;
+}
+
+[data-theme="dark"] header, 
+[data-theme="dark"] footer {
+  background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
+}
+
+[data-theme="dark"] .card, 
+[data-theme="dark"] .section, 
+[data-theme="dark"] .content, 
+[data-theme="dark"] .bg-white {
+  background-color: hsl(222, 22%, 11%) !important; /* #161b22 */
+  border-color: hsl(220, 15%, 25%) !important; /* #30363d */
+}
+
+[data-theme="dark"] a:not([class*="bg-"]):not(.primary):not(.btn):not(.button):not([style*="color"]) {
+  color: #60a5fa !important; /* Softer blue for links */
+}
+
+[data-theme="dark"] input, 
+[data-theme="dark"] textarea, 
+[data-theme="dark"] select {
+  background-color: hsl(222, 20%, 13%) !important;
+  color: hsl(220, 15%, 90%) !important;
+  border-color: hsl(220, 15%, 25%) !important;
+}
+
+[data-theme="dark"] ::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+[data-theme="dark"] button:not([class*="bg-"]) {
+  color: hsl(220, 15%, 90%) !important;
+}
+
+[data-theme="dark"] .container *, 
+[data-theme="dark"] .prose * {
+  color: var(--text) !important;
+}
+
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+  color: hsl(220, 15%, 95%) !important;
+}
