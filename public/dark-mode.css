@@ -1,157 +1,73 @@
-/* Dark Mode Styles with strong overrides */
+/* Default light mode styles */
+body {
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+/* Dark mode styles */
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #121212 !important; /* Darker background */
-    --text: #ffffff !important; /* Pure white text for maximum contrast */
-    --card: #1e1e1e !important; /* Lighter background for cards */
-    --popover: #1e1e1e !important;
-    --card-foreground: #ffffff !important;
-    --popover-foreground: #ffffff !important;
-    --border: #555555 !important; /* Lighter visible border */
-    --input: #2a2a2a !important;
-    --foreground: #ffffff !important;
-    --muted: #333333 !important;
-    --muted-foreground: #dddddd !important;
-  }
-  
-  /* Apply to dark mode class as well */
-  html, body, body.dark-mode {
-    background-color: #121212 !important;
-    color: #ffffff !important;
-  }
-  
-  /* Base elements */
   body {
-    background-color: #121212 !important;
-    color: #ffffff !important;
+    background-color: #0d1117; /* Deep navy for background */
+    color: #e5e7eb; /* Light gray text */
   }
-  
-  /* Stronger overrides for specific elements */
+
+  a {
+    color: #60a5fa; /* Soft blue links */
+  }
+
   header, footer {
-    background-color: #1e1e1e !important; /* Slightly lighter for contrast */
-    color: #ffffff !important;
+    background-color: #161b22; /* Slightly lighter dark for nav/footer */
   }
-  
-  .card, .section, .content, .bg-white {
-    background-color: #1e1e1e !important; /* Slightly lighter for better readability */
-    border-color: #555555 !important; /* Lighter border for visibility */
-    color: #ffffff !important;
+
+  .card, .section, .content {
+    background-color: #161b22;
+    border-color: #30363d;
   }
-  
-  /* Link colors */
-  a:not([class*="bg-"]):not(.primary):not(.btn):not(.button):not([style*="color"]) {
-    color: #81c8ff !important; /* Lighter blue for better contrast */
-    text-decoration: underline !important; /* Added for visibility */
+
+  button {
+    background-color: #4c86f9;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
   }
-  
-  /* Form elements */
-  input, textarea, select {
-    background-color: #2a2a2a !important; /* Lighter for visibility */
-    color: #ffffff !important; /* White text */
-    border-color: #666666 !important; /* More visible border */
-  }
-  
-  /* Form placeholders */
-  ::placeholder {
-    color: rgba(255, 255, 255, 0.7) !important; /* Brighter for readability */
-  }
-  
-  /* Button text */
-  button:not([class*="bg-"]) {
-    color: #ffffff !important; /* Pure white for maximum contrast */
-  }
-  
-  /* Text in containers */
-  .container *, .prose * {
-    color: #ffffff !important; /* White text for contrast */
-  }
-  
-  /* Headings */
-  h1, h2, h3, h4, h5, h6 {
-    color: #ffffff !important; /* Pure white for clarity */
-  }
-  
-  /* Extra elements for completeness */
-  p, span, div, li {
-    color: #ffffff !important; /* White text */
+
+  input, textarea {
+    background-color: #0d1117;
+    color: #e5e7eb;
+    border: 1px solid #30363d;
   }
 }
 
-/* Dark mode for [data-theme="dark"] - for manual toggling */
+/* Support for data-theme attribute */
 [data-theme="dark"] {
-  --background: #121212 !important; /* Darker background */
-  --text: #ffffff !important; /* Pure white text for maximum contrast */
-  --card: #1e1e1e !important; /* Lighter background for cards */
-  --popover: #1e1e1e !important;
-  --card-foreground: #ffffff !important;
-  --popover-foreground: #ffffff !important;
-  --border: #555555 !important; /* Lighter visible border */
-  --input: #2a2a2a !important;
-  --foreground: #ffffff !important;
-  --muted: #333333 !important;
-  --muted-foreground: #dddddd !important;
+  background-color: #0d1117;
+  color: #e5e7eb;
 }
 
-/* Base elements for data-theme="dark" */
-[data-theme="dark"] body {
-  background-color: #121212 !important;
-  color: #ffffff !important;
+[data-theme="dark"] a {
+  color: #60a5fa;
 }
 
-[data-theme="dark"] header, 
+[data-theme="dark"] header,
 [data-theme="dark"] footer {
-  background-color: #1e1e1e !important; /* Slightly lighter for contrast */
-  color: #ffffff !important;
+  background-color: #161b22;
 }
 
-[data-theme="dark"] .card, 
-[data-theme="dark"] .section, 
-[data-theme="dark"] .content, 
-[data-theme="dark"] .bg-white {
-  background-color: #1e1e1e !important; /* Slightly lighter for better readability */
-  border-color: #555555 !important; /* Lighter border for visibility */
-  color: #ffffff !important;
+[data-theme="dark"] .card,
+[data-theme="dark"] .section,
+[data-theme="dark"] .content {
+  background-color: #161b22;
+  border-color: #30363d;
 }
 
-[data-theme="dark"] a:not([class*="bg-"]):not(.primary):not(.btn):not(.button):not([style*="color"]) {
-  color: #81c8ff !important; /* Lighter blue for better contrast */
-  text-decoration: underline !important; /* Added for visibility */
+[data-theme="dark"] button {
+  background-color: #4c86f9;
+  color: white;
 }
 
-[data-theme="dark"] input, 
-[data-theme="dark"] textarea, 
-[data-theme="dark"] select {
-  background-color: #2a2a2a !important; /* Lighter for visibility */
-  color: #ffffff !important; /* White text */
-  border-color: #666666 !important; /* More visible border */
-}
-
-[data-theme="dark"] ::placeholder {
-  color: rgba(255, 255, 255, 0.7) !important; /* Brighter for readability */
-}
-
-[data-theme="dark"] button:not([class*="bg-"]) {
-  color: #ffffff !important; /* Pure white for maximum contrast */
-}
-
-[data-theme="dark"] .container *, 
-[data-theme="dark"] .prose * {
-  color: #ffffff !important; /* White text for contrast */
-}
-
-[data-theme="dark"] h1, 
-[data-theme="dark"] h2, 
-[data-theme="dark"] h3, 
-[data-theme="dark"] h4, 
-[data-theme="dark"] h5, 
-[data-theme="dark"] h6 {
-  color: #ffffff !important; /* Pure white for clarity */
-}
-
-/* Extra elements for completeness */
-[data-theme="dark"] p, 
-[data-theme="dark"] span, 
-[data-theme="dark"] div, 
-[data-theme="dark"] li {
-  color: #ffffff !important; /* White text */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  background-color: #0d1117;
+  color: #e5e7eb;
+  border: 1px solid #30363d;
 }
