@@ -1,0 +1,54 @@
+/* 
+ * FORCE DARK MODE
+ * This file contains extremely aggressive selectors with !important flags
+ * to override any other styling and ensure dark mode works properly
+ */
+
+@media (prefers-color-scheme: dark) {
+  /* Root elements */
+  html, body, #root, .dark, [data-theme="dark"] {
+    background-color: #0d1117 !important;
+    color: #e5e7eb !important;
+  }
+  
+  /* Force all text to be light in dark mode */
+  p, h1, h2, h3, h4, h5, h6, span, li, label, div, section, article, 
+  input, textarea, select, button {
+    color: #e5e7eb !important;
+  }
+  
+  /* Override all background colors to be dark */
+  div, section, article, aside, main, nav, form, header, footer {
+    background-color: transparent !important;
+  }
+  
+  /* Card and container elements */
+  .card, .container, .content, .box, .section {
+    background-color: #161b22 !important;
+    border-color: #30363d !important;
+  }
+  
+  /* Form controls */
+  input, textarea, select, button {
+    background-color: #0d1117 !important;
+    border: 1px solid #30363d !important;
+  }
+  
+  /* Links */
+  a, a:visited {
+    color: #60a5fa !important;
+  }
+  
+  /* Special rule to undo coloring on buttons */
+  button.bg-primary, button.bg-blue, button.btn-primary, 
+  a.bg-primary, a.bg-blue, a.btn-primary {
+    background-color: #4F46E5 !important;
+    color: white !important;
+  }
+  
+  /* Forms and placeholder text */
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.7) !important;
+    opacity: 1 !important;
+  }
+}
