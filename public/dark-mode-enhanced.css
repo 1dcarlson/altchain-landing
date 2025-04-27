@@ -144,13 +144,37 @@ html.dark section[class*="bg-white"],
   color: white !important;
 }
 
-/* Last resort - target all ValidationInput & ValidationTextarea components */
-body.dark [class*="ValidationInput"],
-html.dark [class*="ValidationInput"],
-.dark [class*="ValidationInput"],
-body.dark [class*="ValidationTextarea"],
-html.dark [class*="ValidationTextarea"],
-.dark [class*="ValidationTextarea"] {
+/* Direct override for ALL form inputs in dark mode */
+body.dark input,
+body.dark textarea,
+body.dark select,
+html.dark input,
+html.dark textarea,
+html.dark select,
+.dark input,
+.dark textarea,
+.dark select,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
+  padding: 0.75rem 1rem !important;
+  border-radius: 0.375rem !important;
+}
+
+/* Ultra-specific targeting for the contact form */
+body.dark form input,
+body.dark form textarea,
+html.dark form input,
+html.dark form textarea,
+.dark form input, 
+.dark form textarea,
+form[class*="contact"] input,
+form[class*="contact"] textarea,
+form[class*="waitlist"] input,
+form[class*="waitlist"] textarea {
   background-color: #1f2937 !important;
   color: white !important;
   border-color: #4b5563 !important;
