@@ -42,6 +42,17 @@ html[data-theme="dark"] section {
   border-color: #374151 !important;
 }
 
+/* Target the specific contact form section */
+body.dark section.bg-gradient-to-b,
+html.dark section.bg-gradient-to-b,
+.dark section.bg-gradient-to-b,
+body.dark section[class*="from-gray-50"][class*="to-white"],
+html.dark section[class*="from-gray-50"][class*="to-white"],
+.dark section[class*="from-gray-50"][class*="to-white"] {
+  background: linear-gradient(to bottom, #111827, #0f172a) !important;
+  border-color: #374151 !important;
+}
+
 /* Contact form heading */
 body.dark section h2,
 html.dark section h2,
@@ -69,6 +80,20 @@ html.dark input[type="text"], html.dark input[type="email"], html.dark input[typ
   background-color: #1f2937 !important;
   color: white !important;
   border-color: #4b5563 !important;
+  border-radius: 0.375rem !important;
+  padding: 0.75rem 1rem !important;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Specific contact form input field styles to match waitlist */
+body.dark section input, body.dark section textarea, 
+html.dark section input, html.dark section textarea,
+.dark section input, .dark section textarea,
+html[data-theme="dark"] section input, html[data-theme="dark"] section textarea {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
+  padding: 0.75rem 1rem !important;
 }
 
 /* Input placeholder text */

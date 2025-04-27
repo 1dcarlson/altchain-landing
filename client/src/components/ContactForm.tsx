@@ -89,7 +89,7 @@ export default function ContactForm() {
             minLength={2}
             maxLength={50}
             autoComplete="name"
-            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 ${submitted && !formData.name && formData.name !== '' ? 'animate-shake border-red-500' : ''}`}
+            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 bg-white shadow-sm border border-gray-200 rounded-md px-4 ${submitted && !formData.name && formData.name !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
@@ -105,7 +105,7 @@ export default function ContactForm() {
             onChange={handleChange}
             required
             autoComplete="email"
-            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 ${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
+            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 bg-white shadow-sm border border-gray-200 rounded-md px-4 ${submitted && !formData.email && formData.email !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
@@ -122,7 +122,7 @@ export default function ContactForm() {
             required
             minLength={10}
             maxLength={500}
-            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 ${submitted && !formData.message && formData.message !== '' ? 'animate-shake border-red-500' : ''}`}
+            className={`py-3 text-gray-800 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 dark:bg-gray-800 dark:border-gray-700 bg-white shadow-sm border border-gray-200 rounded-md px-4 ${submitted && !formData.message && formData.message !== '' ? 'animate-shake border-red-500' : ''}`}
           />
         </div>
         
