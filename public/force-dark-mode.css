@@ -28,10 +28,18 @@
     border-color: #30363d !important;
   }
   
-  /* Form controls */
-  input, textarea, select, button {
-    background-color: #0d1117 !important;
-    border: 1px solid #30363d !important;
+  /* Form controls - make them lighter for better contrast */
+  input, textarea, select {
+    background-color: #1f2937 !important; /* Lighter dark for better contrast */
+    color: #ffffff !important;
+    border: 1px solid #4b5563 !important; /* Lighter border */
+  }
+  
+  /* Button styling */
+  button {
+    background-color: #4F46E5 !important; /* Primary blue color */
+    color: #ffffff !important;
+    border: none !important;
   }
   
   /* Links */
@@ -50,5 +58,32 @@
   ::placeholder {
     color: rgba(255, 255, 255, 0.7) !important;
     opacity: 1 !important;
+  }
+  
+  /* Welcome banner specific styling */
+  .hero, .welcome, .banner, .jumbotron,
+  section[class*="hero"], div[class*="hero"],
+  section[class*="welcome"], div[class*="welcome"],
+  section[class*="banner"], div[class*="banner"],
+  section[class*="jumbotron"], div[class*="jumbotron"] {
+    background-color: #1e40af !important; /* Deep blue background */
+    color: white !important;
+  }
+  
+  /* Hero/welcome banner headings */
+  .hero h1, .hero h2, .hero h3, .welcome h1, .welcome h2, .welcome h3,
+  .banner h1, .banner h2, .banner h3, .jumbotron h1, .jumbotron h2, .jumbotron h3,
+  div[class*="hero"] h1, div[class*="hero"] h2, div[class*="hero"] h3,
+  div[class*="welcome"] h1, div[class*="welcome"] h2, div[class*="welcome"] h3, 
+  div[class*="banner"] h1, div[class*="banner"] h2, div[class*="banner"] h3,
+  div[class*="jumbotron"] h1, div[class*="jumbotron"] h2, div[class*="jumbotron"] h3 {
+    color: white !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important; /* Add text shadow for better readability */
+  }
+  
+  /* Hero/welcome banner paragraphs */
+  .hero p, .welcome p, .banner p, .jumbotron p,
+  div[class*="hero"] p, div[class*="welcome"] p, div[class*="banner"] p, div[class*="jumbotron"] p {
+    color: #f3f4f6 !important; /* Light gray - almost white */
   }
 }
