@@ -1,58 +1,132 @@
-/* Enhanced dark mode styles that target specific components */
+/* ENHANCED DARK MODE STYLES WITH MAXIMUM SPECIFICITY */
 
-/* Target the PersonalWelcome component with blue background in dark mode */
-html.dark [class*="from-blue-50"][class*="to-indigo-50"] {
+/* ========== WELCOME BANNER STYLES ========== */
+/* Target the PersonalWelcome component specifically */
+body.dark .bg-gradient-to-r.from-blue-50.to-indigo-50,
+html.dark .bg-gradient-to-r.from-blue-50.to-indigo-50,
+.dark .bg-gradient-to-r.from-blue-50.to-indigo-50,
+html[class*="dark"] .bg-gradient-to-r.from-blue-50.to-indigo-50,
+body[class*="dark"] .bg-gradient-to-r.from-blue-50.to-indigo-50,
+html[data-theme="dark"] .bg-gradient-to-r.from-blue-50.to-indigo-50,
+[data-theme="dark"] .bg-gradient-to-r.from-blue-50.to-indigo-50 {
   background: linear-gradient(to right, #1e3a8a, #312e81) !important;
   border-color: #1e40af !important;
-}
-
-html.dark [class*="from-blue-50"][class*="to-indigo-50"] h3 {
   color: white !important;
 }
 
-html.dark [class*="from-blue-50"][class*="to-indigo-50"] p {
+/* Welcome banner headings */
+body.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 h3,
+html.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 h3,
+.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 h3,
+html[data-theme="dark"] .bg-gradient-to-r.from-blue-50.to-indigo-50 h3 {
+  color: white !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Welcome banner paragraphs */
+body.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 p,
+html.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 p,
+.dark .bg-gradient-to-r.from-blue-50.to-indigo-50 p,
+html[data-theme="dark"] .bg-gradient-to-r.from-blue-50.to-indigo-50 p {
   color: #bfdbfe !important;
 }
 
-/* Contact form specific elements in dark mode */
-html.dark section[class*="from-gray-50"][class*="to-white"] {
-  background: linear-gradient(to bottom, #111827, #0f172a) !important;
+/* ========== CONTACT FORM STYLES ========== */
+/* Contact form container */
+body.dark section,
+html.dark section,
+.dark section,
+html[data-theme="dark"] section {
+  background-color: #111827 !important;
+  color: white !important;
   border-color: #374151 !important;
 }
 
-html.dark section[class*="from-gray-50"][class*="to-white"] h2 {
+/* Contact form heading */
+body.dark section h2,
+html.dark section h2,
+.dark section h2,
+html[data-theme="dark"] section h2 {
   color: white !important;
 }
 
-html.dark section[class*="from-gray-50"][class*="to-white"] label {
+/* Form labels */
+body.dark label,
+html.dark label,
+.dark label,
+html[data-theme="dark"] label {
   color: #d1d5db !important;
 }
 
-html.dark section[class*="from-gray-50"][class*="to-white"] input,
-html.dark section[class*="from-gray-50"][class*="to-white"] textarea {
+/* Form inputs - extreme specificity */
+body.dark input, body.dark textarea, body.dark select,
+html.dark input, html.dark textarea, html.dark select,
+.dark input, .dark textarea, .dark select,
+html[data-theme="dark"] input, html[data-theme="dark"] textarea, html[data-theme="dark"] select,
+body.dark input[type="text"], body.dark input[type="email"], body.dark input[type="password"], body.dark textarea,
+html.dark input[type="text"], html.dark input[type="email"], html.dark input[type="password"], html.dark textarea,
+.dark input[type="text"], .dark input[type="email"], .dark input[type="password"], .dark textarea {
   background-color: #1f2937 !important;
   color: white !important;
   border-color: #4b5563 !important;
 }
 
-html.dark section[class*="from-gray-50"][class*="to-white"] input::placeholder,
-html.dark section[class*="from-gray-50"][class*="to-white"] textarea::placeholder {
+/* Input placeholder text */
+body.dark input::placeholder, body.dark textarea::placeholder,
+html.dark input::placeholder, html.dark textarea::placeholder,
+.dark input::placeholder, .dark textarea::placeholder,
+html[data-theme="dark"] input::placeholder, html[data-theme="dark"] textarea::placeholder {
   color: #9ca3af !important;
+  opacity: 1 !important;
 }
 
-/* Buttons in dark mode */
-html.dark button[type="submit"] {
+/* Submit buttons */
+body.dark button[type="submit"],
+html.dark button[type="submit"],
+.dark button[type="submit"],
+html[data-theme="dark"] button[type="submit"],
+body.dark .bg-primary,
+html.dark .bg-primary,
+.dark .bg-primary,
+html[data-theme="dark"] .bg-primary {
   background-color: #4F46E5 !important;
   color: white !important;
 }
 
-/* Success/Error messages in dark mode */
-html.dark [class*="bg-green-50"] {
+/* Success/Error messages */
+body.dark [class*="bg-green-50"],
+html.dark [class*="bg-green-50"],
+.dark [class*="bg-green-50"],
+html[data-theme="dark"] [class*="bg-green-50"] {
   background-color: rgba(6, 78, 59, 0.2) !important;
   color: #10b981 !important;
 }
 
-html.dark [class*="bg-red-50"] {
+body.dark [class*="bg-red-50"],
+html.dark [class*="bg-red-50"],
+.dark [class*="bg-red-50"],
+html[data-theme="dark"] [class*="bg-red-50"] {
   background-color: rgba(127, 29, 29, 0.2) !important;
   color: #ef4444 !important;
+}
+
+/* ========== DIRECT DOM TARGETTING ========== */
+/* Force dark background on any section with a light background in dark mode */
+body.dark section[class*="bg-white"],
+html.dark section[class*="bg-white"],
+.dark section[class*="bg-white"] {
+  background-color: #111827 !important;
+  color: white !important;
+}
+
+/* Last resort - target all ValidationInput & ValidationTextarea components */
+body.dark [class*="ValidationInput"],
+html.dark [class*="ValidationInput"],
+.dark [class*="ValidationInput"],
+body.dark [class*="ValidationTextarea"],
+html.dark [class*="ValidationTextarea"],
+.dark [class*="ValidationTextarea"] {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
 }
