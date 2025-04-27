@@ -1,0 +1,73 @@
+/* EMERGENCY DARK MODE OVERRIDES - HIGHEST PRIORITY */
+
+/* Force inputs to have consistent styling */
+html.dark input,
+html.dark textarea,
+html.dark select,
+.dark input,
+.dark textarea,
+.dark select,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: #1f2937 !important;
+  color: white !important;
+  border-color: #4b5563 !important;
+}
+
+/* Force contact form container to have dark background */
+html.dark section,
+.dark section,
+[data-theme="dark"] section {
+  background-color: #111827 !important;
+  border-color: #374151 !important;
+}
+
+/* Force all labels to be visible */
+html.dark label,
+.dark label,
+[data-theme="dark"] label {
+  color: #e5e7eb !important;
+}
+
+/* Force welcome banner to have nice blue style */
+html.dark [class*="from-blue-50"][class*="to-indigo-50"],
+.dark [class*="from-blue-50"][class*="to-indigo-50"],
+[data-theme="dark"] [class*="from-blue-50"][class*="to-indigo-50"] {
+  background: linear-gradient(to right, #1e3a8a, #312e81) !important;
+  border-color: #1e40af !important;
+}
+
+html.dark [class*="from-blue-50"][class*="to-indigo-50"] h3,
+.dark [class*="from-blue-50"][class*="to-indigo-50"] h3,
+[data-theme="dark"] [class*="from-blue-50"][class*="to-indigo-50"] h3 {
+  color: white !important;
+}
+
+html.dark [class*="from-blue-50"][class*="to-indigo-50"] p,
+.dark [class*="from-blue-50"][class*="to-indigo-50"] p,
+[data-theme="dark"] [class*="from-blue-50"][class*="to-indigo-50"] p {
+  color: #bfdbfe !important;
+}
+
+/* Force all buttons to be blue with shine effect */
+html.dark button[type="submit"],
+.dark button[type="submit"],
+[data-theme="dark"] button[type="submit"] {
+  background-color: #4F46E5 !important;
+  color: white !important;
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+html.dark .group:hover .group-hover\:animate-shimmer,
+.dark .group:hover .group-hover\:animate-shimmer,
+[data-theme="dark"] .group:hover .group-hover\:animate-shimmer {
+  animation: shimmer 2s infinite !important;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
