@@ -3,7 +3,7 @@ import { useTheme } from '@/hooks/theme-provider';
 
 /**
  * Optimized interactive background component that creates a subtle gradient shift effect
- * based on mouse movements and interactions and time-based gradient themes
+ * based on mouse movements and interactions
  */
 export default function InteractiveBackground() {
   // Use refs to avoid state updates and re-renders completely
@@ -16,8 +16,8 @@ export default function InteractiveBackground() {
   const clickEffectActiveRef = useRef<boolean>(false);
   const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   
-  // Get theme context for time-based gradients
-  const { colors, isDark, progress } = useTheme();
+  // Get theme context for dark mode
+  const { isDarkMode } = useTheme();
   
   // Set up mouse tracking and click effects only once on mount
   useEffect(() => {
@@ -49,7 +49,7 @@ export default function InteractiveBackground() {
       
       // Only update DOM if we have refs
       if (gradientRef.current) {
-        // Apply moderate position effect + time-based shift
+        // Apply moderate position effect
         // Note: Using style manipulation instead of state for performance
         gradientRef.current.style.setProperty(
           'background-position', 
@@ -138,13 +138,15 @@ export default function InteractiveBackground() {
       }
     };
   }, []);
-
-  // Update background when theme changes
-  useEffect(() => {
-    if (gradientRef.current) {
-      gradientRef.current.style.backgroundImage = colors.gradientBackground || 'linear-gradient(135deg, #f5f7fa, #e6edf7)';
-    }
-  }, [colors.gradientBackground]);
+  
+  // Simple gradient based on mode
+  const backgroundGradient = isDarkMode
+    ? 'linear-gradient(135deg, #0d1117, #161b22)'
+    : 'linear-gradient(135deg, #f5f7fa, #e6edf7)';
+    
+  const pulseGradient = isDarkMode
+    ? 'radial-gradient(circle, rgba(96, 165, 250, 0.7), rgba(96, 165, 250, 0))'
+    : 'radial-gradient(circle, rgba(66, 133, 244, 0.7), rgba(66, 133, 244, 0))';
   
   // Return background element with dynamic gradient
   return (
@@ -153,7 +155,7 @@ export default function InteractiveBackground() {
         ref={gradientRef}
         className="fixed inset-0 w-full h-full pointer-events-none z-0 bg-gradient-to-br bg-[length:200%_200%] duration-3000 transition-all ease-in-out opacity-40 dark:opacity-20"
         style={{
-          backgroundImage: colors.gradientBackground || 'linear-gradient(135deg, #f5f7fa, #e6edf7)',
+          backgroundImage: backgroundGradient,
           backgroundPosition: '50% 50%'
         }}
       />
@@ -163,9 +165,9 @@ export default function InteractiveBackground() {
         ref={pulseRef}
         className="fixed w-1 h-1 z-0 pointer-events-none -translate-x-1/2 -translate-y-1/2 duration-700 ease-out"
         style={{
-          background: colors.gradientPrimary || 'radial-gradient(circle, rgba(66, 133, 244, 0.7), rgba(66, 133, 244, 0))',
+          background: pulseGradient,
           borderRadius: '50%',
-          boxShadow: `0 0 40px 20px ${isDark ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)'}`,
+          boxShadow: `0 0 40px 20px ${isDarkMode ? 'rgba(255,255,255,0.1)' : 'rgba(0,0,0,0.05)'}`,
           opacity: 0,
           transform: 'scale(0)'
         }}

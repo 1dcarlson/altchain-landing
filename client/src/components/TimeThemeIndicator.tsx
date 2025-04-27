@@ -3,78 +3,38 @@ import { useTranslation } from 'react-i18next';
 import { useMemo } from 'react';
 
 export default function TimeThemeIndicator() {
-  const { colors, timeTheme, isDark, progress, timePosition } = useTheme();
+  const { isDarkMode } = useTheme();
   const { t } = useTranslation();
   
-  // Icons for different times of day - memoized to prevent re-renders
+  // Icon based on dark mode
   const icon = useMemo(() => {
-    switch (timeTheme) {
-      case 'morning':
-        return (
-          <svg className="w-5 h-5 mr-2 text-amber-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'day':
-        return (
-          <svg className="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-          </svg>
-        );
-      case 'evening':
-        return (
-          <svg className="w-5 h-5 mr-2 text-orange-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-          </svg>
-        );
-      case 'night':
-        return (
-          <svg className="w-5 h-5 mr-2 text-indigo-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-          </svg>
-        );
-      default:
-        return null;
-    }
-  }, [timeTheme]);
+    return isDarkMode ? (
+      <svg className="w-5 h-5 mr-2 text-indigo-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+      </svg>
+    ) : (
+      <svg className="w-5 h-5 mr-2 text-yellow-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+        <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+      </svg>
+    );
+  }, [isDarkMode]);
   
-  // Get time theme text - memoized to prevent re-renders
-  const timeThemeText = useMemo(() => {
-    switch (timeTheme) {
-      case 'morning':
-        return t('timeTheme.morning');
-      case 'day':
-        return t('timeTheme.day');
-      case 'evening':
-        return t('timeTheme.evening');
-      case 'night':
-        return t('timeTheme.night');
-      default:
-        return '';
-    }
-  }, [timeTheme, t]);
+  // Theme text
+  const themeText = useMemo(() => {
+    return isDarkMode ? t('theme.dark', 'Dark mode') : t('theme.light', 'Light mode');
+  }, [isDarkMode, t]);
   
-  // Progress bar background style - changes with time
-  const progressBackground = useMemo(() => {
-    return `bg-gradient-primary rounded-full h-1.5 transition-all duration-1000 ease-in-out`;
-  }, []);
-  
-  // Get container styles - memoized to prevent re-renders with smoother gradient
+  // Container styles based on dark mode
   const containerStyles = useMemo(() => {
     return `
-      inline-flex flex-col items-start px-3 py-2 rounded-xl text-xs font-medium
-      ${isDark ? 'bg-slate-800/80 text-slate-200' : 'bg-white/80 text-slate-700 shadow-sm border border-slate-200'}
-      transition-all duration-700 ease-in-out will-change-auto
+      inline-flex items-center px-3 py-2 rounded-xl text-xs font-medium
+      ${isDarkMode ? 'bg-slate-800/80 text-slate-200' : 'bg-white/80 text-slate-700 shadow-sm border border-slate-200'}
+      transition-all duration-700 ease-in-out
       backdrop-blur-sm
     `;
-  }, [isDark]);
+  }, [isDarkMode]);
   
-  // Progress bar width style - changes with time position
-  const progressWidth = useMemo(() => {
-    return `${Math.round(progress * 100)}%`;
-  }, [progress]);
-  
-  // Format the current time nicely
+  // Format the current time
   const currentTime = useMemo(() => {
     const date = new Date();
     return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -82,29 +42,11 @@ export default function TimeThemeIndicator() {
   
   return (
     <div className={containerStyles}>
-      <div className="flex w-full items-center justify-between mb-1.5">
-        <div className="flex items-center">
-          {icon}
-          <span>{timeThemeText}</span>
-        </div>
-        <span className="text-xs opacity-70 ml-2">{currentTime}</span>
+      <div className="flex items-center">
+        {icon}
+        <span>{themeText}</span>
       </div>
-      
-      {/* Time progress bar */}
-      <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5 mb-1">
-        <div 
-          className={progressBackground}
-          style={{ width: progressWidth }}
-        ></div>
-      </div>
-      
-      {/* Show the transition text */}
-      <div className="flex justify-between w-full text-[10px] opacity-60">
-        <span>
-          {timePosition < 0.5 ? t('timeTheme.earlyIn', { time: timeThemeText }) : t('timeTheme.approachingNext')}
-        </span>
-        <span>{Math.round(progress * 24)}:00</span>
-      </div>
+      <span className="text-xs opacity-70 ml-2">{currentTime}</span>
     </div>
   );
 }
