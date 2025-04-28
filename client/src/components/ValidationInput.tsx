@@ -168,6 +168,7 @@ export default function ValidationInput({
           "focus:outline-none focus:ring-2 focus:ring-opacity-50 shadow-sm",
           "block mx-auto", // Add these classes for Firefox compatibility
           "bg-white dark:bg-gray-800 dark:border-gray-700", // Explicit dark mode styling
+          "hover:border-primary/60 hover:shadow-sm", // Hover effect
           isFocused ? "border-primary focus:ring-primary/30" : "border-gray-300 dark:border-gray-700", 
           !isValid && touched ? "border-red-500 focus:ring-red-200" : "",
           isValid && value && touched ? "border-green-500 focus:ring-green-200" : "",
