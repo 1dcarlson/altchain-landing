@@ -64,7 +64,7 @@ export default function HomePage() {
               {t('cta.description')}
             </p>
             <button 
-              className="px-8 py-3 bg-primary text-white font-medium rounded-lg transition-all duration-300 relative overflow-hidden focus:outline-none focus:ring-2 focus:ring-primary/30 focus:ring-offset-2 hover:shadow-lg hover:shadow-primary/30 group hover-lift hover-glow"
+              className="px-8 py-3 bg-primary text-white font-medium rounded-lg transition-all duration-300 relative overflow-hidden focus:outline-none hover:shadow-lg hover:shadow-primary/30 group hover-lift hover-glow"
               onClick={() => {
                 // Smooth scroll to waitlist form
                 const el = document.getElementById('waitlist-form');

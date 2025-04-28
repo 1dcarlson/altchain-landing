@@ -87,7 +87,6 @@ export default function ScrollProgressIndicator() {
         }`}
         aria-label="Scroll to top"
       >
-        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:animate-shimmer"></span>
         <ArrowUp 
           size={24} 
           className="relative z-10 transition-transform group-hover:animate-bounce-subtle"
