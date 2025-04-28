@@ -186,7 +186,7 @@ html, body, #root {
   color: #1a1a1a !important;
 }
 
-/* Strong dark mode override - with !important to force override other styles */
+/* EXTREME Dark Mode Override - Ultra-specific selectors with !important - LAST RESORT APPROACH */
 @media (prefers-color-scheme: dark) {
   html, body, #root, .dark, [data-theme="dark"] {
     background-color: #0d1117 !important;
@@ -202,7 +202,95 @@ html, body, #root {
     background-color: #161b22 !important;
   }
 
-  /* More specific selectors for better override */
+  /* CUSTOM FIXES FOR SPECIFIC ELEMENTS */
+  
+  /* 1. MAIN JOIN WAITLIST BUTTON - BLACK WITH SHIMMER */
+  body.dark button, 
+  html[data-theme="dark"] button, 
+  .dark button:not([aria-label="Language Selector"]),
+  button.dark:not([aria-label="Language Selector"]),
+  button:is(:contains("Join Waitlist")),
+  button:has(span:contains("Join Waitlist")) {
+    background-color: #111827 !important; /* VERY DARK BLACK */
+    color: white !important;
+    position: relative !important;
+    overflow: hidden !important;
+  }
+  
+  /* 2. LANGUAGE SELECTOR - GREY BACKGROUND */
+  [aria-label="Language Selector"],
+  button[aria-label="Language Selector"],
+  .dark [aria-label="Language Selector"],
+  .dark button[aria-label="Language Selector"],
+  html[data-theme="dark"] [aria-label="Language Selector"],
+  html[data-theme="dark"] button[aria-label="Language Selector"] {
+    background-color: #1F2937 !important; /* Grey to match page */
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: #e5e7eb !important;
+  }
+  
+  /* Language selector globe SVG/icon */
+  [aria-label="Language Selector"] svg,
+  [aria-label="Language Selector"] *,
+  button[aria-label="Language Selector"] svg,
+  button[aria-label="Language Selector"] *,
+  .dark [aria-label="Language Selector"] svg,
+  .dark [aria-label="Language Selector"] *,
+  html[data-theme="dark"] [aria-label="Language Selector"] svg,
+  html[data-theme="dark"] [aria-label="Language Selector"] * {
+    background-color: #1F2937 !important;
+  }
+  
+  /* 3. FIX LANGUAGE DROPDOWN MENU - VISIBLE NON-TRANSPARENT */
+  [role="menu"],
+  div[role="menu"],
+  .dark [role="menu"],
+  .dark div[role="menu"],
+  html[data-theme="dark"] [role="menu"],
+  html[data-theme="dark"] div[role="menu"] {
+    background-color: #1F2937 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    opacity: 1 !important;
+    color: #e5e7eb !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  /* Dropdown items */
+  [role="menu"] li,
+  [role="menu"] a,
+  [role="menu"] button,
+  [role="menu"] div,
+  .dark [role="menu"] li,
+  .dark [role="menu"] a,
+  .dark [role="menu"] button,
+  .dark [role="menu"] div,
+  html[data-theme="dark"] [role="menu"] li,
+  html[data-theme="dark"] [role="menu"] a,
+  html[data-theme="dark"] [role="menu"] button,
+  html[data-theme="dark"] [role="menu"] div {
+    background-color: #1F2937 !important;
+    color: #e5e7eb !important;
+    opacity: 1 !important;
+  }
+  
+  /* 4. CONTACT FORM INPUTS - GREY LIKE WAITLIST FIELDS */
+  form input,
+  form textarea,
+  .dark form input,
+  .dark form textarea,
+  html[data-theme="dark"] form input,
+  html[data-theme="dark"] form textarea,
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"],
+  textarea {
+    background-color: #374151 !important; /* Lighter grey - MATCH WAITLIST FORM */
+    color: white !important;
+    border: 1px solid #4B5563 !important;
+  }
+  
+  /* General text selectors */
   p, h1, h2, h3, h4, h5, h6, span, li, label,
   .dark p, .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6, .dark span, .dark li, .dark label,
   [data-theme="dark"] p, [data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, 
@@ -211,6 +299,7 @@ html, body, #root {
     color: #e5e7eb !important;
   }
 
+  /* Default section handling */
   section, div, .card, .container, article, aside, main, nav,
   .dark section, .dark div, .dark .card, .dark .container, .dark article, .dark aside, .dark main, .dark nav,
   [data-theme="dark"] section, [data-theme="dark"] div, [data-theme="dark"] .card, [data-theme="dark"] .container,
@@ -219,25 +308,39 @@ html, body, #root {
     color: #e5e7eb !important;
   }
   
-  /* Special background for card-like elements */
+  /* Card-like elements styling */
   .card, .container, .content, .section, .box, .panel,
   .dark .card, .dark .container, .dark .content, .dark .section, .dark .box, .dark .panel,
   [data-theme="dark"] .card, [data-theme="dark"] .container, [data-theme="dark"] .content, 
   [data-theme="dark"] .section, [data-theme="dark"] .box, [data-theme="dark"] .panel {
-    background-color: #161b22 !important;
+    background-color: #1F2937 !important; /* USE GREY, not super dark */
   }
-
-  input, textarea, button, select, option,
-  .dark input, .dark textarea, .dark button, .dark select, .dark option,
-  [data-theme="dark"] input, [data-theme="dark"] textarea, [data-theme="dark"] button, 
+  
+  /* Default input, button, form elements */
+  select, option,
+  .dark select, .dark option,
   [data-theme="dark"] select, [data-theme="dark"] option {
-    background-color: #0d1117 !important;
+    background-color: #374151 !important; /* GREY */
     color: #e5e7eb !important;
-    border: 1px solid #30363d !important;
+    border: 1px solid #4B5563 !important;
   }
   
   /* Ensure placeholders are visible */
   ::placeholder {
     color: rgba(255, 255, 255, 0.7) !important;
+  }
+  
+  /* Shimmer animation for buttons */
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animate-shimmer, .group-hover:animate-shimmer {
+    animation: shimmer 2s infinite;
   }
 }
