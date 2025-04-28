@@ -1,73 +1,104 @@
-/* EMERGENCY DARK MODE OVERRIDES - HIGHEST PRIORITY */
+/* Emergency Dark Mode CSS with !important flags to override any other styles */
 
-/* Force inputs to have consistent styling */
-html.dark input,
-html.dark textarea,
-html.dark select,
-.dark input,
+/* Ensure form inputs are styled properly in dark mode */
+.dark input, 
 .dark textarea,
-.dark select,
-[data-theme="dark"] input,
-[data-theme="dark"] textarea,
-[data-theme="dark"] select {
-  background-color: #1f2937 !important;
+html[data-theme="dark"] input,
+html[data-theme="dark"] textarea {
+  background-color: #374151 !important;
   color: white !important;
-  border-color: #4b5563 !important;
+  border-color: #4B5563 !important;
 }
 
-/* Force contact form container to have dark background */
-html.dark section,
-.dark section,
-[data-theme="dark"] section {
-  background-color: #111827 !important;
+/* Dark mode form container */
+.dark form section,
+html[data-theme="dark"] form section {
+  background-color: #1F2937 !important;
   border-color: #374151 !important;
 }
 
-/* Force all labels to be visible */
-html.dark label,
-.dark label,
-[data-theme="dark"] label {
+/* Style all buttons in dark mode */
+.dark button[type="submit"],
+html[data-theme="dark"] button[type="submit"] {
+  background-color: #111827 !important;
+  color: white !important;
+  border-color: #4B5563 !important;
+}
+
+/* Fix language selector in dark mode */
+.dark [aria-label="Language Selector"],
+html[data-theme="dark"] [aria-label="Language Selector"] {
+  background-color: #1F2937 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #e5e7eb !important;
 }
 
-/* Force welcome banner to have nice blue style */
-html.dark [class*="from-blue-50"][class*="to-indigo-50"],
-.dark [class*="from-blue-50"][class*="to-indigo-50"],
-[data-theme="dark"] [class*="from-blue-50"][class*="to-indigo-50"] {
-  background: linear-gradient(to right, #1e3a8a, #312e81) !important;
-  border-color: #1e40af !important;
-}
-
-html.dark [class*="from-blue-50"][class*="to-indigo-50"] h3,
-.dark [class*="from-blue-50"][class*="to-indigo-50"] h3,
-[data-theme="dark"] [class*="from-blue-50"][class*="to-indigo-50"] h3 {
+/* Fix Join Waitlist buttons in dark mode */
+.dark button:is(:contains("Join Waitlist"), :contains("Join The Waitlist")),
+html[data-theme="dark"] button:is(:contains("Join Waitlist"), :contains("Join The Waitlist")) {
+  background-color: #111827 !important;
   color: white !important;
 }
 
-html.dark [class*="from-blue-50"][class*="to-indigo-50"] p,
-.dark [class*="from-blue-50"][class*="to-indigo-50"] p,
-[data-theme="dark"] [class*="from-blue-50"][class*="to-indigo-50"] p {
-  color: #bfdbfe !important;
-}
-
-/* Force all buttons to be blue with shine effect */
-html.dark button[type="submit"],
-.dark button[type="submit"],
-[data-theme="dark"] button[type="submit"] {
-  background-color: #4F46E5 !important;
-  color: white !important;
-  overflow: hidden !important;
+/* Shimmer effect */
+.shine-effect {
   position: relative !important;
+  overflow: hidden !important;
 }
 
-html.dark .group:hover .group-hover\:animate-shimmer,
-.dark .group:hover .group-hover\:animate-shimmer,
-[data-theme="dark"] .group:hover .group-hover\:animate-shimmer {
-  animation: shimmer 2s infinite !important;
+.shine-effect::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: -100% !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
 }
 
-@keyframes shimmer {
+.shine-effect:hover::before {
+  animation: shine 1.5s !important;
+}
+
+@keyframes shine {
   100% {
-    transform: translateX(100%);
+    left: 100% !important;
   }
+}
+
+/* Welcome banner in dark mode */
+.dark .welcome-banner,
+html[data-theme="dark"] .welcome-banner {
+  background-color: #1F2937 !important;
+  color: white !important;
+  border-color: #374151 !important;
+}
+
+/* Contact form in dark mode */
+.dark .contact-form,
+html[data-theme="dark"] .contact-form,
+.dark form,
+html[data-theme="dark"] form {
+  background-color: #1F2937 !important;
+  border-color: #374151 !important;
+}
+
+/* Fix text colors in dark mode for better readability */
+.dark p, 
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark h5, 
+.dark h6,
+.dark label,
+html[data-theme="dark"] p,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6,
+html[data-theme="dark"] label {
+  color: #e5e7eb !important;
 }
