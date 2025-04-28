@@ -56,13 +56,13 @@
 /* Glow Animation */
 @keyframes subtleGlow {
   0% {
-    box-shadow: 0 0 0 rgba(79, 70, 229, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
   50% {
-    box-shadow: 0 0 10px rgba(79, 70, 229, 0.3);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   }
   100% {
-    box-shadow: 0 0 0 rgba(79, 70, 229, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   }
 }
 
@@ -89,7 +89,7 @@
 }
 
 .hover-glow:hover {
-  box-shadow: 0 0 15px rgba(79, 70, 229, 0.4);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hover-shadow {
