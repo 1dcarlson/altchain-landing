@@ -248,8 +248,8 @@ html, body, #root {
   .dark div[role="menu"],
   html[data-theme="dark"] [role="menu"],
   html[data-theme="dark"] div[role="menu"] {
-    background-color: #1F2937 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background-color: #2D3748 !important; /* Lighter grey for dropdown */
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
     opacity: 1 !important;
     color: #e5e7eb !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
@@ -268,9 +268,24 @@ html, body, #root {
   html[data-theme="dark"] [role="menu"] a,
   html[data-theme="dark"] [role="menu"] button,
   html[data-theme="dark"] [role="menu"] div {
-    background-color: #1F2937 !important;
+    background-color: #2D3748 !important; /* Lighter grey for dropdown items */
     color: #e5e7eb !important;
     opacity: 1 !important;
+    transition: background-color 0.2s ease !important;
+  }
+  
+  /* Dropdown item hover states */
+  [role="menu"] li:hover,
+  [role="menu"] a:hover,
+  [role="menu"] button:hover,
+  .dark [role="menu"] li:hover,
+  .dark [role="menu"] a:hover,
+  .dark [role="menu"] button:hover,
+  html[data-theme="dark"] [role="menu"] li:hover,
+  html[data-theme="dark"] [role="menu"] a:hover,
+  html[data-theme="dark"] [role="menu"] button:hover {
+    background-color: #4A5568 !important; /* Even lighter on hover */
+    color: white !important;
   }
   
   /* 4. CONTACT FORM INPUTS - GREY LIKE WAITLIST FIELDS */
