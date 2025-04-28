@@ -115,16 +115,21 @@ const LanguageSelector = () => {
               color: i18n.language === language.code ? '#1e293b' : '#334155',
               padding: '8px 12px',
               margin: '2px',
-              borderRadius: '6px'
+              borderRadius: '6px',
+              transition: 'all 0.3s ease'
             }}
             onMouseEnter={(e) => {
               if (i18n.language !== language.code) {
                 e.currentTarget.style.backgroundColor = '#f8fafc';
+                e.currentTarget.style.transform = 'translateY(-1px)';
+                e.currentTarget.style.boxShadow = '0 2px 5px rgba(0,0,0,0.05)';
               }
             }}
             onMouseLeave={(e) => {
               if (i18n.language !== language.code) {
                 e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.transform = 'translateY(0)';
+                e.currentTarget.style.boxShadow = 'none';
               }
             }}
             className={`cursor-pointer flex items-center gap-3 ${
