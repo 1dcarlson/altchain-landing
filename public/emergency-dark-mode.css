@@ -1,89 +1,171 @@
-/* Emergency Dark Mode CSS with !important flags to override any other styles */
+/* EXTREME EMERGENCY Dark Mode CSS with !important flags to override any other styles */
 
-/* Ensure form inputs are styled properly in dark mode */
+/* GLOBAL RULES FOR DARK MODE */
+.dark, html[data-theme="dark"], body.dark {
+  --bg-dark: #111827 !important;
+  --bg-dark-lighter: #1F2937 !important;
+  --bg-input: #374151 !important;
+  --text-color: #E5E7EB !important;
+  --border-color: #4B5563 !important;
+}
+
+/* CONTACT FORM INPUTS - MAKE THEM GREY NOT BLACK */
 .dark input, 
 .dark textarea,
 html[data-theme="dark"] input,
-html[data-theme="dark"] textarea {
+html[data-theme="dark"] textarea,
+.dark [type="text"],
+.dark [type="email"],
+.dark [type="tel"],
+.dark [type="textarea"],
+html[data-theme="dark"] [type="text"],
+html[data-theme="dark"] [type="email"],
+html[data-theme="dark"] [type="tel"],
+html[data-theme="dark"] [type="textarea"] {
   background-color: #374151 !important;
   color: white !important;
   border-color: #4B5563 !important;
+  border: 1px solid #4B5563 !important;
 }
 
-/* Dark mode form container */
+/* TARGET CONTACT FORM INPUTS SPECIFICALLY WITH EXTREME SPECIFICITY */
+.dark form input,
+.dark form textarea,
+.dark section form input,
+.dark section form textarea,
+html[data-theme="dark"] form input,
+html[data-theme="dark"] form textarea,
+html[data-theme="dark"] section form input,
+html[data-theme="dark"] section form textarea,
+body.dark form input,
+body.dark form textarea {
+  background-color: #374151 !important;
+  color: white !important;
+  border: 1px solid #4B5563 !important;
+}
+
+/* DARK MODE FORM CONTAINER */
 .dark form section,
-html[data-theme="dark"] form section {
+.dark section form,
+.dark section,
+html[data-theme="dark"] form section,
+html[data-theme="dark"] section form,
+html[data-theme="dark"] section {
   background-color: #1F2937 !important;
   border-color: #374151 !important;
 }
 
-/* Style all buttons in dark mode */
+/* BUTTONS - MAKE THEM BLACK */
 .dark button[type="submit"],
-html[data-theme="dark"] button[type="submit"] {
+html[data-theme="dark"] button[type="submit"],
+.dark button:not([aria-label="Language Selector"]),
+html[data-theme="dark"] button:not([aria-label="Language Selector"]) {
   background-color: #111827 !important;
   color: white !important;
   border-color: #4B5563 !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-/* Fix language selector in dark mode */
+/* FIX LANGUAGE SELECTOR - MAKE IT GREY NOT BLACK */
 .dark [aria-label="Language Selector"],
-html[data-theme="dark"] [aria-label="Language Selector"] {
+.dark button[aria-label="Language Selector"],
+html[data-theme="dark"] [aria-label="Language Selector"],
+html[data-theme="dark"] button[aria-label="Language Selector"] {
   background-color: #1F2937 !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   color: #e5e7eb !important;
 }
 
-/* Fix Join Waitlist buttons in dark mode */
-.dark button:is(:contains("Join Waitlist"), :contains("Join The Waitlist")),
-html[data-theme="dark"] button:is(:contains("Join Waitlist"), :contains("Join The Waitlist")) {
-  background-color: #111827 !important;
-  color: white !important;
+/* ALSO TARGET THE SVG INSIDE THE LANGUAGE SELECTOR */
+.dark [aria-label="Language Selector"] svg,
+.dark [aria-label="Language Selector"] *,
+html[data-theme="dark"] [aria-label="Language Selector"] svg,
+html[data-theme="dark"] [aria-label="Language Selector"] * {
+  background-color: #1F2937 !important;
+  color: #e5e7eb !important;
 }
 
-/* Shimmer effect */
-.shine-effect {
+/* FIX LANGUAGE DROPDOWN MENU - MAKE IT VISIBLE NOT TRANSPARENT */
+.dark [role="menu"],
+html[data-theme="dark"] [role="menu"],
+.dark div[role="menu"],
+html[data-theme="dark"] div[role="menu"] {
+  background-color: #1F2937 !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  opacity: 1 !important;
+  color: #e5e7eb !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* DROPDOWN ITEMS */
+.dark [role="menu"] *,
+html[data-theme="dark"] [role="menu"] *,
+.dark [role="menuitem"],
+html[data-theme="dark"] [role="menuitem"] {
+  background-color: #1F2937 !important;
+  color: #e5e7eb !important;
+  opacity: 1 !important;
+}
+
+/* FIX JOIN WAITLIST BUTTONS - MAKE THEM BLACK WITH SHINE */
+.dark button:is([id*="waitlist"], [class*="waitlist"]),
+html[data-theme="dark"] button:is([id*="waitlist"], [class*="waitlist"]),
+.dark button:has(span:matches("Join Waitlist")),
+html[data-theme="dark"] button:has(span:matches("Join Waitlist")),
+.dark button:has(span:contains("Join Waitlist")),
+html[data-theme="dark"] button:has(span:contains("Join Waitlist")) {
+  background-color: #111827 !important;
+  color: white !important;
   position: relative !important;
   overflow: hidden !important;
 }
 
-.shine-effect::before {
-  content: "" !important;
-  position: absolute !important;
-  top: 0 !important;
-  left: -100% !important;
-  width: 100% !important;
-  height: 100% !important;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent) !important;
+/* EXTREME TARGETING OF ALL WAITLIST BUTTONS */
+body.dark button,
+html[data-theme="dark"] button {
+  background-color: #111827 !important;
+  color: white !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-.shine-effect:hover::before {
-  animation: shine 1.5s !important;
+/* SHINE EFFECT FOR ALL BUTTONS */
+.dark button:not([aria-label="Language Selector"]),
+html[data-theme="dark"] button:not([aria-label="Language Selector"]) {
+  position: relative !important;
+  overflow: hidden !important;
 }
 
-@keyframes shine {
+/* SHIMMER ANIMATION */
+@keyframes shimmer {
   100% {
-    left: 100% !important;
+    transform: translateX(100%) !important;
   }
 }
 
-/* Welcome banner in dark mode */
+/* WELCOME BANNER */
 .dark .welcome-banner,
-html[data-theme="dark"] .welcome-banner {
+html[data-theme="dark"] .welcome-banner,
+.dark [class*="welcome"],
+html[data-theme="dark"] [class*="welcome"] {
   background-color: #1F2937 !important;
   color: white !important;
   border-color: #374151 !important;
 }
 
-/* Contact form in dark mode */
+/* CONTACT FORM CONTAINER */
 .dark .contact-form,
 html[data-theme="dark"] .contact-form,
 .dark form,
-html[data-theme="dark"] form {
+html[data-theme="dark"] form,
+.dark section:has(form),
+html[data-theme="dark"] section:has(form) {
   background-color: #1F2937 !important;
   border-color: #374151 !important;
 }
 
-/* Fix text colors in dark mode for better readability */
+/* ALL TEXT COLORS */
 .dark p, 
 .dark h1, 
 .dark h2, 
@@ -92,6 +174,7 @@ html[data-theme="dark"] form {
 .dark h5, 
 .dark h6,
 .dark label,
+.dark span:not(.shimmer-effect),
 html[data-theme="dark"] p,
 html[data-theme="dark"] h1,
 html[data-theme="dark"] h2,
@@ -99,6 +182,7 @@ html[data-theme="dark"] h3,
 html[data-theme="dark"] h4,
 html[data-theme="dark"] h5,
 html[data-theme="dark"] h6,
-html[data-theme="dark"] label {
+html[data-theme="dark"] label,
+html[data-theme="dark"] span:not(.shimmer-effect) {
   color: #e5e7eb !important;
 }
