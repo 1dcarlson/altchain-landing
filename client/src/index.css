@@ -173,7 +173,7 @@
 
 @layer base {
   * {
-    @apply border-border;
+    @apply border border-gray-300;
   }
   
   /* Placeholders for better visibility */
