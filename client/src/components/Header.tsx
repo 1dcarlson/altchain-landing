@@ -9,15 +9,15 @@ import { useTheme } from '../hooks/theme-provider';
 
 export default function Header() {
   const { t } = useTranslation();
-  const { isDark, colors } = useTheme();
+  const { isDarkMode } = useTheme();
   
   // Create dynamic header style
   const headerStyle = useMemo(() => {
     return {
       backgroundImage: 'var(--gradientPrimary)',
-      boxShadow: isDark ? '0 2px 12px rgba(0, 0, 0, 0.15)' : '0 2px 12px rgba(0, 0, 0, 0.08)'
+      boxShadow: isDarkMode ? '0 2px 12px rgba(0, 0, 0, 0.15)' : '0 2px 12px rgba(0, 0, 0, 0.08)'
     };
-  }, [isDark]);
+  }, [isDarkMode]);
   
   return (
     <header 

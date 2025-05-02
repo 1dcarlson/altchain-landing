@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { apiRequest } from '../lib/queryClient';
 import { useToast } from '../hooks/use-toast';
 import { useTranslation } from 'react-i18next';
-import { useConfetti } from '@/hooks/use-confetti';
+import { useConfetti } from '../hooks/use-confetti';
 import ValidationInput from './ValidationInput';
 
 export default function WaitlistForm() {
