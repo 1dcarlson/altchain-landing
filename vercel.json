@@ -1,12 +1,13 @@
 {
   "version": 2,
   "buildCommand": "node vercel-build.js && npm run build",
-  "outputDirectory": "dist",
   "installCommand": "npm install",
+  "outputDirectory": "dist",
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
   ],
   "env": {
+    "NODE_ENV": "production",
     "VITE_CONFIG_FILE": "vite.config.vercel.js"
   }
 }
