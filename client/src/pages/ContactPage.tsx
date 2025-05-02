@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import ContactForm from '@/components/ContactForm';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import ScrollProgressIndicator from '@/components/ScrollProgressIndicator';
+import ContactForm from '../components/ContactForm';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import ScrollProgressIndicator from '../components/ScrollProgressIndicator';
 
 export default function ContactPage() {
   const { t } = useTranslation();

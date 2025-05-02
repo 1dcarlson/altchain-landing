@@ -1,12 +1,12 @@
 import { useTranslation } from "react-i18next";
-import Header from "@/components/Header";
-import SimpleWaitlistForm from "@/components/SimpleWaitlistForm";
-import Features from "@/components/Features";
-import Footer from "@/components/Footer";
-import Benefits from "@/components/Benefits";
-import HowItWorks from "@/components/HowItWorks";
-import FAQ from "@/components/FAQ";
-import PersonalWelcome from "@/components/PersonalWelcome";
+import Header from "../components/Header";
+import SimpleWaitlistForm from "../components/SimpleWaitlistForm";
+import Features from "../components/Features";
+import Footer from "../components/Footer";
+import Benefits from "../components/Benefits";
+import HowItWorks from "../components/HowItWorks";
+import FAQ from "../components/FAQ";
+import PersonalWelcome from "../components/PersonalWelcome";
 import { CheckCircle } from "lucide-react";
 
 export default function HomePage() {
