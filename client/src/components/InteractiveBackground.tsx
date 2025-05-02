@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { useTheme } from '@/hooks/theme-provider';
+import { useTheme } from '../hooks/theme-provider';
 
 /**
  * Optimized interactive background component that creates a subtle gradient shift effect

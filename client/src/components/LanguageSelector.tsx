@@ -6,7 +6,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from './ui/dropdown-menu';
 
 // Flag SVG definitions directly embedded
 const flagSvgs = {
