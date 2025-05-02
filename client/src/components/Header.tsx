@@ -5,7 +5,7 @@ import LanguageSelector from './LanguageSelector';
 import LogoIcon from './LogoIcon';
 import NavLink from './NavLink';
 import { motion } from 'framer-motion';
-import { useTheme } from '@/hooks/theme-provider';
+import { useTheme } from '../hooks/theme-provider';
 
 export default function Header() {
   const { t } = useTranslation();
