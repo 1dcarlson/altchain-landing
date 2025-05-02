@@ -1,7 +1,3 @@
-import { writeFileSync } from 'fs';
-import path from 'path';
-
-const config = `
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path from "path";
@@ -21,6 +17,3 @@ export default defineConfig({
     emptyOutDir: true,
   },
 });
-`;
-
-writeFileSync('vite.config.vercel.ts', config);
