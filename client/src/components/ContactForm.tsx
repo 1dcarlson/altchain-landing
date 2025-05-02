@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useConfetti } from "@/hooks/use-confetti";
+import { useConfetti } from "../hooks/use-confetti";
 import ValidationInput from './ValidationInput';
 import ValidationTextarea from './ValidationTextarea';
 
