@@ -1,7 +1,7 @@
-import { Button } from "@/components/ui/button";
+import { Button } from "../components/ui/button";
 import { useState } from "react";
-import { apiRequest } from "@/lib/queryClient";
-import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "../lib/queryClient";
+import { useToast } from "../hooks/use-toast";
 
 export default function SimpleHomePage() {
   const { toast } = useToast();
