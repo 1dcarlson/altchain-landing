@@ -1,3 +1,6 @@
+export const config = {
+  runtime: 'nodejs'
+};
 import type { VercelRequest, VercelResponse } from '@vercel/node';
 import { sql } from '@vercel/postgres';
 
