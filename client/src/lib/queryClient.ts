@@ -13,12 +13,13 @@ export async function apiRequest(
   data?: unknown | undefined,
 ): Promise<Response> {
   try {
-   const res = await fetch(url, {
+ const res = await fetch(url, {
   method,
   headers: {
     "Content-Type": "application/json"
   },
-  body: data ? JSON.stringify(data) : undefined
+  body: data ? JSON.stringify(data) : undefined,
+  // 🚫 REMOVE credentials: "include"
 });
 
     // For status 200 or 201, always return the response even if it contains an error message
