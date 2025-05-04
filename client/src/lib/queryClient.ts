@@ -13,14 +13,13 @@ export async function apiRequest(
   data?: unknown | undefined,
 ): Promise<Response> {
   try {
-    const res = await fetch(url, {
-      method,
-      headers: {
-  "Content-Type": "application/json"
-},
-      body: data ? JSON.stringify(data) : undefined,
-      credentials: "same-origin",
-    });
+   const res = await fetch(url, {
+  method,
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: data ? JSON.stringify(data) : undefined
+});
 
     // For status 200 or 201, always return the response even if it contains an error message
     if (res.status === 200 || res.status === 201) {
