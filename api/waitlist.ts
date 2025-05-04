@@ -19,7 +19,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     `;
     return res.status(200).json({ success: true });
   } catch (error) {
-    console.error('Error inserting into waitlist:', error);
-    return res.status(500).json({ error: 'Failed to join waitlist' });
-  }
+  console.error('Error inserting into waitlist:', error);
+  return res.status(500).json({
+    error: `Database error: ${error instanceof Error ? error.message : String(error)}`,
+  });
 }
