@@ -19,7 +19,7 @@ export async function apiRequest(
   "Content-Type": "application/json"
 },
       body: data ? JSON.stringify(data) : undefined,
-      credentials: "include",
+      credentials: "same-origin",
     });
 
     // For status 200 or 201, always return the response even if it contains an error message
