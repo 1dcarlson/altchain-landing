@@ -32,7 +32,7 @@ export default function WaitlistForm() {
       // Get current language and include it in the request
       const currentLanguage = i18n.language.split('-')[0]; // Get base language code (e.g., 'en' from 'en-US')
       const safeName = name.replace(/[^\w\s\-.,@']/gi, '').trim();
-const response = await apiRequest('POST', 'waitlist', {
+const response = await apiRequest('POST', '/api/waitlist', {
   email: email.trim(),
   name: safeName || undefined,
   language: currentLanguage
